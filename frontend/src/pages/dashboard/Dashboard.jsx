@@ -1,11 +1,7 @@
-import './dasboard.css'
+import "./dashboard.css";
 
 function Dashboard() {
-  return 
-    <>
-      
-    </>
-  ;
+  return <>fiverdona</>;
 }
 
-export default Dashboard
+export default Dashboard;
