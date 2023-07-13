@@ -40,10 +40,10 @@ Plataforma que permita gestionar una web donde personas que necesiten algún ser
 - GET [/users] - Devuelve informacion de mi propio usuario. Token.
 - PUT [/users/avatar] - Cambia el avatar de un usuario. Token.
 
-### Servicios:
+### services:
 
 - POST [/services] - Registro de un nuevo servicio. Puede incluir un archivo. Token.
-- GET [/services] - Lista todos los servicios. Permite filtrar servicios por palabra clave (opcional).
+- GET [/services] - Lista todos los services. Permite filtrar services por palabra clave (opcional).
 - GET [/services/:serviceId] - Ofrece informacion detallada de un servicio junto a sus comentarios.
 - PUT [/services/:serviceId/resolved] - Marca un servicio como completado. Token.
 - POST [/services/:serviceId/comments] - Crea un nuevo comentario en un servicio. Puede incluir un archivo. Token.

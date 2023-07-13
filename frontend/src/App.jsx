@@ -8,7 +8,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardSearch from "./pages/dashboard-search/DashboardSearch";
 import NotFound from "./pages/not-found/NotFound";
 /* import NavBar from "./components/shared/nav-bar/NavBar"; */
-import Servicios from "./pages/servicios/Servicios";
+import services from "./pages/services/services";
 import "./index.css";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="avatar" element={<SignUpAvatar />} />
-        <Route path="servicios/:id" element={<Servicios />} />
+        <Route path="services/:id" element={<Services />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="search" element={<DashboardSearch />} />
         <Route path="*" element={<NotFound />} />

@@ -1,4 +1,4 @@
-export const getAllService = async () => {
+export const listServices = async () => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}`);
 
   const json = await response.json();
@@ -10,7 +10,7 @@ export const getAllService = async () => {
   return json.data;
 };
 
-export const getSingleService = async (id) => {
+export const getService = async (id) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/service/${id}`
   );
@@ -24,7 +24,7 @@ export const getSingleService = async (id) => {
   return json.data;
 };
 
-export const sendService = async ({ data, token }) => {
+export const newService = async ({ data, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
     method: 'POST',
     body: data,
@@ -42,7 +42,7 @@ export const sendService = async ({ data, token }) => {
   return json.data;
 };
 
-export const registerUser = async ({ email, password }) => {
+export const newUser = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
     method: 'POST',
     body: JSON.stringify({ email, password }),
@@ -58,7 +58,7 @@ export const registerUser = async ({ email, password }) => {
   }
 };
 
-export const getMyDataService = async (token) => {
+export const getOwnUser = async (token) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
     headers: {
       Authorization: token,
@@ -74,7 +74,7 @@ export const getMyDataService = async (token) => {
   return json.data;
 };
 
-export const getUserDataService = async (id) => {
+export const getUser = async (id) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`);
 
   const json = await response.json();

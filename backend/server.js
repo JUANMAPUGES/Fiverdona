@@ -12,13 +12,11 @@ app.use(fileUpload());
 
 app.use(morgan('dev'));
 
-
 //Middleware personalizados:
 
 const authUser = require('./middlewares/authUser');
 const authUserOptional = require('./middlewares/authUserOptional');
 const userExists = require('./middlewares/userExists');
-
 
 //Middlewares usuarios:
 
@@ -32,7 +30,6 @@ const {
   editUserPass,
 } = require('./controllers/users');
 
-
 //Rutas:
 
 //Registro de usuario.
@@ -45,7 +42,7 @@ app.post('/users/login', loginUser);
 app.put('/users', authUser, userExists, editUser);
 
 //Editar contraseña de usuario.
-app.put('/users/password',authUser, userExists, editUserPass)
+app.put('/users/password', authUser, userExists, editUserPass);
 
 //Obtener información del perfil de un usuario.
 app.get('/users/:userId', getUser);
@@ -56,26 +53,31 @@ app.get('/users', authUser, userExists, getOwnUser);
 //Editar avatar de usuario.
 app.put('/users/avatar', authUser, userExists, editUserAvatar);
 
-//Middlewares servicios:
+//Middlewares services:
 
-const { 
-  newService, 
+const {
+  newService,
   listServices,
   resolvedService,
-  getService
+  getService,
 } = require('./controllers/services');
 
 //Ofrece información detallada de un servicio junto a sus comentarios.
 app.get('/services/:serviceId', authUserOptional);
 
 //Crear un nuevo servicio.
-app.post ('/services', authUser, userExists, newService);
+app.post('/services', authUser, userExists, newService);
 
-//Listar los servicios.
-app.get('/services', authUserOptional, listServices)
+//Listar los services.
+app.get('/services', authUserOptional, listServices);
 
 //Finalizar un servicio.
-app.post('/services/:serviceId/resolved', authUser, userExists, resolvedService);
+app.post(
+  '/services/:serviceId/resolved',
+  authUser,
+  userExists,
+  resolvedService
+);
 
 //Middleware de 404
 app.use((req, res) => {
