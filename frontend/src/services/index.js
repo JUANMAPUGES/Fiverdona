@@ -1,4 +1,4 @@
-export const getAllServiciosService = async () => {
+export const getAllService = async () => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}`);
 
   const json = await response.json();
@@ -10,9 +10,9 @@ export const getAllServiciosService = async () => {
   return json.data;
 };
 
-export const getSingleServicioService = async (id) => {
+export const getSingleService = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/servicio/${id}`
+    `${process.env.REACT_APP_BACKEND}/service/${id}`
   );
 
   const json = await response.json();
@@ -24,12 +24,30 @@ export const getSingleServicioService = async (id) => {
   return json.data;
 };
 
-export const registerUserService = async ({ email, password }) => {
+export const sendService = async ({ data, token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
+    method: 'POST',
+    body: data,
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const registerUser = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({ email, password }),
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
 
@@ -68,9 +86,9 @@ export const getUserDataService = async (id) => {
   return json.data;
 };
 
-export const getUserServiciosService = async (id) => {
+export const getUserService = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/user/${id}/servicios`
+    `${process.env.REACT_APP_BACKEND}/user/${id}/service`
   );
 
   const json = await response.json();
@@ -82,30 +100,12 @@ export const getUserServiciosService = async (id) => {
   return json.data;
 };
 
-export const logInUserService = async ({ email, password }) => {
+export const logInUser = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({ email, password }),
     headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-
-  return json.data;
-};
-
-export const sendServicioService = async ({ data, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
-    method: "POST",
-    body: data,
-    headers: {
-      Authorization: token,
+      'Content-Type': 'application/json',
     },
   });
 
