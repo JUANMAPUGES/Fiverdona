@@ -1,8 +1,9 @@
+import SearchForm from "../../components/shared/SearchForm/SearchForm";
 function Home() {
   return (
     <section>
       <h1> Lista de services</h1>
-      <ServicioList servicos={services} />
+      <SearchForm />
     </section>
   );
 }

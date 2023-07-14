@@ -1,43 +1,52 @@
-import { createContext, useEffect, useState } from 'react';
-import { getOwnUser } from '../utilities/index';
+import { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-export const AuthContext = createContext(null);
+import userService from "../utilities/userService";
 
-export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem('token'));
+const AuthContext = createContext(null);
+
+const AuthProvider = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
 
+  // Obtenemos los datos del usuario si existe un token.
   useEffect(() => {
-    localStorage.setItem('token', token);
-  }, [token]);
-
-  useEffect(() => {
-    const getUser = async () => {
+    const fetchUser = async () => {
       try {
-        const data = await getOwnUser(token);
+        const user = await userService(token);
 
-        setUser(data);
-      } catch (error) {
-        setToken('');
-        setUser(null);
+        setUser(user);
+      } catch (err) {
+        alert(err.message);
       }
     };
 
-    if (token) getUser();
-  }, [token, setToken]);
+    // Si existe token obtenemos los datos del usuario.
+    if (token) fetchUser();
+  }, [token]);
 
+  // Función de login.
+  const login = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setToken(newToken);
+  };
+
+  // Función de logout.
   const logout = () => {
-    setToken('');
+    localStorage.removeItem("token");
+    setToken(null);
     setUser(null);
   };
 
-  const login = (token) => {
-    setToken(token);
-  };
-
   return (
-    <AuthContext.Provider value={{ token, user, login, logout }}>
+    <AuthContext.Provider value={{ token, login, logout, user }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+AuthProvider.propTypes = {
+  children: PropTypes.node,
+};
+
+export { AuthContext, AuthProvider };
