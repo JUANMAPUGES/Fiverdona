@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 const useServices = () => {
-  const [services, setServices] = [];
+  const [services, setServices] = useState([]);
   const [errMsg, setErrMsg] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
