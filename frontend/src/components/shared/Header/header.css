@@ -47,3 +47,7 @@ nav > div.button a {
 nav > div.button > p {
   color: black;
 }
+.logo {
+  font-family: "shrikhand", sans-serif;
+  font-weight: 100;
+}
