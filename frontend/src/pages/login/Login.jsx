@@ -1,8 +1,8 @@
 function Login() {
   return (
-    <section>
+    <main>
       <h1> Esto es el Login</h1>
-    </section>
+    </main>
   );
 }
 

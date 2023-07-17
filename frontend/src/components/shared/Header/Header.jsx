@@ -8,8 +8,8 @@ const Header = () => {
 
   return (
     <header>
-      <h1>
-        <NavLink to="/">Fiverdona</NavLink>
+      <h1 className="logo">
+        <NavLink to="/">FIVERDONA</NavLink>
       </h1>
       <nav>
         {user && <p>@{user.username}</p>}
