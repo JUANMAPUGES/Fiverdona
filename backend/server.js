@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(fileUpload());
 
 app.use(morgan('dev'));
+app.use(cors());
 
 //Middlewares personalizados.
 
