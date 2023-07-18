@@ -13,7 +13,7 @@ const ServiceFooter = ({
 
 
     // Finalizar un servicio.
-   /* const handleResolvedService = async () => {
+    const handleResolvedService = async () => {
         try {
             if (confirm('¿Deseas finalizar el servicio?')) {
                
@@ -22,11 +22,11 @@ const ServiceFooter = ({
         } catch (err) {
             alert(err.message);
         }
-    };*/
-    const changeStateService = async (checked, id) => {
+    };
+    const changeStateService = async (checked, serviceid) => {
         try {
           const newState = checked ? "done" : "undone";
-          await updateState(id, newState);
+          await updateState(serviceid, newState);
         } catch (error) {
             alert(err.message);
         }
@@ -36,14 +36,14 @@ const ServiceFooter = ({
         <footer>
             
             {token && owner === 1 && (
-                /*<button onClick={() => handleResolvedService()} disabled={loading}>
+                /* <button onClick={() => handleResolvedService()} disabled={loading}>
                     Finalizar
                 </button>*/
                 <input
                     type="checkbox"
-                    onChange={(e) => changeStateService(e.target.checked, item.id)}
-                    checked={item.state === "done"}
-                />
+                    onChange={(e) => changeStateService(e.target.checked, service.id)}
+                    checked={service.state === "done"}
+                /> 
             )}
         </footer>
     );
