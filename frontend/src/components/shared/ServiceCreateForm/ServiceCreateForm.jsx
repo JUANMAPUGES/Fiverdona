@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import serviceCreateUtility from '../../../utilities/createNewUtility';
-//import Spinner from '../Spinner/Spinner';
+import Spinner from '../../shared/Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const ServiceCreateForm = ({ token }) => {
@@ -56,7 +56,7 @@ const ServiceCreateForm = ({ token }) => {
 
       <button disabled={loading}>Crear servicio</button>
 
-      {loading && <p>cargando...</p>}
+      {loading && <Spinner />}
 
       {errMsg && <ErrorMessage msg={errMsg} />}
     </form>
