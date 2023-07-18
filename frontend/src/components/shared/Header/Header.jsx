@@ -26,10 +26,10 @@ const Header = () => {
         {token && (
           <>
             <div className="button">
-              <NavLink to="/message">Mensaje</NavLink>
+              <NavLink to="/profile">Perfil</NavLink>
             </div>
             <div className="button" onClick={() => logout()}>
-              <p>Cerrar Sesión</p>
+            <NavLink to="/">Cerrar Sesión</NavLink>
             </div>
           </>
         )}

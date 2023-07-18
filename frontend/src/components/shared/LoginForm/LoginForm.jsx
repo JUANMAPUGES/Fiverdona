@@ -52,7 +52,7 @@ const LoginForm = ({ login }) => {
                 maxLength='100'
                 required
             />
-            <button>Loguearse</button>
+            <button>Iniciar Sesión</button>
 
             {loading && <p>Cargando...</p>}
 
