@@ -29,7 +29,7 @@ const Header = () => {
               <NavLink to="/profile">Perfil</NavLink>
             </div>
             <div className="button" onClick={() => logout()}>
-              <p>Cerrar Sesión</p>
+            <NavLink to="/">Cerrar Sesión</NavLink>
             </div>
           </>
         )}
