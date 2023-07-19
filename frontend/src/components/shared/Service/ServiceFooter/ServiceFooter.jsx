@@ -1,19 +1,13 @@
 import PropTypes from 'prop-types';
 
 import useAuth from '../../../../hooks/useAuth';
+import { NavLink } from 'react-router-dom';
 
-const ServiceFooter = ({
-    serviceId,
-    owner,
-    resolvedService,
-    updateState,
-    loading,
-}) => {
-    const { token } = useAuth();
+const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
+  const { token } = useAuth();
 
-
-    // Finalizar un servicio.
-    /*const handleResolvedService = async () => {
+  // Finalizar un servicio.
+  /*const handleResolvedService = async () => {
         try {
             if (confirm('¿Deseas finalizar el servicio?')) {
                
@@ -23,39 +17,39 @@ const ServiceFooter = ({
             alert(err.message);
         }
     };*/
-    const changeStateService = async (checked, serviceId) => {
-        try {
-          const newState = checked ? "done" : "undone";
-          await updateState(serviceId, newState);
-        } catch (error) {
-            alert(err.message);
-        }
-      };
+  const handleResolvedService = async () => {
+    try {
+      if (confirm('¿Deseas finalizar el servicio?')) {
+        resolvedService(serviceId);
+      }
+    } catch (error) {
+      alert(err.message);
+    }
+  };
 
-    return (
-        <footer>
-            
-            {token && owner === 1 && (
-                /* <button onClick={() => handleResolvedService()} 
-                disabled={loading}>
-                    Finalizar
-                </button>*/
-                <input
-                    type="checkbox"
-                    onChange={(e) => changeStateService(e.target.checked, service.id)}
-                    checked={service.state === "done"}
-                /> 
-            )}
-        </footer>
-    );
+  return (
+    <footer>
+      <>
+        <div className='button'>
+          <NavLink to='/profile'>Comentar</NavLink>
+        </div>
+        <input
+          type='checkbox'
+          onChange={(e) =>
+            handleResolvedService(e.target.checked, serviceId.id)
+          }
+          checked={serviceId.resolved === 'true'}
+        />
+      </>
+    </footer>
+  );
 };
 
 ServiceFooter.propTypes = {
-    serviceId: PropTypes.number,
-    owner: PropTypes.any,
-    resolvedService: PropTypes.func,
-    changeStateService: PropTypes.func,
-    loading: PropTypes.bool,
+  serviceId: PropTypes.number,
+  owner: PropTypes.any,
+  resolvedService: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
 export default ServiceFooter;

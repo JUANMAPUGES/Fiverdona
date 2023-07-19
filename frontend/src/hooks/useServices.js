@@ -1,6 +1,8 @@
 import useAuth from './useAuth';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import resolvedServiceUtility from '../utilities/resolvedServiceUtility';
 const useServices = () => {
   const { token } = useAuth();
   const [services, setServices] = useState([]);
@@ -33,6 +35,27 @@ const useServices = () => {
     };
     fetchServices();
   }, [searchParams, token]);
-  return { services, searchParams, setSearchParams, errMsg, loading };
+
+  const resolvedService = async (resolved, serviceId) => {
+    try {
+      setLoading(true);
+
+      const newState = checked ? 'true' : 'false';
+
+      await resolvedServiceUtility(serviceId, newState);
+    } catch (error) {
+      setErrMsg(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  return {
+    services,
+    resolvedService,
+    searchParams,
+    setSearchParams,
+    errMsg,
+    loading,
+  };
 };
 export default useServices;
