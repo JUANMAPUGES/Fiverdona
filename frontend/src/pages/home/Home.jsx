@@ -1,4 +1,3 @@
-
 import useServices from "../../hooks/useServices";
 import SearchForm from "../../components/shared/SearchForm/SearchForm";
 import { NavLink } from "react-router-dom";
@@ -10,7 +9,7 @@ const ServiceSearch = () => {
   const { token } = useAuth();
 
   return (
-    <main className='serviceSearch'>
+    <main className="serviceSearch">
       <h2> Lista de servicios</h2>
       {!token && (
         <>
@@ -32,10 +31,10 @@ const ServiceSearch = () => {
 
       {token && (
         <>
-
           <SearchForm
             searchParams={searchParams}
-            setSearchParams={setSearchParams} />
+            setSearchParams={setSearchParams}
+          />
           <ul>
             {services.length > 0 ? (
               services.map((services) => {
@@ -47,14 +46,10 @@ const ServiceSearch = () => {
           </ul>
           <nav>
             <div className="button">
-              <NavLink to="/profile">Añadir un servicio</NavLink>
-              ******** CAMBIAR RUTA ********
+              <NavLink to="/services">Añadir un servicio</NavLink>
             </div>
-
           </nav>
         </>
-        
-
       )}
     </main>
   );
