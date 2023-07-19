@@ -13,7 +13,7 @@ const ServiceFooter = ({
 
 
     // Finalizar un servicio.
-    const handleResolvedService = async () => {
+    /*const handleResolvedService = async () => {
         try {
             if (confirm('¿Deseas finalizar el servicio?')) {
                
@@ -22,11 +22,11 @@ const ServiceFooter = ({
         } catch (err) {
             alert(err.message);
         }
-    };
-    const changeStateService = async (checked, serviceid) => {
+    };*/
+    const changeStateService = async (checked, serviceId) => {
         try {
           const newState = checked ? "done" : "undone";
-          await updateState(serviceid, newState);
+          await updateState(serviceId, newState);
         } catch (error) {
             alert(err.message);
         }
@@ -36,7 +36,8 @@ const ServiceFooter = ({
         <footer>
             
             {token && owner === 1 && (
-                /* <button onClick={() => handleResolvedService()} disabled={loading}>
+                /* <button onClick={() => handleResolvedService()} 
+                disabled={loading}>
                     Finalizar
                 </button>*/
                 <input
