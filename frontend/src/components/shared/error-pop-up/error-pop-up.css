@@ -5,9 +5,35 @@
   padding: 20px;
   border-radius: 5px;
 }
-.modal h3,
-.modal p {
-  font-family: 'Montserrat', sans-serif;
+
+.x {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: auto;
+}
+
+h4 {
+  padding-top: 10%;
+}
+
+p {
+  padding-bottom: 10%;
+}
+
+.close {
+  width: 40%;
+  padding: 2px;
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+}
+
+button:hover {
+  background: var(--blue-color);
+  box-shadow: 4px 4px 10px rgb(128, 128, 128);
+  border-radius: 20px;
+  transition: 0.5s;
 }
 
 .popup-overlay {

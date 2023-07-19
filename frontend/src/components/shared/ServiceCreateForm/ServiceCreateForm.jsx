@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import serviceCreateUtility from '../../../utilities/createNewUtility';
 import Spinner from '../../shared/Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ErrorPopUp from '../error-pop-up/ErrorPopUp';
 
 const ServiceCreateForm = ({ token }) => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const ServiceCreateForm = ({ token }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [fileName, setFileName] = useState();
-  const [errMsg, setErrMsg] = useState('');
+  const [errorPopUp, setErrorPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Función que maneja el envío del formulario.
@@ -27,7 +27,7 @@ const ServiceCreateForm = ({ token }) => {
       // Redireccionamos a la página principal.
       navigate('/');
     } catch (err) {
-      setErrMsg(err.message);
+      setErrorPopUp(true);
     } finally {
       setLoading(false);
     }
@@ -57,8 +57,7 @@ const ServiceCreateForm = ({ token }) => {
       <button disabled={loading}>Crear servicio</button>
 
       {loading && <Spinner />}
-
-      {errMsg && <ErrorMessage msg={errMsg} />}
+      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
     </form>
   );
 };
