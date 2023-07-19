@@ -1,43 +1,43 @@
-li.tweet {
+li.service {
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
 }
 
-li.tweet:not(:first-child) {
+li.service:not(:first-child) {
     margin: 1rem 0;
 }
 
-li.tweet > header {
+li.service > header {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     background-color: rgb(230, 230, 230);
 }
 
-li.tweet > div {
+li.service > div {
     display: flex;
     flex-direction: column;
 }
 
-li.tweet > div > p {
+li.service > div > p {
     padding: 1rem;
 }
 
-li.tweet > div > img {
+li.service > div > img {
     width: 100%;
 }
 
-li.tweet > footer {
+li.service > footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-li.tweet > footer > div {
+li.service > footer > div {
     display: flex;
     align-items: center;
 }
 
-li.tweet > footer > div > div.heart {
+li.service > footer > div > div.heart {
     cursor: pointer;
     height: 70px;
     width: 70px;
@@ -47,16 +47,16 @@ li.tweet > footer > div > div.heart {
     background-size: 2900%;
 }
 
-li.tweet > footer > div > div.heart:hover {
+li.service > footer > div > div.heart:hover {
     background-position: right;
 }
 
-li.tweet > footer > div > div.heart.like {
+li.service > footer > div > div.heart.like {
     animation: heart-burst 0.8s steps(28) 1;
     animation-fill-mode: forwards;
 }
 
-li.tweet > footer > button {
+li.service > footer > button {
     width: 80px;
     margin-right: 1rem;
     border: 1px solid gray;

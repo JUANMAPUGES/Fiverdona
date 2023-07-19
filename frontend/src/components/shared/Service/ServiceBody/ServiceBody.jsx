@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-const ServiceBody = ({ text, file}) => {
+const ServiceBody = ({ description, file}) => {
     return (
         <div>
-            <p>{text}</p>
+            <p>{description}</p>
             {file && (
                 <input
-                    src={`http://localhost:8080/${file}`}
+                    src={`http://localhost:8080/${fileName}`}
                     alt='Archivo adjunto del servicio'
                 />
 
@@ -16,8 +16,8 @@ const ServiceBody = ({ text, file}) => {
 };
 
 ServiceBody.propTypes = {
-    text: PropTypes.string,
-    file: PropTypes.string,
+    description: PropTypes.string,
+    fileName: PropTypes.string,
 };
 
 export default ServiceBody;

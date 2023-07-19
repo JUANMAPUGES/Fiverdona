@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ServiceHeader = ({ username, createdAt }) => {
+const ServiceHeader = ({ username, createdAt, title }) => {
     return (
         <header>
             <p>@{username}</p>
@@ -13,6 +13,7 @@ const ServiceHeader = ({ username, createdAt }) => {
                     year: '2-digit',
                 })}
             </time>
+            <p>{title}</p>
         </header>
     );
 };
@@ -20,6 +21,7 @@ const ServiceHeader = ({ username, createdAt }) => {
 ServiceHeader.propTypes = {
     username: PropTypes.string,
     createdAt: PropTypes.string,
+    title: PropTypes.string,
 };
 
 export default ServiceHeader;
