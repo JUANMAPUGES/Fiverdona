@@ -17,7 +17,7 @@ const SearchForm = ({ searchParams, setSearchParams, loading }) => {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <button>Buscar</button>
+      <button disabled={loading}>Buscar</button>
     </form>
   );
 };
@@ -25,6 +25,7 @@ const SearchForm = ({ searchParams, setSearchParams, loading }) => {
 SearchForm.propTypes = {
   searchParams: PropTypes.any,
   setSearchParams: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 export default SearchForm;

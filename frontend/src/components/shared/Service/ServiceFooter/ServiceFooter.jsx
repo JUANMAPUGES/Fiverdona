@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import useAuth from '../../../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
+import useAuth from "../../../../hooks/useAuth";
+import { NavLink } from "react-router-dom";
 
-const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
+const ServiceFooter = ({ serviceId, owner, resolvedService }) => {
   const { token } = useAuth();
 
   // Finalizar un servicio.
@@ -19,10 +19,10 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
     };*/
   const handleResolvedService = async () => {
     try {
-      if (confirm('¿Deseas finalizar el servicio?')) {
+      if (confirm("¿Deseas finalizar el servicio?")) {
         resolvedService(serviceId);
       }
-    } catch (error) {
+    } catch (err) {
       alert(err.message);
     }
   };
@@ -30,16 +30,18 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
   return (
     <footer>
       <>
-        <div className='button'>
-          <NavLink to='/profile'>Comentar</NavLink>
+        <div className="button">
+          <NavLink to="/comment">Comentar</NavLink>
         </div>
-        <input
-          type='checkbox'
-          onChange={(e) =>
-            handleResolvedService(e.target.checked, serviceId.id)
-          }
-          checked={serviceId.resolved === 'true'}
-        />
+        {token && owner === 1 && (
+          <input
+            type="checkbox"
+            onChange={(e) =>
+              handleResolvedService(e.target.checked, serviceId.id)
+            }
+            checked={serviceId.resolved === "true"}
+          />
+        )}
       </>
     </footer>
   );

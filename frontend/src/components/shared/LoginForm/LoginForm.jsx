@@ -1,16 +1,19 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import loginUtility from '../../../utilities/loginUtility';
-import Spinner from '../../shared/Spinner/Spinner';
-import ErrorPopUp from '../error-pop-up/ErrorPopUp';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import loginUtility from "../../../utilities/loginUtility";
+import Spinner from "../../shared/Spinner/Spinner";
+//import ErrorPopUp from "../error-pop-up/ErrorPopUp";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
-import './loginForm.css';
+import "./loginForm.css";
 
 const LoginForm = ({ login }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorPopUp, setErrorPopUp] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  //const [errorPopUp, setErrorPopUp] = useState("");
+
   const [loading, setLoading] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
 
   // Función que maneja el envío del formulario.
   const handleSubmit = async (e) => {
@@ -24,7 +27,7 @@ const LoginForm = ({ login }) => {
       // Guardamos el token en el localStorage.
       login(token);
     } catch (err) {
-      setErrorPopUp(true);
+      setErrMsg(err.message);
     } finally {
       setLoading(false);
     }
@@ -33,27 +36,27 @@ const LoginForm = ({ login }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <label htmlFor='email'>Email:</label>
+      <label htmlFor="email">Email:</label>
       <input
-        type='email'
-        id='email'
+        type="email"
+        id="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <label htmlFor='password'>Contraseña:</label>
+      <label htmlFor="password">Contraseña:</label>
       <input
-        type='password'
-        id='password'
+        type="password"
+        id="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        minLength='8'
-        maxLength='100'
+        minLength="8"
+        maxLength="100"
         required
       />
       <button>Iniciar Sesión</button>
       {loading && <Spinner />}
-      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+      {errMsg && <ErrorMessage msg={errMsg} />}
     </form>
   );
 };
