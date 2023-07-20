@@ -1,4 +1,4 @@
-import useComments from "../../../hooks/useComments";
+/* import useComments from "../../../hooks/useComments"; */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -7,9 +7,9 @@ import addCommentUtility from "../../../utilities/addCommentUtility";
 import Spinner from "../Spinner/Spinner";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
-const CommentForm = ({ token }) => {
+const CommentForm = ({ token, serviceId }) => {
   const navigate = useNavigate();
-  const [serviceId] = useState("");
+
   const [text, setText] = useState("");
   const [fileName, setFileName] = useState();
   const [errMsg, setErrMsg] = useState("");

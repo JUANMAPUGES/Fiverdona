@@ -21,7 +21,7 @@ const useServices = () => {
           }
         );
         const body = await res.json();
-
+        console.log(body);
         if (!res.ok) {
           throw new Error(body.message);
         }
@@ -40,11 +40,20 @@ const useServices = () => {
     try {
       setLoading(true);
 
-      const newState = checked ? "true" : "false";
+      const newState = resolved ? "true" : "false";
 
-      await resolvedServiceUtility(serviceId, newState);
+      await resolvedServiceUtility(serviceId, token);
+
+      setServices(
+        services.map((service) => {
+          if (service.id === serviceId) {
+            service.resolved = newState;
+          }
+          return service;
+        })
+      );
     } catch (error) {
-      setErrMsg(err.message);
+      setErrMsg(error.message);
     } finally {
       setLoading(false);
     }

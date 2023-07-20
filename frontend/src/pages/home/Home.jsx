@@ -11,7 +11,7 @@ import "./home.css";
 const ServiceSearch = () => {
   const {
     services,
-    changeStateService,
+    resolvedService,
     searchParams,
     setSearchParams,
     errMsg,
@@ -23,69 +23,37 @@ const ServiceSearch = () => {
     <main className="serviceSearch">
       <h2> Lista de servicios</h2>
 
-      {!token && (
-        <>
-          <SearchForm
-            searchParams={searchParams}
-            setSearchParams={setSearchParams}
-            loading={loading}
-          />
+      <SearchForm
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+        loading={loading}
+      />
 
-          {loading && <Spinner />}
-          {errMsg && <ErrorMessage msg={errMsg} />}
+      {loading && <Spinner />}
+      {errMsg && <ErrorMessage msg={errMsg} />}
 
-          <ul className="serviceList">
-            {services.length > 0 ? (
-              services.map((service) => {
-                return (
-                  <Service
-                    key={service.id}
-                    service={service}
-                    resolvedService={changeStateService}
-                    loading={loading}
-                  />
-                );
-              })
-            ) : (
-              <li>¡No se ha encontrado ningún servicio!</li>
-            )}
-          </ul>
-        </>
-      )}
-
+      <ul className="serviceList">
+        {services.length > 0 ? (
+          services.map((service) => {
+            return (
+              <Service
+                key={service.id}
+                service={service}
+                resolvedService={resolvedService}
+                loading={loading}
+              />
+            );
+          })
+        ) : (
+          <li>¡No se ha encontrado ningún servicio!</li>
+        )}
+      </ul>
       {token && (
-        <>
-          <SearchForm
-            searchParams={searchParams}
-            setSearchParams={setSearchParams}
-            loading={loading}
-          />
-
-          {loading && <Spinner />}
-          {errMsg && <ErrorMessage msg={errMsg} />}
-
-          <ul className="serviceList">
-            {services.length > 0 ? (
-              services.map((service) => {
-                return (
-                  <Service
-                    key={service.id}
-                    service={service}
-                    resolvedService={changeStateService}
-                    loading={loading}
-                  />
-                );
-              })
-            ) : (
-              <li>¡No se ha encontrado ningún servicio!</li>
-            )}
-          </ul>
-          <nav>
-            <div className="button">
-              <NavLink to="/services">Añadir un servicio</NavLink>
-            </div>
-          </nav>
-        </>
+        <nav>
+          <div className="button">
+            <NavLink to="/services">Añadir un servicio</NavLink>
+          </div>
+        </nav>
       )}
     </main>
   );

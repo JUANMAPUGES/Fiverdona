@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import ServiceHeader from './ServiceHeader/ServiceHeader';
-import ServiceBody from './ServiceBody/ServiceBody';
-import ServiceFooter from './ServiceFooter/ServiceFooter';
+import PropTypes from "prop-types";
+import ServiceHeader from "./ServiceHeader/ServiceHeader";
+import ServiceBody from "./ServiceBody/ServiceBody";
+import ServiceFooter from "./ServiceFooter/ServiceFooter";
 
-import './service.css';
+import "./service.css";
 
 const Service = ({ service, resolvedService, loading }) => {
   return (
-    <li className='service'>
+    <li className="service">
       <ServiceHeader
         username={service.username}
         createdAt={service.createdAt}
@@ -18,9 +18,10 @@ const Service = ({ service, resolvedService, loading }) => {
         fileName={service.fileName}
       />
       <ServiceFooter
+        resolved={service.resolved}
         serviceId={service.id}
         owner={service.owner}
-        chengeStateService={resolvedService}
+        resolvedService={resolvedService}
         loading={loading}
       />
     </li>
