@@ -2,18 +2,16 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import loginUtility from "../../../utilities/loginUtility";
 import Spinner from "../../shared/Spinner/Spinner";
-//import ErrorPopUp from "../error-pop-up/ErrorPopUp";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ErrorPopUp from "../error-pop-up/ErrorPopUp";
 
 import "./loginForm.css";
 
 const LoginForm = ({ login }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const [errorPopUp, setErrorPopUp] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
+  const [errorPopUp, setErrorPopUp] = useState(false);
 
   // Función que maneja el envío del formulario.
   const handleSubmit = async (e) => {
@@ -27,7 +25,7 @@ const LoginForm = ({ login }) => {
       // Guardamos el token en el localStorage.
       login(token);
     } catch (err) {
-      setErrMsg(err.message);
+      setErrorPopUp(true);
     } finally {
       setLoading(false);
     }
@@ -56,7 +54,7 @@ const LoginForm = ({ login }) => {
       />
       <button>Iniciar Sesión</button>
       {loading && <Spinner />}
-      {errMsg && <ErrorMessage msg={errMsg} />}
+      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
     </form>
   );
 };

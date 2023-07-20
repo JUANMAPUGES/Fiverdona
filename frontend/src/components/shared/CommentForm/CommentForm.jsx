@@ -5,14 +5,14 @@ import PropTypes from "prop-types";
 
 import addCommentUtility from "../../../utilities/addCommentUtility";
 import Spinner from "../Spinner/Spinner";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ErrorPopUp from "../error-pop-up/ErrorPopUp";
 
 const CommentForm = ({ token, serviceId }) => {
   const navigate = useNavigate();
 
   const [text, setText] = useState("");
   const [fileName, setFileName] = useState();
-  const [errMsg, setErrMsg] = useState("");
+  const [errorPopUp, setErrorPopUp] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Función que maneja el envío del formulario.
@@ -27,7 +27,7 @@ const CommentForm = ({ token, serviceId }) => {
       // Redireccionamos a la página principal.
       navigate("/"); //??*****
     } catch (err) {
-      setErrMsg(err.message);
+      setErrorPopUp(err.message);
     } finally {
       setLoading(false);
     }
@@ -54,7 +54,7 @@ const CommentForm = ({ token, serviceId }) => {
 
       {loading && <Spinner />}
 
-      {errMsg && <ErrorMessage msg={errMsg} />}
+      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
     </form>
   );
 };
