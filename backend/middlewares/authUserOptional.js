@@ -5,7 +5,7 @@ const authUserOptional = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
-    if (!authorization) {
+    if (authorization) {
       let tokenInfo;
 
       try {

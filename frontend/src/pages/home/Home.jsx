@@ -8,10 +8,11 @@ import Spinner from '../../components/shared/Spinner/Spinner';
 
 import './home.css';
 
+
 const ServiceSearch = () => {
   const {
     services,
-    changeStateService,
+    resolvedService,
     searchParams,
     setSearchParams,
     errorPopUp,
@@ -21,85 +22,75 @@ const ServiceSearch = () => {
   const { token } = useAuth();
 
   return (
-    <main className='serviceSearch'>
+    <main className="serviceSearch">
       <h2> Lista de servicios</h2>
-      <article>
-        {!token && (
-          <>
-            <SearchForm
-              searchParams={searchParams}
-              setSearchParams={setSearchParams}
-              loading={loading}
-            />
 
-            {loading && <Spinner />}
-            {errorPopUp && (
+
+      <SearchForm
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+        loading={loading}
+      />
+
+      {loading && <Spinner />}
+       {errorPopUp && (
               <ErrorPopUp
                 open={errorPopUp}
                 onClose={() => setErrorPopUp(false)}
               />
             )}
-
-            <ul className='serviceList'>
-              {services.length > 0 ? (
-                services.map((service) => {
-                  return (
-                    <Service
-                      key={service.id}
-                      service={service}
-                      resolvedService={changeStateService}
-                      loading={loading}
-                    />
-                  );
-                })
-              ) : (
-                <li>¡No se ha encontrado ningún servicio!</li>
-              )}
-            </ul>
-          </>
-        )}
-
-        {token && (
-          <>
-            <SearchForm
-              searchParams={searchParams}
-              setSearchParams={setSearchParams}
-              loading={loading}
-            />
-
-            {loading && <Spinner />}
-            {errorPopUp && (
-              <ErrorPopUp
-                open={errorPopUp}
-                onClose={() => setErrorPopUp(false)}
+      <ul className="serviceList">
+        {services.length > 0 ? (
+          services.map((service) => {
+            return (
+              <Service
+                key={service.id}
+                service={service}
+                resolvedService={resolvedService}
+                loading={loading}
               />
-            )}
-
-            <ul className='serviceList'>
-              {services.length > 0 ? (
-                services.map((service) => {
-                  return (
-                    <Service
-                      key={service.id}
-                      service={service}
-                      resolvedService={changeStateService}
-                      loading={loading}
-                    />
-                  );
-                })
-              ) : (
-                <li>¡No se ha encontrado ningún servicio!</li>
-              )}
-            </ul>
-            <nav>
-              <div className='button'>
-                <NavLink to='/services'>Añadir un servicio</NavLink>
-              </div>
-            </nav>
-          </>
+            );
+          })
+        ) : (
+          <li>¡No se ha encontrado ningún servicio!</li>
         )}
-      </article>
+      </ul>
+      {token && (
+        <nav>
+          <div className="button">
+            <NavLink to="/services">Añadir un servicio</NavLink>
+          </div>
+        </nav>
+      )}
+
     </main>
   );
 };
 export default ServiceSearch;
+
+/* import useServices from "../../hooks/useServices";
+import SearchForm from "../../components/shared/SearchForm/SearchForm";
+import "./home.css";
+
+const ServiceSearch = () => {
+  const { services, searchParams, setSearchParams } = useServices();
+  return (
+    <main className="serviceSearch">
+      <h2> Lista de servicios</h2>
+      <SearchForm
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+      />
+      <ul>
+        {services.length > 0 ? (
+          services.map((services) => {
+            return <li key={services.id}>{services.title}</li>;
+          })
+        ) : (
+          <li>¡No se ha encontrado ningún servicio!</li>
+        )}
+      </ul>
+    </main>
+  );
+};
+export default ServiceSearch; */

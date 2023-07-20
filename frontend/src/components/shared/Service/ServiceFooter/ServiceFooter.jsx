@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import useAuth from '../../../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
+import useAuth from "../../../../hooks/useAuth";
+import { NavLink } from "react-router-dom";
 
-const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
+const ServiceFooter = ({ serviceId, owner, resolvedService, resolved }) => {
   const { token } = useAuth();
 
   // Finalizar un servicio.
@@ -19,10 +19,10 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
     };*/
   const handleResolvedService = async () => {
     try {
-      if (confirm('¿Deseas finalizar el servicio?')) {
-        resolvedService(serviceId);
+      if (confirm("¿Deseas finalizar el servicio?")) {
+        resolvedService(resolved, serviceId);
       }
-    } catch (error) {
+    } catch (err) {
       alert(err.message);
     }
   };
@@ -30,16 +30,17 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
   return (
     <footer>
       <>
-        <div className='button'>
-          <NavLink to='/profile'>Comentar</NavLink>
+        <div className="button">
+          <NavLink to="/comment">Comentar</NavLink>
         </div>
-        <input
-          type='checkbox'
-          onChange={(e) =>
-            handleResolvedService(e.target.checked, serviceId.id)
-          }
-          checked={serviceId.resolved === 'true'}
-        />
+        {token && owner === 1 && (
+          <input
+            type="checkbox"
+            onChange={(e) => handleResolvedService(e.target.checked, serviceId)}
+            checked={resolved}
+            disabled={resolved}
+          />
+        )}
       </>
     </footer>
   );
@@ -48,8 +49,9 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, loading }) => {
 ServiceFooter.propTypes = {
   serviceId: PropTypes.number,
   owner: PropTypes.any,
-  resolvedService: PropTypes.bool,
+  resolvedService: PropTypes.func,
   loading: PropTypes.bool,
+  resolved: PropTypes.bool,
 };
 
 export default ServiceFooter;
