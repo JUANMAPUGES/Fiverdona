@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import registerUtility from '../../../utilities/registerUtility';
 import Spinner from '../../shared/Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ErrorPopUp from '../error-pop-up/ErrorPopUp';
 
 import './registerForm.css';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ const RegisterForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errMsg, setErrMsg] = useState('');
+  const [errorPopUp, setErrorPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Función que maneja el envío del formulario.
@@ -27,7 +27,7 @@ const RegisterForm = () => {
       // Redireccionamos a login.
       navigate('/login');
     } catch (err) {
-      setErrMsg(err.message);
+      setErrorPopUp(true);
     } finally {
       setLoading(false);
     }
@@ -69,7 +69,7 @@ const RegisterForm = () => {
 
       {loading && <Spinner />}
 
-      {errMsg && <ErrorMessage msg={errMsg} />}
+      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
     </form>
   );
 };
