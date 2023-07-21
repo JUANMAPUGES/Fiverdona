@@ -30,7 +30,6 @@ const Service = ({ service, resolvedService, loading }) => {
 
 Service.propTypes = {
   service: PropTypes.object,
-  toogleLike: PropTypes.func,
   resolvedService: PropTypes.func,
   loading: PropTypes.bool,
 };

@@ -9,7 +9,7 @@ import ServiceCreate from "./pages/ServiceCreatePage/ServiceCreatePage";
 import NotFound from "./pages/not-found/NotFound";
 import Footer from "./components/shared/Footer/Footer";
 import Comment from "./pages/CommentCreatePage/CommentCreatePage";
-
+import ServicePage from "./pages/ServicePage/ServicePage";
 const App = () => {
   return (
     <div className="app">
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="register" element={<Register />} />
         <Route path="avatar" element={<SignUpAvatar />} />
-        {/*  <Route path="services/:id" element={<Services />} /> */}
+        <Route path="service/:id" element={<ServicePage />} />
         <Route path="services" element={<ServiceCreate />} />
         <Route path="*" element={<NotFound />} />
         <Route path="comment" element={<Comment />} />
