@@ -1,41 +1,28 @@
 import { useEffect, useState } from "react";
-import useAuth from "./useAuth";
+import getServiceUtility from "../utilities/getServiceUtility";
 
-const useService = () => {
-  const { token } = useAuth();
+const useService = (id) => {
   const [service, setService] = useState([]);
   const [errMsg, setErrMsg] = useState("");
-  const [serviceId] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchService = async () => {
+    const loadService = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:8080/services?${serviceId}`, {
-          headers: token ? { Authorization: token } : {},
-        });
-        const body = await res.json();
-
-        if (!res.ok) {
-          throw new Error(body.message);
-        }
-
-        setService(body.data.services);
-      } catch (err) {
-        setErrMsg(err.message);
+        const data = await getServiceUtility(id);
+        setService(data);
+      } catch (error) {
+        setErrMsg(error.message);
       } finally {
         setLoading(false);
       }
     };
-    fetchService();
-  }, [serviceId, token]);
 
-  return {
-    service,
-    serviceId,
-    errMsg,
-    loading,
-  };
+    loadService();
+  }, [id]);
+
+  return { service, errMsg, loading };
 };
+
 export default useService;

@@ -1,18 +1,17 @@
-import useServices from '../../hooks/useServices';
-import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
-import SearchForm from '../../components/shared/SearchForm/SearchForm';
-import { NavLink } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import Service from '../../components/shared/Service/Service';
-import Spinner from '../../components/shared/Spinner/Spinner';
+import useServices from "../../hooks/useServices";
+import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
+import SearchForm from "../../components/shared/SearchForm/SearchForm";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Service from "../../components/shared/Service/Service";
+import Spinner from "../../components/shared/Spinner/Spinner";
 
-import './home.css';
-
+import "./home.css";
 
 const ServiceSearch = () => {
   const {
     services,
-    resolvedService,
+    resolved,
     searchParams,
     setSearchParams,
     errorPopUp,
@@ -25,7 +24,6 @@ const ServiceSearch = () => {
     <main className="serviceSearch">
       <h2> Lista de servicios</h2>
 
-
       <SearchForm
         searchParams={searchParams}
         setSearchParams={setSearchParams}
@@ -33,12 +31,9 @@ const ServiceSearch = () => {
       />
 
       {loading && <Spinner />}
-       {errorPopUp && (
-              <ErrorPopUp
-                open={errorPopUp}
-                onClose={() => setErrorPopUp(false)}
-              />
-            )}
+      {errorPopUp && (
+        <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+      )}
       <ul className="serviceList">
         {services.length > 0 ? (
           services.map((service) => {
@@ -46,7 +41,7 @@ const ServiceSearch = () => {
               <Service
                 key={service.id}
                 service={service}
-                resolvedService={resolvedService}
+                resolved={resolved}
                 loading={loading}
               />
             );
@@ -62,7 +57,6 @@ const ServiceSearch = () => {
           </div>
         </nav>
       )}
-
     </main>
   );
 };
