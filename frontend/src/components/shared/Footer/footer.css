@@ -6,8 +6,5 @@ div.app > footer {
   background-color: var(--blue-color);
   color: black;
   max-height: 10vh;
-}
-
-p {
-  padding-top: 5%;
+  margin-top: 2rem;
 }

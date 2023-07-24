@@ -5,6 +5,7 @@ div.app > header {
   background-color: var(--blue-color);
   padding: 2rem;
   color: white;
+  margin-bottom: 2rem;
 }
 
 div.app > header a {
@@ -48,6 +49,6 @@ nav > div.button > p {
   color: black;
 }
 .logo {
-  font-family: "shrikhand", sans-serif;
+  font-family: 'shrikhand', sans-serif;
   font-weight: 100;
 }

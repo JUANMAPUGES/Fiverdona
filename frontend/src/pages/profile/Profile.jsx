@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import registerUtility from '../../../src/utilities/registerUtility';
+import registerUtility from '../../utilities/registerUtility';
 import Spinner from '../../../src/components/shared/Spinner/Spinner';
 import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
 import avatarImg from '../../assets/avatar.jpg';
+/*import useProfile from './useProfile';*/
 import './profile.css';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const navigate = useNavigate();
-
+  const errors = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,13 +39,17 @@ const Profile = () => {
       <h2>Perfil</h2>
       <div className='avatar-container'>
         <img src={avatarImg ? avatarImg : avatarImg} alt='avatar' />
-        <input
+        {/*<input
           type='file'
           {...registerUtility('avatar', {
             required: true,
           })}
-        />
+          onChange={handleOnChangeAvatar}
+        />*/}
       </div>
+      {errors.file?.type === 'required' && (
+        <span className='error'>Campo requerido</span>
+      )}
       <label htmlFor='username'>Nuevo usuario:</label>
       <input
         type='text'
