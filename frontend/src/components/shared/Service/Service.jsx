@@ -5,7 +5,7 @@ import ServiceFooter from "./ServiceFooter/ServiceFooter";
 
 import "./service.css";
 
-const Service = ({ service, resolvedService, loading }) => {
+const Service = ({ service }) => {
   return (
     <li className="service">
       <ServiceHeader
@@ -18,11 +18,9 @@ const Service = ({ service, resolvedService, loading }) => {
         fileName={service.fileName}
       />
       <ServiceFooter
-        resolved={service.resolved}
         serviceId={service.id}
         owner={service.owner}
-        resolvedService={resolvedService}
-        loading={loading}
+        resolved={service.resolved}
       />
     </li>
   );
@@ -30,9 +28,6 @@ const Service = ({ service, resolvedService, loading }) => {
 
 Service.propTypes = {
   service: PropTypes.object,
-  toogleLike: PropTypes.func,
-  resolvedService: PropTypes.func,
-  loading: PropTypes.bool,
 };
 
 export default Service;

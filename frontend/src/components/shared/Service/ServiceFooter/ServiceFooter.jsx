@@ -1,26 +1,21 @@
 import PropTypes from "prop-types";
-
 import useAuth from "../../../../hooks/useAuth";
 import { NavLink } from "react-router-dom";
+import resolvedServiceUtility from "./../../../../utilities/resolvedServiceUtility"; // Importamos el componente.
 
-const ServiceFooter = ({ serviceId, owner, resolvedService, resolved }) => {
+const ServiceFooter = ({ serviceId, owner, resolved }) => {
   const { token } = useAuth();
 
-  // Finalizar un servicio.
-  /*const handleResolvedService = async () => {
-        try {
-            if (confirm('¿Deseas finalizar el servicio?')) {
-               
-                resolvedService(serviceId);
-            }
-        } catch (err) {
-            alert(err.message);
-        }
-    };*/
   const handleResolvedService = async () => {
     try {
+      if (resolved) {
+        // Si la tarea ya está resuelta, no hacemos nada.
+        return;
+      }
+
       if (confirm("¿Deseas finalizar el servicio?")) {
-        resolvedService(resolved, serviceId);
+        await resolvedServiceUtility(serviceId, token);
+        // Bloqueamos el checkbox después de marcar la tarea como resuelta.
       }
     } catch (err) {
       alert(err.message);
@@ -31,14 +26,14 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, resolved }) => {
     <footer>
       <>
         <div className="button">
-          <NavLink to="/comment">Comentar</NavLink>
+          {token && <NavLink to="/comment">Comentar</NavLink>}
         </div>
         {token && owner === 1 && (
           <input
             type="checkbox"
-            onChange={(e) => handleResolvedService(e.target.checked, serviceId)}
-            checked={resolved}
-            disabled={resolved}
+            onChange={handleResolvedService}
+            checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
+            disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.
           />
         )}
       </>
@@ -49,8 +44,6 @@ const ServiceFooter = ({ serviceId, owner, resolvedService, resolved }) => {
 ServiceFooter.propTypes = {
   serviceId: PropTypes.number,
   owner: PropTypes.any,
-  resolvedService: PropTypes.func,
-  loading: PropTypes.bool,
   resolved: PropTypes.bool,
 };
 
