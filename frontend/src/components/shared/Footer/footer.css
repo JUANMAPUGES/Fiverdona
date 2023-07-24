@@ -3,7 +3,7 @@ div.app > footer {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-color: var(--blue-color);
+  background-image: linear-gradient(to left, #c6ffdd, #fbd786, #f7797d);
   color: black;
   max-height: 10vh;
   margin-top: 2rem;

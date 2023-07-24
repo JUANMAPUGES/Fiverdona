@@ -35,59 +35,64 @@ const Profile = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <h2>Perfil</h2>
-      <div className='avatar-container'>
-        <img src={avatarImg ? avatarImg : avatarImg} alt='avatar' />
-        {/*<input
-          type='file'
-          {...registerUtility('avatar', {
-            required: true,
-          })}
-          onChange={handleOnChangeAvatar}
-        />*/}
-      </div>
-      {errors.file?.type === 'required' && (
-        <span className='error'>Campo requerido</span>
-      )}
-      <label htmlFor='username'>Nuevo usuario:</label>
-      <input
-        type='text'
-        id='username'
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        minLength='3'
-        autoFocus
-        required
-      />
-      <button>Guardar</button>
+      <main>
+        <form onSubmit={handleSubmit}>
+          <div className='avatar-container'>
+            <img src={avatarImg ? avatarImg : avatarImg} alt='avatar' />
+            <input
+              type='file'
+              {...registerUtility('avatar', {
+                required: true,
+              })}
+              /* onChange={handleOnChangeAvatar} */
+            />
+          </div>
+          {errors.file?.type === 'required' && (
+            <span className='error'>Campo requerido</span>
+          )}
+          <div className='inputs-container'>
+            <label htmlFor='username'>Nuevo usuario:</label>
+            <input
+              type='text'
+              id='username'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              minLength='3'
+              autoFocus
+              required
+            />
+            <button>Guardar</button>
 
-      <label htmlFor='email'>Nuevo email:</label>
-      <input
-        type='email'
-        id='email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <button>Guardar</button>
+            <label htmlFor='email'>Nuevo email:</label>
+            <input
+              type='email'
+              id='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button>Guardar</button>
 
-      <label htmlFor='password'>Nueva contraseña:</label>
-      <input
-        type='password'
-        id='password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        minLength='8'
-        maxLength='100'
-        required
-      />
-      <button>Guardar</button>
+            <label htmlFor='password'>Nueva contraseña:</label>
+            <input
+              type='password'
+              id='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              minLength='8'
+              maxLength='100'
+              required
+            />
+            <button>Guardar</button>
+          </div>
+          {loading && <Spinner />}
 
-      {loading && <Spinner />}
-
-      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
-    </form>
+          <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+        </form>
+      </main>
+    </>
   );
 };
 
