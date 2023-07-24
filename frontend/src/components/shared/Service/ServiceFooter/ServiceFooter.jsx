@@ -26,12 +26,14 @@ const ServiceFooter = ({ serviceId, owner, resolved }) => {
     <footer>
       <>
         <div className="button">
-          {token && <NavLink to="/comment">Comentar</NavLink>}
+          {token && (
+            <NavLink to={`/services/${serviceId}/comment`}>Comentar</NavLink>
+          )}
         </div>
         {token && owner === 1 && (
           <input
             type="checkbox"
-            onChange={handleResolvedService}
+            onClick={handleResolvedService}
             checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
             disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.
           />
