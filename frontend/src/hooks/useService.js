@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getServiceUtility from "../utilities/getServiceUtility";
 
 const useService = (id) => {
-  const [service, setService] = useState([]);
+  const [service, setService] = useState(null);
   const [errMsg, setErrMsg] = useState("");
   const [loading, setLoading] = useState(true);
 
