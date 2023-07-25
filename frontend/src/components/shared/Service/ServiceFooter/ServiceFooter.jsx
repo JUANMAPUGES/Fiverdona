@@ -25,11 +25,13 @@ const ServiceFooter = ({ serviceId, owner, resolved }) => {
   return (
     <footer>
       <>
+        {/* <div className='button'>
+          {<NavLink to={`/services/service/${serviceId}`}>Servicio</NavLink>}
+        </div> */}
         <div className='button'>
-          {<NavLink to='/service/:id'>Servicio</NavLink>}
-        </div>
-        <div className='button'>
-          {token && <NavLink to='/comment'>Comentar</NavLink>}
+          {token && (
+            <NavLink to={`services/${serviceId}/comments`}>Comentar</NavLink>
+          )}
         </div>
         {token && owner === 1 && (
           <input

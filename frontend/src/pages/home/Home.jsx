@@ -1,12 +1,12 @@
-import useServices from "../../hooks/useServices";
-import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
-import SearchForm from "../../components/shared/SearchForm/SearchForm";
-import { NavLink } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import Service from "../../components/shared/Service/Service";
-import Spinner from "../../components/shared/Spinner/Spinner";
+import useServices from '../../hooks/useServices';
+import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
+import SearchForm from '../../components/shared/SearchForm/SearchForm';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import Service from '../../components/shared/Service/Service';
+import Spinner from '../../components/shared/Spinner/Spinner';
 
-import "./home.css";
+import './home.css';
 
 const ServiceSearch = () => {
   const {
@@ -21,7 +21,7 @@ const ServiceSearch = () => {
   const { token } = useAuth();
 
   return (
-    <main className="serviceSearch">
+    <main className='serviceSearch'>
       <h2> Lista de servicios</h2>
 
       <SearchForm
@@ -34,7 +34,7 @@ const ServiceSearch = () => {
       {errorPopUp && (
         <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
       )}
-      <ul className="serviceList">
+      <ul className='serviceList'>
         {services.length > 0 ? (
           services.map((service) => {
             return (
@@ -52,8 +52,8 @@ const ServiceSearch = () => {
       </ul>
       {token && (
         <nav>
-          <div className="button">
-            <NavLink to="/services">Añadir un servicio</NavLink>
+          <div className='button'>
+            <NavLink to='/services'>Añadir un servicio</NavLink>
           </div>
         </nav>
       )}

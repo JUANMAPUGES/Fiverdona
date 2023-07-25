@@ -1,29 +1,29 @@
-import { Routes, Route } from "react-router-dom";
-import Header from "./components/shared/Header/Header";
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
-import Profile from "./pages/profile/Profile";
-import Register from "./pages/register/Register";
-import SignUpAvatar from "./pages/sign-up-avatar/SignUpAvatar";
-import ServiceCreate from "./pages/ServiceCreatePage/ServiceCreatePage";
-import NotFound from "./pages/not-found/NotFound";
-import Footer from "./components/shared/Footer/Footer";
-import Comment from "./pages/CommentCreatePage/CommentCreatePage";
-import ServicePage from "./pages/ServicePage/ServicePage";
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/shared/Header/Header';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Profile from './pages/profile/Profile';
+import Register from './pages/register/Register';
+import SignUpAvatar from './pages/sign-up-avatar/SignUpAvatar';
+import ServiceCreate from './pages/ServiceCreatePage/ServiceCreatePage';
+import NotFound from './pages/not-found/NotFound';
+import Footer from './components/shared/Footer/Footer';
+import Comment from './pages/CommentCreatePage/CommentCreatePage';
+import ServicePage from './pages/ServicePage/ServicePage';
 const App = () => {
   return (
-    <div className="app">
+    <div className='app'>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="register" element={<Register />} />
-        <Route path="avatar" element={<SignUpAvatar />} />
-        <Route path="service/:id" element={<ServicePage />} />
-        <Route path="services" element={<ServiceCreate />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="comment" element={<Comment />} />
+        <Route path='/' element={<Home />} />
+        <Route path='login' element={<Login />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='register' element={<Register />} />
+        <Route path='avatar' element={<SignUpAvatar />} />
+        <Route path='services/service/:id' element={<ServicePage />} />
+        <Route path='services' element={<ServiceCreate />} />
+        <Route path='*' element={<NotFound />} />
+        <Route path='services/:serviceId/comments' element={<Comment />} />
       </Routes>
       <Footer />
     </div>
