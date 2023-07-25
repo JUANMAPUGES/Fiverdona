@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const ServiceBody = ({ description, fileName }) => {
   return (
@@ -6,8 +6,8 @@ const ServiceBody = ({ description, fileName }) => {
       <p>{description}</p>
       {fileName && (
         <input
-          src={`http://localhost:8080/${fileName}`}
-          alt="Archivo adjunto del servicio"
+          src={`http://localhost:8080//services/service/:serviceId/${fileName}`}
+          alt='Archivo adjunto del servicio'
         />
       )}
     </div>

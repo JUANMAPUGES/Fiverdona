@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import useAuth from "../../../../hooks/useAuth";
-import { NavLink } from "react-router-dom";
-import resolvedServiceUtility from "./../../../../utilities/resolvedServiceUtility"; // Importamos el componente.
+import PropTypes from 'prop-types';
+import useAuth from '../../../../hooks/useAuth';
+import { NavLink } from 'react-router-dom';
+import resolvedServiceUtility from './../../../../utilities/resolvedServiceUtility'; // Importamos el componente.
 
 const ServiceFooter = ({ serviceId, owner, resolved }) => {
   const { token } = useAuth();
@@ -13,7 +13,7 @@ const ServiceFooter = ({ serviceId, owner, resolved }) => {
         return;
       }
 
-      if (confirm("¿Deseas finalizar el servicio?")) {
+      if (confirm('¿Deseas finalizar el servicio?')) {
         await resolvedServiceUtility(serviceId, token);
         // Bloqueamos el checkbox después de marcar la tarea como resuelta.
       }
@@ -25,12 +25,15 @@ const ServiceFooter = ({ serviceId, owner, resolved }) => {
   return (
     <footer>
       <>
-        <div className="button">
-          {token && <NavLink to="/comment">Comentar</NavLink>}
+        <div className='button'>
+          {<NavLink to='/service/:id'>Servicio</NavLink>}
+        </div>
+        <div className='button'>
+          {token && <NavLink to='/comment'>Comentar</NavLink>}
         </div>
         {token && owner === 1 && (
           <input
-            type="checkbox"
+            type='checkbox'
             onChange={handleResolvedService}
             checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
             disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.

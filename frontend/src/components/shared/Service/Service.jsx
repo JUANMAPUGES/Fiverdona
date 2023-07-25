@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
-import ServiceHeader from "./ServiceHeader/ServiceHeader";
-import ServiceBody from "./ServiceBody/ServiceBody";
-import ServiceFooter from "./ServiceFooter/ServiceFooter";
+import PropTypes from 'prop-types';
+import ServiceHeader from './ServiceHeader/ServiceHeader';
+import ServiceBody from './ServiceBody/ServiceBody';
+import ServiceFooter from './ServiceFooter/ServiceFooter';
 
-import "./service.css";
+import './service.css';
 
 const Service = ({ service }) => {
   return (
-    <li className="service">
+    <li className='service'>
       <ServiceHeader
         username={service.username}
         createdAt={service.createdAt}
