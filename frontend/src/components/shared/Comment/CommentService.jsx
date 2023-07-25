@@ -1,37 +1,33 @@
 import PropTypes from "prop-types";
-//import useAuth from "../../../hooks/useAuth";
-import CommentHeader from "./CommentServiceHeader/CommentServiceHeader";
-import CommentBody from "./CommentServiceBody/CommentServiceBody";
-import Spinner from "../Spinner/Spinner";
-import "./Comment.css";
 
-const CommentService = ({ comments, loading }) => {
-  //const { token } = useAuth();
-
+const CommentService = ({ username, createdAt, text, fileName }) => {
   return (
-    <ul className="commentsList">
-      {loading ? (
-        <p>Cargando comentarios...</p>
-      ) : comments.length === 0 ? (
-        <p>No hay comentarios para este servicio.</p>
-      ) : (
-        comments.map((comment) => (
-          <li className="Comment" key={comment.id}>
-            <CommentHeader
-              username={comment.username}
-              createdAt={comment.createdAt}
-            />
-            <CommentBody text={comment.text} fileName={comment.fileName} />
-          </li>
-        ))
-      )}
-    </ul>
+    <div>
+      <header>
+        <p>@{username}</p>
+        <time>
+          {new Date(createdAt).toLocaleDateString("es-ES", {
+            hour: "2-digit",
+            minute: "2-digit",
+            day: "2-digit",
+            month: "2-digit",
+            year: "2-digit",
+          })}
+        </time>
+      </header>
+      <body>
+        <p>{text}</p>
+        {fileName && <a href={`http://localhost:8080/${fileName}`}></a>}
+      </body>
+    </div>
   );
 };
 
 CommentService.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.object),
-  loading: PropTypes.bool,
+  username: PropTypes.string,
+  createdAt: PropTypes.string,
+  text: PropTypes.string,
+  fileName: PropTypes.string,
 };
 
 export default CommentService;

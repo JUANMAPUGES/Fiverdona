@@ -45,8 +45,8 @@ const ServiceFooter = ({ serviceId, owner, resolved }) => {
 
 ServiceFooter.propTypes = {
   serviceId: PropTypes.number,
-  owner: PropTypes.any,
-  resolved: PropTypes.bool,
+  owner: PropTypes.number,
+  resolved: PropTypes.number,
 };
 
 export default ServiceFooter;

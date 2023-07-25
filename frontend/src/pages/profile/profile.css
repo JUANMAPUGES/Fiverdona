@@ -1,10 +1,10 @@
-form {
+/* form {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid lightgray;
   border-radius: 4px;
-}
+} */
 
 /* .avatar-container {
     display: flex;
@@ -12,12 +12,12 @@ form {
     align-items: center;
     margin-bottom: 32px;
   } */
-.avatar-container img {
+/* .avatar-container img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-}
+} */
 /* .avatar-container input {
     border: none;
   }

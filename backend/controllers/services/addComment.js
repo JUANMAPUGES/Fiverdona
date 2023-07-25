@@ -1,4 +1,4 @@
-const insertCommentQuery = require('../../db/queries/services/InsertCommentQuery');
+const insertCommentQuery = require('../../db/queries/services/insertCommentQuery');
 const selectServiceByIdQuery = require('../../db/queries/services/selectServiceByIdQuery');
 
 const { generateError, saveFile } = require('../../helpers');

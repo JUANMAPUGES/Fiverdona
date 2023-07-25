@@ -4,12 +4,7 @@ const ServiceBody = ({ description, fileName }) => {
   return (
     <div>
       <p>{description}</p>
-      {fileName && (
-        <input
-          src={`http://localhost:8080/${fileName}`}
-          alt="Archivo adjunto del servicio"
-        />
-      )}
+      {fileName && <a href={`http://localhost:8080/${fileName}`}></a>}
     </div>
   );
 };

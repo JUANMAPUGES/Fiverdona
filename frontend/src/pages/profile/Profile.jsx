@@ -2,7 +2,7 @@ import { useState } from "react";
 import registerUtility from "../../utilities/registerUtility";
 import Spinner from "../../../src/components/shared/Spinner/Spinner";
 import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
-import avatarImg from "../../assets/avatar.jpg";
+//import avatarImg from "../../assets/avatar.jpg";
 /*import useProfile from './useProfile';*/
 import "./profile.css";
 import { useNavigate } from "react-router-dom";

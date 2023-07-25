@@ -8,9 +8,10 @@ const getServiceUtility = async (serviceId, token) => {
   const json = await res.json();
 
   if (!res.ok) {
-    throw new Error(json.message);
+    throw new Error("Error al obtener los datos del servicio y comentarios.");
   }
-  return json.data;
+
+  return { service: json.data.service, comments: json.data.comments };
 };
 
 export default getServiceUtility;
