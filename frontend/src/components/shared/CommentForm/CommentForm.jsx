@@ -1,18 +1,18 @@
 /* import useComments from "../../../hooks/useComments"; */
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import addCommentUtility from "../../../utilities/addCommentUtility";
-import Spinner from "../Spinner/Spinner";
-import ErrorPopUp from "../error-pop-up/ErrorPopUp";
-
+import addCommentUtility from '../../../utilities/addCommentUtility';
+import Spinner from '../Spinner/Spinner';
+import ErrorPopUp from '../error-pop-up/ErrorPopUp';
+import './commentForm.css';
 const CommentForm = ({ token, serviceId }) => {
   const navigate = useNavigate();
 
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [fileName, setFileName] = useState();
-  const [errorPopUp, setErrorPopUp] = useState("");
+  const [errorPopUp, setErrorPopUp] = useState('');
   const [loading, setLoading] = useState(false);
 
   // Función que maneja el envío del formulario.
@@ -25,7 +25,7 @@ const CommentForm = ({ token, serviceId }) => {
       await addCommentUtility(text, fileName, serviceId, token);
 
       // Redireccionamos a la página principal.
-      navigate("/"); //??*****
+      navigate('/'); //??*****
     } catch (err) {
       setErrorPopUp(err.message);
     } finally {
@@ -34,23 +34,31 @@ const CommentForm = ({ token, serviceId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>
-        ¿Que te ha parecido este servicio?,¿lo recomendarías?. ❤Deja tu
-        comentario❤.
+    <form className='form-comment' onSubmit={handleSubmit}>
+      <h2 className='h2-comment'>
+        ¿Que te ha parecido este servicio? Deja tu comentario
       </h2>
 
-      <input type="file" onChange={(e) => setFileName(e.target.files[0])} />
+      <input type='file' onChange={(e) => setFileName(e.target.files[0])} />
 
       <textarea
+        className='text'
         value={text}
         onChange={(e) => setText(e.target.value)}
-        minLength="10"
+        minLength='10'
         autoFocus
         required
       />
 
-      <button disabled={loading}>Enviar</button>
+      <div className='button-comment' disabled={loading}>
+        <button className='button-1'>
+          Enviar
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
       {loading && <Spinner />}
 

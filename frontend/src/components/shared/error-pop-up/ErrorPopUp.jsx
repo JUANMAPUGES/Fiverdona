@@ -9,7 +9,7 @@ function ErrorPopUp({ open, onClose }) {
       <div className='modal'>
         <img src='src/assets/x.jpg' className='x' />
         <h4>Lo sentimos</h4>
-        <p>Ha habido algún error en los datos</p>
+        <p className='p-pop-up'>Ha habido algún error en los datos</p>
         <button className='close' onClick={onClose}>
           Click
         </button>

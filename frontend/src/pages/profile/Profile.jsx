@@ -36,9 +36,9 @@ const Profile = () => {
 
   return (
     <>
-      <h2>Perfil</h2>
+      <h2 className='h2-profile'>Perfil</h2>
       <main>
-        <form onSubmit={handleSubmit}>
+        <form className='form-profile' onSubmit={handleSubmit}>
           <div className='avatar-container'>
             <img src={avatarImg ? avatarImg : avatarImg} alt='avatar' />
             <input
@@ -63,7 +63,7 @@ const Profile = () => {
               autoFocus
               required
             />
-            <button>Guardar</button>
+            <button className='button-profile'>Guardar</button>
 
             <label htmlFor='email'>Nuevo email:</label>
             <input
@@ -73,7 +73,7 @@ const Profile = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <button>Guardar</button>
+            <button className='button-profile'>Guardar</button>
 
             <label htmlFor='password'>Nueva contraseña:</label>
             <input
@@ -85,7 +85,7 @@ const Profile = () => {
               maxLength='100'
               required
             />
-            <button>Guardar</button>
+            <button className='button-profile'>Guardar</button>
           </div>
           {loading && <Spinner />}
 

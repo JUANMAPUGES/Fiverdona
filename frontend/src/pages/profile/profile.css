@@ -1,4 +1,4 @@
-h2 {
+.h2-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ main {
   align-items: center;
 }
 
-form {
+.form-profile {
   border: 2px solid lightgray;
   border-radius: 100px;
   position: absolute;
@@ -40,7 +40,7 @@ form {
   flex-direction: column;
   margin-bottom: 10px;
 }
-form > input {
+.form-profile > input {
   display: flex;
   justify-content: center;
   margin-left: 10px;
@@ -51,7 +51,7 @@ form > input {
 label {
   margin-bottom: 10px;
 }
-button {
+.button-profile {
   margin-top: 6px;
   margin-bottom: 30px;
 }
