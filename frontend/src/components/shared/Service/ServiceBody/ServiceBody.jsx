@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ServiceBody = ({ description, fileName }) => {
-  const fileDownload = async () => {
+const ServiceBody = ({ description }) => {
+  /* const fileDownload = async () => {
     const fileUrl = `http://localhost:8080/${fileName}`;
 
     //obtenemos el archivo con fetch
@@ -26,12 +26,11 @@ const ServiceBody = ({ description, fileName }) => {
     //eliminamos el enlace temporal
     link.remove();
     window.URL.revokeObjectURL(url);
-  };
+  }; */
 
   return (
     <div>
       <p>{description}</p>
-      <button onClick={fileDownload}>descargar archivo</button>
     </div>
   );
 };

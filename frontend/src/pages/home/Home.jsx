@@ -3,7 +3,7 @@ import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
 import SearchForm from '../../components/shared/SearchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import Service from '../../components/shared/Service/Service';
+import Service1 from '../../components/shared/Service/Service1';
 import Spinner from '../../components/shared/Spinner/Spinner';
 import { Link } from 'react-router-dom';
 import './home.css';
@@ -11,7 +11,6 @@ import './home.css';
 const ServiceSearch = () => {
   const {
     services,
-    resolved,
     searchParams,
     setSearchParams,
     errorPopUp,
@@ -39,10 +38,9 @@ const ServiceSearch = () => {
           services.map((service) => {
             return (
               <Link to={`/services/service/${service.id}`}>
-                <Service
+                <Service1
                   key={service.id}
                   service={service}
-                  resolved={resolved}
                   loading={loading}
                 />
               </Link>
