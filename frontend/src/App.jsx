@@ -1,3 +1,4 @@
+
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/shared/Header/Header";
 import Home from "./pages/home/Home";
@@ -10,11 +11,13 @@ import NotFound from "./pages/not-found/NotFound";
 import Footer from "./components/shared/Footer/Footer";
 import CommentCreatePage from "./pages/CommentCreatePage/CommentCreatePage";
 import ServicePage from "./pages/ServicePage/ServicePage";
+
 const App = () => {
   return (
-    <div className="app">
+    <div className='app'>
       <Header />
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="profile" element={<Profile />} />
@@ -24,6 +27,7 @@ const App = () => {
         <Route path="services" element={<ServiceCreate />} />
         <Route path="services/:id/comment" element={<CommentCreatePage />} />
         <Route path="*" element={<NotFound />} />
+
       </Routes>
       <Footer />
     </div>

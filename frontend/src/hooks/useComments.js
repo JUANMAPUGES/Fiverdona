@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import getServiceUtility from "../utilities/getServiceUtility";
 
@@ -10,8 +11,10 @@ const useComments = (serviceId) => {
     const loadComments = async () => {
       try {
         setLoading(true);
+
         const serviceData = await getServiceUtility(serviceId);
         setComments(serviceData.comments);
+
       } catch (err) {
         setErrMsg(err.message);
       } finally {

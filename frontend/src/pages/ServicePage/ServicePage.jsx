@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import useService from "../../hooks/useService";
-import Service from "../../components/shared/Service/Service";
-import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
-import Spinner from "../../components/shared/Spinner/Spinner";
+import { useEffect, useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useService from '../../hooks/useService';
+import Service from '../../components/shared/Service/Service';
+import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
+import Spinner from '../../components/shared/Spinner/Spinner';
 
 const ServicePage = () => {
   const { id } = useParams();
@@ -14,18 +14,24 @@ const ServicePage = () => {
 
   useEffect(() => {
     if (errMsg) {
-      console.error("Error loading service:", errMsg);
+      console.error('Error loading service:', errMsg);
       setErrorPopUp(true); // Mostramos el ErrorPopUp cuando hay un error
     }
   }, [errMsg]);
 
-  if (!token) return <Navigate to="/Register" />;
+  if (!token) return <Navigate to='/Register' />;
 
   return (
     <section>
-      <h1>Servicio</h1>
-      {console.log(service)}
-      {!service ? <Spinner /> : <Service service={service} />}
+
+      {loading ? (
+        <Spinner />
+      ) : service ? (
+        <Service {...service} />
+      ) : (
+        <p>No se encontró el servicio.</p>
+      )}
+
 
       {errorPopUp && (
         <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />

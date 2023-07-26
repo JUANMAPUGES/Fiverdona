@@ -1,3 +1,4 @@
+
 import PropTypes from "prop-types";
 import CommentService from "../../Comment/CommentService";
 
@@ -29,6 +30,7 @@ const ServiceBody = ({ service }) => {
         )}
       </ul>
     </>
+
   );
 };
 
