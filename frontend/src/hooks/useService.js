@@ -10,8 +10,8 @@ const useService = (id) => {
     const loadService = async () => {
       try {
         setLoading(true);
-        const data = await getServiceUtility(id);
-        setService(data);
+        const serviceData = await getServiceUtility(id);
+        setService(serviceData);
       } catch (error) {
         setErrMsg(error.message);
       } finally {

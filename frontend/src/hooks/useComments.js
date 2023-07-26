@@ -1,30 +1,30 @@
-import { useEffect, useState } from 'react';
-const useComments = () => {
+
+import { useEffect, useState } from "react";
+import getServiceUtility from "../utilities/getServiceUtility";
+
+const useComments = (serviceId) => {
   const [comments, setComments] = useState([]);
-  const [errMsg, setErrMsg] = useState('');
-  const [serviceId] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchComments = async () => {
+    const loadComments = async () => {
       try {
         setLoading(true);
-        const res = await fetch(
-          `http://localhost:8080/services/${serviceId}/comments`
-        );
-        const body = await res.json();
-        if (!res.ok) {
-          throw new Error(body.message);
-        }
-        setComments(body.data.services);
+
+        const serviceData = await getServiceUtility(serviceId);
+        setComments(serviceData.comments);
+
       } catch (err) {
         setErrMsg(err.message);
       } finally {
         setLoading(false);
       }
     };
-    fetchComments();
+    loadComments();
   }, [serviceId]);
-  return { comments, serviceId, errMsg, loading };
+
+  return { comments, errMsg, loading };
 };
+
 export default useComments;

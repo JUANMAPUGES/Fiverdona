@@ -33,8 +33,10 @@ const ServiceSearch = () => {
       {errorPopUp && (
         <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
       )}
-      <ul className='serviceList'>
-        {services.length > 0 ? (
+
+      <ul className="serviceList">
+        {services && services.length > 0 ? (
+
           services.map((service) => {
             return (
               <Link to={`/services/service/${service.id}`}>

@@ -52,6 +52,7 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
   return (
     <footer>
       <>
+
         <button onClick={fileDownload}>descargar archivo</button>
         <div className='button'>
           {token && (
@@ -65,6 +66,7 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
           checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
           disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.
         />
+
       </>
     </footer>
   );
@@ -72,8 +74,8 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
 
 ServiceFooter.propTypes = {
   serviceId: PropTypes.number,
-  owner: PropTypes.any,
-  resolved: PropTypes.bool,
+  owner: PropTypes.number,
+  resolved: PropTypes.number,
 };
 
 export default ServiceFooter;

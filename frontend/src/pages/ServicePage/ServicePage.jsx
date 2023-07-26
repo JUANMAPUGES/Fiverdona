@@ -23,6 +23,7 @@ const ServicePage = () => {
 
   return (
     <section>
+
       {loading ? (
         <Spinner />
       ) : service ? (
@@ -30,6 +31,7 @@ const ServicePage = () => {
       ) : (
         <p>No se encontró el servicio.</p>
       )}
+
 
       {errorPopUp && (
         <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />
