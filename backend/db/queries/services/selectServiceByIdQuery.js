@@ -33,7 +33,11 @@ const selectServiceByIdQuery = async (serviceId, userId = 0) => {
     }
     // Buscamos los comentarios del servicio.
     const [comments] = await connection.query(
-      `SELECT * FROM comments WHERE serviceId = ?`,
+      `
+        SELECT C.*, U.username FROM comments C 
+        INNER JOIN users U ON U.id = C.userId
+        WHERE serviceId = ?
+      `,
       [services[0].id]
     );
 

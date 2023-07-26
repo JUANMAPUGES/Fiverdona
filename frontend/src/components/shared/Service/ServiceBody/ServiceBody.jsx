@@ -1,17 +1,34 @@
-import PropTypes from "prop-types";
+import CommentService from "../../Comment/CommentService";
 
-const ServiceBody = ({ description, fileName }) => {
+//import useService from "../../../../hooks/useService";
+const ServiceBody = ({ service }) => {
   return (
-    <div>
-      <p>{description}</p>
-      {fileName && <a href={`http://localhost:8080/${fileName}`}></a>}
-    </div>
+    <>
+      <div>
+        <p>{service.description}</p>
+        {service.fileName && (
+          <a href={`http://localhost:8080/${service.fileName}`}></a>
+        )}
+      </div>
+      <ul className="serviceList">
+        {service.comments?.length > 0 ? (
+          service.comments.map((comment) => {
+            return (
+              <CommentService
+                key={comment.id}
+                username={comment.username}
+                comment={comment}
+                createdAt={comment.createdAt}
+                text={comment.text}
+                filename={comment.fileName}
+              />
+            );
+          })
+        ) : (
+          <li>¡De momento no hay comentarios asociados a este servicio!</li>
+        )}
+      </ul>
+    </>
   );
 };
-
-ServiceBody.propTypes = {
-  description: PropTypes.string,
-  fileName: PropTypes.string,
-};
-
 export default ServiceBody;

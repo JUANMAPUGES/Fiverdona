@@ -24,14 +24,8 @@ const ServicePage = () => {
   return (
     <section>
       <h1>Servicio</h1>
-
-      {loading ? (
-        <Spinner />
-      ) : service ? (
-        <Service {...service} />
-      ) : (
-        <p>No se encontró el servicio.</p>
-      )}
+      {console.log(service)}
+      {!service ? <Spinner /> : <Service service={service} />}
 
       {errorPopUp && (
         <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />

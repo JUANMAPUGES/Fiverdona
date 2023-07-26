@@ -5,15 +5,13 @@ const useService = (id) => {
   const [service, setService] = useState(null);
   const [errMsg, setErrMsg] = useState("");
   const [loading, setLoading] = useState(true);
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     const loadService = async () => {
       try {
         setLoading(true);
-        const data = await getServiceUtility(id);
-        setService(data);
-        setComments(data.comments);
+        const serviceData = await getServiceUtility(id);
+        setService(serviceData);
       } catch (error) {
         setErrMsg(error.message);
       } finally {
@@ -24,7 +22,7 @@ const useService = (id) => {
     loadService();
   }, [id]);
 
-  return { comments, service, errMsg, loading };
+  return { service, errMsg, loading };
 };
 
 export default useService;
