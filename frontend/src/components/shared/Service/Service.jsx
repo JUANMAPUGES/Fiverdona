@@ -13,10 +13,7 @@ const Service = ({ service }) => {
         createdAt={service.createdAt}
         title={service.title}
       />
-      <ServiceBody
-        description={service.description}
-        fileName={service.fileName}
-      />
+      <ServiceBody service={service} />
       <ServiceFooter
         serviceId={service.id}
         owner={service.owner}
