@@ -3,7 +3,7 @@ import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
 import SearchForm from '../../components/shared/SearchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import Service1 from '../../components/shared/Service/Service1';
+import Service from '../../components/shared/Service/Service';
 import Spinner from '../../components/shared/Spinner/Spinner';
 import { Link } from 'react-router-dom';
 import './home.css';
@@ -34,17 +34,12 @@ const ServiceSearch = () => {
         <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
       )}
 
-      <ul className="serviceList">
+      <ul className='serviceList'>
         {services && services.length > 0 ? (
-
           services.map((service) => {
             return (
               <Link to={`/services/service/${service.id}`}>
-                <Service1
-                  key={service.id}
-                  service={service}
-                  loading={loading}
-                />
+                <Service key={service.id} service={service} loading={loading} />
               </Link>
             );
           })

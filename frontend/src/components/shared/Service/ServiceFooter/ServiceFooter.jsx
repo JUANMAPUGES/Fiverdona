@@ -52,11 +52,10 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
   return (
     <footer>
       <>
-
         <button onClick={fileDownload}>descargar archivo</button>
         <div className='button'>
           {token && (
-            <NavLink to={`/services/${serviceId}/comments`}>Comentar</NavLink>
+            <NavLink to={`/services/${serviceId}/comment`}>Comentar</NavLink>
           )}
         </div>
 
@@ -66,7 +65,6 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
           checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
           disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.
         />
-
       </>
     </footer>
   );

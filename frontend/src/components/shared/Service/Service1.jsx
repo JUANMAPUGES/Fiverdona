@@ -4,7 +4,7 @@ import ServiceBody from './ServiceBody/ServiceBody';
 
 import './service.css';
 
-const Service = ({ service }) => {
+const Service1 = ({ service }) => {
   return (
     <li className='service-button'>
       <ServiceHeader
@@ -12,10 +12,7 @@ const Service = ({ service }) => {
         createdAt={service.createdAt}
         title={service.title}
       />
-      <ServiceBody
-        description={service.description}
-        fileName={service.fileName}
-      />
+      <ServiceBody service={service} />
     </li>
   );
 };
@@ -24,4 +21,4 @@ Service.propTypes = {
   service: PropTypes.object,
 };
 
-export default Service;
+export default Service1;
