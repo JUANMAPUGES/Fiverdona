@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 const useComments = () => {
   const [comments, setComments] = useState([]);
-  const [errMsg, setErrMsg] = useState("");
-  const [serviceId] = useState("");
+  const [errMsg, setErrMsg] = useState('');
+  const [serviceId] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const useComments = () => {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:8080/services?${serviceId}/comments`
+          `http://localhost:8080/services/${serviceId}/comments`
         );
         const body = await res.json();
         if (!res.ok) {
