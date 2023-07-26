@@ -37,16 +37,16 @@ const Profile = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Perfil</h2>
-      <div className="avatar-container">
+      {/*  <div className="avatar-container">
         <img src={avatarImg ? avatarImg : avatarImg} alt="avatar" />
-        {/*<input
+        <input
           type='file'
           {...registerUtility('avatar', {
             required: true,
           })}
           onChange={handleOnChangeAvatar}
-        />*/}
-      </div>
+        />
+      </div> */}
       {errors.file?.type === "required" && (
         <span className="error">Campo requerido</span>
       )}

@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import CommentService from "../../Comment/CommentService";
 
-//import useService from "../../../../hooks/useService";
 const ServiceBody = ({ service }) => {
   return (
     <>
@@ -30,5 +30,10 @@ const ServiceBody = ({ service }) => {
       </ul>
     </>
   );
+};
+
+ServiceBody.propTypes = {
+  comment: PropTypes.string,
+  service: PropTypes.string,
 };
 export default ServiceBody;
