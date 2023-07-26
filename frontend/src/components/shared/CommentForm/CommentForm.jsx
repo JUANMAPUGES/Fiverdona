@@ -1,4 +1,3 @@
-/* import useComments from "../../../hooks/useComments"; */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -25,9 +24,10 @@ const CommentForm = ({ token, serviceId }) => {
       await addCommentUtility(text, fileName, serviceId, token);
 
       // Redireccionamos a la página principal.
-      navigate('/'); //??*****
+
+      navigate('/'); // Redirecciona a la página principal después de agregar el comentario correctamente.
     } catch (err) {
-      setErrorPopUp(err.message);
+      setErrorPopUp(true);
     } finally {
       setLoading(false);
     }
@@ -62,13 +62,16 @@ const CommentForm = ({ token, serviceId }) => {
 
       {loading && <Spinner />}
 
-      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+      {errorPopUp && (
+        <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />
+      )}
     </form>
   );
 };
 
 CommentForm.propTypes = {
   token: PropTypes.string,
+  serviceId: PropTypes.number.isRequired, // Aseguramos que serviceId sea requerido y sea de tipo number.
 };
 
 export default CommentForm;

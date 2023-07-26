@@ -4,10 +4,12 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import Register from './pages/register/Register';
+import SignUpAvatar from './pages/sign-up-avatar/SignUpAvatar';
 import ServiceCreate from './pages/ServiceCreatePage/ServiceCreatePage';
 import NotFound from './pages/not-found/NotFound';
 import Footer from './components/shared/Footer/Footer';
-import Comment from './pages/CommentCreatePage/CommentCreatePage';
+import CommentCreatePage from './pages/CommentCreatePage/CommentCreatePage';
+import ServicePage from './pages/ServicePage/ServicePage';
 
 const App = () => {
   return (
@@ -18,10 +20,11 @@ const App = () => {
         <Route path='login' element={<Login />} />
         <Route path='profile' element={<Profile />} />
         <Route path='register' element={<Register />} />
-        {/*  <Route path="services/:id" element={<Services />} /> */}
+        <Route path='avatar' element={<SignUpAvatar />} />
+        <Route path='services/service/:id' element={<ServicePage />} />
         <Route path='services' element={<ServiceCreate />} />
+        <Route path='services/:id/comment' element={<CommentCreatePage />} />
         <Route path='*' element={<NotFound />} />
-        <Route path='comment' element={<Comment />} />
       </Routes>
       <Footer />
     </div>

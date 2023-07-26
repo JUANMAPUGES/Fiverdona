@@ -3,16 +3,14 @@ import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
 import SearchForm from '../../components/shared/SearchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import Service from '../../components/shared/Service/Service';
+import Service1 from '../../components/shared/Service/Service1';
 import Spinner from '../../components/shared/Spinner/Spinner';
-
+import { Link } from 'react-router-dom';
 import './home.css';
-
 
 const ServiceSearch = () => {
   const {
     services,
-    resolvedService,
     searchParams,
     setSearchParams,
     errorPopUp,
@@ -22,9 +20,8 @@ const ServiceSearch = () => {
   const { token } = useAuth();
 
   return (
-    <main className="serviceSearch">
+    <main className='serviceSearch'>
       <h2> Lista de servicios</h2>
-
 
       <SearchForm
         searchParams={searchParams}
@@ -33,22 +30,22 @@ const ServiceSearch = () => {
       />
 
       {loading && <Spinner />}
-       {errorPopUp && (
-              <ErrorPopUp
-                open={errorPopUp}
-                onClose={() => setErrorPopUp(false)}
-              />
-            )}
+      {errorPopUp && (
+        <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+      )}
+
       <ul className="serviceList">
-        {services.length > 0 ? (
+        {services && services.length > 0 ? (
+
           services.map((service) => {
             return (
-              <Service
-                key={service.id}
-                service={service}
-                resolvedService={resolvedService}
-                loading={loading}
-              />
+              <Link to={`/services/service/${service.id}`}>
+                <Service1
+                  key={service.id}
+                  service={service}
+                  loading={loading}
+                />
+              </Link>
             );
           })
         ) : (
@@ -57,12 +54,11 @@ const ServiceSearch = () => {
       </ul>
       {token && (
         <nav>
-          <div className="button">
-            <NavLink to="/services">Añadir un servicio</NavLink>
+          <div className='button'>
+            <NavLink to='/services'>Añadir un servicio</NavLink>
           </div>
         </nav>
       )}
-
     </main>
   );
 };

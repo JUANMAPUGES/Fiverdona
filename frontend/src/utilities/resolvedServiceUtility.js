@@ -14,6 +14,7 @@ const resolvedServiceUtility = async (serviceId, token) => {
   if (!res.ok) {
     throw new Error(body.message);
   }
+  return body; // Devolvemos el cuerpo de la respuesta (el estado actualizado).
 };
 
 export default resolvedServiceUtility;

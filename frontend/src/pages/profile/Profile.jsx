@@ -13,6 +13,7 @@ const Profile = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [errorPopUp, setErrorPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +27,7 @@ const Profile = () => {
       await registerUtility(username, email, password);
 
       // Redireccionamos a login.
+
       navigate('/login');
     } catch (err) {
       setErrorPopUp(true);

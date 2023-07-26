@@ -1,43 +1,43 @@
-li.service {
+li.service-button {
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
 }
 
-li.service:not(:first-child) {
+li.service-button:not(:first-child) {
     margin: 1rem 0;
 }
 
-li.service > header {
+li.service-button > header {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     background-color: rgb(230, 230, 230);
 }
 
-li.service > div {
+li.service-button > div {
     display: flex;
     flex-direction: column;
 }
 
-li.service > div > p {
+li.service-button > div > p {
     padding: 1rem;
 }
 
-li.service > div > img {
+li.service-button > div > img {
     width: 100%;
 }
 
-li.service > footer {
+li.service-button > footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-li.service > footer > div {
+li.service-button > footer > div {
     display: flex;
     align-items: center;
 }
 
-li.service > footer > div > div.heart {
+li.service-button > footer > div > div.heart {
     cursor: pointer;
     height: 70px;
     width: 70px;
@@ -47,16 +47,16 @@ li.service > footer > div > div.heart {
     background-size: 2900%;
 }
 
-li.service > footer > div > div.heart:hover {
+li.service-button > footer > div > div.heart:hover {
     background-position: right;
 }
 
-li.service > footer > div > div.heart.like {
+li.service-button > footer > div > div.heart.like {
     animation: heart-burst 0.8s steps(28) 1;
     animation-fill-mode: forwards;
 }
 
-li.service > footer > button {
+li.service-button > footer > button {
     width: 80px;
     margin-right: 1rem;
     border: 1px solid gray;

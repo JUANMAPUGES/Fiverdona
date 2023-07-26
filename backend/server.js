@@ -7,12 +7,14 @@ const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
+app.use(express.static('uploads'));
+
+app.use(morgan('dev'));
+
 app.use(express.json());
 
 app.use(fileUpload());
-
-app.use(morgan('dev'));
-app.use(cors());
 
 //Middlewares personalizados.
 
