@@ -1,0 +1,77 @@
+li.service-button-1 {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
+}
+
+li.service-button-1:not(:first-child) {
+    margin: 1rem 0;
+}
+
+li.service-button-1 > header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: rgb(230, 230, 230);
+}
+
+li.service-button-1 > div {
+    display: flex;
+    flex-direction: column;
+}
+
+li.service-button-1 > div > p {
+    padding: 1rem;
+}
+
+li.service-button-1 > div > img {
+    width: 100%;
+}
+
+li.service-button-1 > footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li.service-button-1 > footer > div {
+    display: flex;
+    align-items: center;
+}
+
+li.service-button-1 > footer > div > div.heart {
+    cursor: pointer;
+    height: 70px;
+    width: 70px;
+    background-image: url('/public/heart_animation.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 2900%;
+}
+
+li.service-button-1 > footer > div > div.heart:hover {
+    background-position: right;
+}
+
+li.service-button-1 > footer > div > div.heart.like {
+    animation: heart-burst 0.8s steps(28) 1;
+    animation-fill-mode: forwards;
+}
+
+li.service-button-1 > footer > button {
+    width: 80px;
+    margin-right: 1rem;
+    border: 1px solid gray;
+    align-self: center;
+    padding: 0.5rem 0;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes heart-burst {
+    from {
+        background-position: left;
+    }
+    to {
+        background-position: right;
+    }
+}
