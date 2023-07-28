@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import userUtility from "../utilities/userUtility";
+import getUserUtility from "./../utilities/getUserUtility";
 
 const AuthContext = createContext(null);
 
@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const user = await userUtility(token);
+        const user = await getUserUtility(token);
 
         setUser(user);
       } catch (err) {

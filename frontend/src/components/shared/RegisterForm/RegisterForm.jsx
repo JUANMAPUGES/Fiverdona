@@ -1,8 +1,8 @@
 import { useState } from "react";
 import registerUtility from "../../../utilities/registerUtility";
 import Spinner from "../../shared/Spinner/Spinner";
-import ErrorPopUp from "../error-pop-up/ErrorPopUp";
 
+import ErrorMessage from "../../shared/ErrorMessage/ErrorMessage";
 import "./registerForm.css";
 import { useNavigate } from "react-router-dom";
 
@@ -13,15 +13,15 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordV, setPasswordV] = useState("");
-  const [errorPopUp, setErrorPopUp] = useState(false);
-  const [loading, setLoading] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   // Función que maneja el envío del formulario.
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       if (password !== passwordV) {
-        setErrorPopUp(true)("Las contraseñas no coinciden");
+        setErrorMessage("Las contraseñas no coinciden");
         return;
       }
       setLoading(true);
@@ -31,7 +31,7 @@ const RegisterForm = () => {
       // Redireccionamos a login.
       navigate("/login");
     } catch (err) {
-      setErrorPopUp(true);
+      setErrorMessage(err.message);
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ const RegisterForm = () => {
 
       {loading && <Spinner />}
 
-      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+      {errorMessage && <ErrorMessage msg={errorMessage} />}
     </form>
   );
 };
