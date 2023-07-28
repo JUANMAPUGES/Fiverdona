@@ -1,12 +1,12 @@
-import { createContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import userUtility from "../utilities/userUtility";
-
+import userUtility from '../utilities/userUtility';
+import updateUserUtility from '../utilities/updateUserUtility';
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(localStorage.getItem('token'));
   const [user, setUser] = useState(null);
 
   // Obtenemos los datos del usuario si existe un token.
@@ -27,17 +27,24 @@ const AuthProvider = ({ children }) => {
 
   // Función de login.
   const login = (newToken) => {
-    localStorage.setItem("token", newToken);
+    localStorage.setItem('token', newToken);
     setToken(newToken);
   };
 
   // Función de logout.
   const logout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     setToken(null);
     setUser(null);
   };
-
+  const updateProfile = async (formData, config) => {
+    try {
+      const response = await updateUserUtility(formData, config);
+      setUser(response.data.user);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
   return (
     <AuthContext.Provider value={{ token, login, logout, user }}>
       {children}
