@@ -13,7 +13,6 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordV, setPasswordV] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   // Función que maneja el envío del formulario.
