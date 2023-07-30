@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import ServiceHeader from './ServiceHeader/ServiceHeader';
 import ServiceBody from './ServiceBody/ServiceBody';
 import ServiceFooter from './ServiceFooter/ServiceFooter';
-import { Link } from 'react-router-dom';
 
 import './service.css';
 
@@ -19,6 +18,7 @@ const Service = ({ service }) => {
         serviceId={service.id}
         owner={service.owner}
         resolved={service.resolved}
+        fileName={service.fileName}
       />
     </li>
   );

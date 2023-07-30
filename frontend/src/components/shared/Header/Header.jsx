@@ -15,20 +15,20 @@ const Header = () => {
         {user && <p className='p-header'>@{user.username}</p>}
         {!token && (
           <>
-            <div className='button'>
+            <div className='he-login'>
               <NavLink to='/login'>Login</NavLink>
             </div>
-            <div className='button'>
+            <div className='he-regis'>
               <NavLink to='/register'>Registro</NavLink>
             </div>
           </>
         )}
         {token && (
           <>
-            <div className='button'>
+            <div className='he-profile'>
               <NavLink to='/profile'>Perfil</NavLink>
             </div>
-            <div className='button' onClick={() => logout()}>
+            <div className='he-close' onClick={() => logout()}>
               <NavLink to='/'>Cerrar Sesión</NavLink>
             </div>
           </>

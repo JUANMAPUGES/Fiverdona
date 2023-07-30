@@ -1,6 +1,5 @@
-
-import PropTypes from "prop-types";
-import CommentService from "../../Comment/CommentService";
+import PropTypes from 'prop-types';
+import CommentService from '../../Comment/CommentService';
 
 const ServiceBody = ({ service }) => {
   return (
@@ -11,7 +10,7 @@ const ServiceBody = ({ service }) => {
           <a href={`http://localhost:8080/${service.fileName}`}></a>
         )}
       </div>
-      <ul className="serviceList">
+      <ul className='commentList'>
         {service.comments?.length > 0 ? (
           service.comments.map((comment) => {
             return (
@@ -30,7 +29,6 @@ const ServiceBody = ({ service }) => {
         )}
       </ul>
     </>
-
   );
 };
 

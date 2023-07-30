@@ -1,56 +1,65 @@
-div.app > header {
+header {
+  width: 100%;
+  margin: 0;
+  position: fixed;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+h1 {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
   padding: 2rem;
-  margin-bottom: 2rem;
-}
 
-div.app > header a {
-  text-decoration: none;
-  color: black;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-}
-
-.p-header {
-  align-self: center;
-  font-weight: bold;
-  color: #f7a5fa;
-  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
-    1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-}
-
-nav > div.button {
-  padding: 0.5rem 0;
-  width: 80px;
-  font-weight: bold;
-  text-align: center;
-  background-image: linear-gradient(to right, #c6ffdd, #fbd786);
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
-}
-
-nav > div.button:active {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-}
-
-nav > div.button:first-child {
-  margin-right: 1rem;
-}
-
-nav > div.button a {
-  text-decoration: none;
-  color: black;
-}
-
-.logo {
+  letter-spacing: 4px;
   font-weight: 100;
   font-family: 'shrikhand', sans-serif;
-  margin: 1em 0;
+  text-decoration: none;
+  color: black;
   transition: transform 0.15s;
+  background-image: linear-gradient(to right, #5c9ea1, #487375, #1e3837);
+}
+.p-header {
+  display: inline-block;
+  font-weight: bold;
+  color: #df9856;
+  text-shadow: 2px 2px 3px #000000;
+}
+
+nav div {
+  position: absolute;
   display: block;
+  right: 0;
+  top: 0;
+}
+
+.he-login,
+.he-regis,
+.he-profile,
+.he-close {
+  padding: 0.5rem;
+
+  width: 80px;
+  border-radius: 40px 40px 40px 40px;
+  text-align: center;
+
+  font-weight: bold;
+  background-color: #dda964;
+  box-shadow: 0px 5px 0px rgb(0, 00, 0, 0.6);
+}
+
+.he-login:hover,
+.he-regis:hover,
+.he-profile:hover,
+.he-close:hover {
+  transition: 0.2s;
+}
+
+.he-login:active,
+.he-regis:active,
+.he-profile:active,
+.he-close:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px rgb(0, 00, 0, 0.6);
 }

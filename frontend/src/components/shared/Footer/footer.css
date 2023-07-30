@@ -1,11 +1,11 @@
 footer {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-image: linear-gradient(to left, #c6ffdd, #fbd786, #f7797d);
+  background-image: linear-gradient(to left, #5c9ea1, #487375, #1e3837);
   color: black;
-  margin-top: 2rem;
 }
 
 .p-footer {

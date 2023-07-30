@@ -1,22 +1,24 @@
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10rem;
+}
 .h2-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
   text-transform: uppercase;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-top: 10rem;
 }
 
 .form-profile {
+  display: flex;
   border: 2px solid lightgray;
   border-radius: 100px;
-  position: absolute;
-  width: 70%;
+  width: 50%;
 }
 .avatar-container {
   display: flex;
