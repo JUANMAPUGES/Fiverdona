@@ -38,53 +38,61 @@ const RegisterForm = () => {
   };
 
   return (
-    <form className='f-register' onSubmit={handleSubmit}>
-      <h2 className='h2-register'>Registro</h2>
+    <main>
+      <form className='f-register' onSubmit={handleSubmit}>
+        <div className='inputs-register'>
+          <input
+            className='i-register'
+            placeholder='NOMBRE'
+            type='text'
+            id='username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            minLength='3'
+            autoFocus
+            required
+          />
 
-      <label htmlFor='username'>Usuario:</label>
-      <input
-        type='text'
-        id='username'
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        minLength='3'
-        autoFocus
-        required
-      />
-      <label htmlFor='email'>Email:</label>
-      <input
-        type='email'
-        id='email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <label htmlFor='password'>Contraseña:</label>
-      <input
-        type='password'
-        id='password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        minLength='8'
-        maxLength='100'
-        required
-      />
-      <label htmlFor='password'>Repetir contraseña:</label>
-      <input
-        type='password'
-        id='passwordV'
-        value={passwordV}
-        onChange={(e) => setPasswordV(e.target.value)}
-        minLength='8'
-        maxLength='100'
-        required
-      />
-      <button className='b-register'>Registrarse</button>
+          <input
+            className='i-register'
+            placeholder='EMAIL'
+            type='email'
+            id='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-      {loading && <Spinner />}
+          <input
+            className='i-register'
+            placeholder='CONTRASEÑA'
+            type='password'
+            id='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            minLength='8'
+            maxLength='100'
+            required
+          />
 
-      <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
-    </form>
+          <input
+            className='i-register'
+            placeholder='REPITE CONTRASEÑA'
+            type='password'
+            id='passwordV'
+            value={passwordV}
+            onChange={(e) => setPasswordV(e.target.value)}
+            minLength='8'
+            maxLength='100'
+            required
+          />
+          <button className='b-register'>REGISTRATE</button>
+        </div>
+        {loading && <Spinner />}
+
+        <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
+      </form>
+    </main>
   );
 };
 

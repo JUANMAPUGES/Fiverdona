@@ -38,7 +38,6 @@ const Profile = () => {
 
   return (
     <>
-      <h2 className='h2-profile'>Perfil</h2>
       <main>
         <form className='form-profile' onSubmit={handleSubmit}>
           <div className='avatar-container'>
@@ -55,39 +54,39 @@ const Profile = () => {
             <span className='error'>Campo requerido</span>
           )}
           <div className='inputs-container'>
-            <label htmlFor='username'>Nuevo usuario:</label>
             <input
               type='text'
               id='username'
+              placeholder='NOMBRE'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               minLength='3'
               autoFocus
               required
             />
-            <button className='button-profile'>Guardar</button>
+            <button className='button-profile'>GUARDAR CAMBIOS</button>
 
-            <label htmlFor='email'>Nuevo email:</label>
             <input
               type='email'
               id='email'
+              placeholder='EMAIL'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <button className='button-profile'>Guardar</button>
+            <button className='button-profile'>GUARDAR CAMBIOS</button>
 
-            <label htmlFor='password'>Nueva contraseña:</label>
             <input
               type='password'
               id='password'
+              placeholder=' CONTRASEÑA'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               minLength='8'
               maxLength='100'
               required
             />
-            <button className='button-profile'>Guardar</button>
+            <button className='button-profile'>GUARDAR CAMBIOS</button>
           </div>
           {loading && <Spinner />}
 

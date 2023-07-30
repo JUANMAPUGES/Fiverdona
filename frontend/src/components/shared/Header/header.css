@@ -32,6 +32,7 @@ nav div {
   display: block;
   right: 0;
   top: 0;
+  text-align: center;
 }
 
 .he-login,
@@ -61,5 +62,5 @@ nav div {
 .he-profile:active,
 .he-close:active {
   transform: translateY(5px);
-  box-shadow: 0px 0px 0px rgb(0, 00, 0, 0.6);
+  box-shadow: 0px 0px 0px rgb(0, 0, 0, 0.6);
 }

@@ -3,22 +3,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 10rem;
-}
-.h2-profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  padding-top: 10rem;
 }
 
 .form-profile {
-  display: flex;
-  border: 2px solid lightgray;
+  margin: 10rem;
+  display: block;
+  border: 2px solid #b99834;
   border-radius: 100px;
-  width: 50%;
+  width: 60%;
+  background-color: #dcb233b4;
 }
 .avatar-container {
   display: flex;
@@ -42,18 +35,17 @@ main {
   flex-direction: column;
   margin-bottom: 10px;
 }
-.form-profile > input {
-  display: flex;
-  justify-content: center;
-  margin-left: 10px;
-  margin-bottom: 0.5rem;
-  padding: 0.3rem;
+input::placeholder {
+  text-align: center;
+  font-weight: bold;
+  background-color: #5c9da0;
 }
-
 label {
   margin-bottom: 10px;
 }
 .button-profile {
   margin-top: 6px;
   margin-bottom: 30px;
+  padding: 5px;
+  font-weight: bold;
 }

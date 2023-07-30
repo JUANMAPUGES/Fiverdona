@@ -1,18 +1,29 @@
-.f-register {
+main {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 10rem;
+  align-items: center;
 }
-
-.h2-register {
-  padding-bottom: 1rem;
+.f-register {
   display: block;
-  margin: auto;
+  margin: 10rem;
+  border: 2px solid #b99834;
+  border-radius: 100px;
+  width: 60%;
+  background-color: #dcb233b4;
 }
 
-input {
-  margin-bottom: 1rem;
-  padding: 0.3rem;
+.inputs-register {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.i-register::placeholder {
+  text-align: center;
+  font-weight: bold;
+  background-color: #5c9da0;
 }
 
 .b-register {
