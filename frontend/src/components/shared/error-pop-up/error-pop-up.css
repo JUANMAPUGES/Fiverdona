@@ -30,8 +30,8 @@ h4 {
 }
 
 .close:hover {
-  background: var(--blue-color);
-  box-shadow: 4px 4px 10px rgb(128, 128, 128);
+  background: #dda964;
+  box-shadow: 2px 2px 5px rgb(128, 128, 128);
   border-radius: 20px;
   transition: 0.5s;
 }

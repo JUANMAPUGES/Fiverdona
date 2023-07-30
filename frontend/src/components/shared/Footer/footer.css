@@ -1,14 +1,14 @@
 footer {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
   padding: 2rem;
+  bottom: 0;
+  position: fixed;
   background-image: linear-gradient(to left, #5c9ea1, #487375, #1e3837);
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .p-footer {
-  display: flex;
-  align-items: center;
+  text-align: center;
+  font-weight: bold;
 }

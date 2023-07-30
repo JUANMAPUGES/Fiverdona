@@ -1,10 +1,27 @@
-form {
+.f-register {
   display: flex;
   flex-direction: column;
   padding-top: 10rem;
 }
 
-main.register > form > input {
+.h2-register {
+  padding-bottom: 1rem;
+  display: block;
+  margin: auto;
+}
+
+input {
   margin-bottom: 1rem;
   padding: 0.3rem;
+}
+
+.b-register {
+  display: block;
+  margin: auto;
+  padding: 0.5rem;
+
+  width: 100px;
+  border-radius: 40px 40px 40px 40px;
+
+  background-color: #dda964;
 }

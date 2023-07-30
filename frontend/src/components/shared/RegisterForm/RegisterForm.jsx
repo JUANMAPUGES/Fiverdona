@@ -1,18 +1,18 @@
-import { useState } from "react";
-import registerUtility from "../../../utilities/registerUtility";
-import Spinner from "../../shared/Spinner/Spinner";
-import ErrorPopUp from "../error-pop-up/ErrorPopUp";
+import { useState } from 'react';
+import registerUtility from '../../../utilities/registerUtility';
+import Spinner from '../../shared/Spinner/Spinner';
+import ErrorPopUp from '../error-pop-up/ErrorPopUp';
 
-import "./registerForm.css";
-import { useNavigate } from "react-router-dom";
+import './registerForm.css';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordV, setPasswordV] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordV, setPasswordV] = useState('');
   const [errorPopUp, setErrorPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +21,7 @@ const RegisterForm = () => {
     try {
       e.preventDefault();
       if (password !== passwordV) {
-        setErrorPopUp(true)("Las contraseñas no coinciden");
+        setErrorPopUp(true)('Las contraseñas no coinciden');
         return;
       }
       setLoading(true);
@@ -29,7 +29,7 @@ const RegisterForm = () => {
       await registerUtility(username, email, password);
 
       // Redireccionamos a login.
-      navigate("/login");
+      navigate('/login');
     } catch (err) {
       setErrorPopUp(true);
     } finally {
@@ -38,48 +38,48 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Registro</h2>
+    <form className='f-register' onSubmit={handleSubmit}>
+      <h2 className='h2-register'>Registro</h2>
 
-      <label htmlFor="username">Usuario:</label>
+      <label htmlFor='username'>Usuario:</label>
       <input
-        type="text"
-        id="username"
+        type='text'
+        id='username'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        minLength="3"
+        minLength='3'
         autoFocus
         required
       />
-      <label htmlFor="email">Email:</label>
+      <label htmlFor='email'>Email:</label>
       <input
-        type="email"
-        id="email"
+        type='email'
+        id='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <label htmlFor="password">Contraseña:</label>
+      <label htmlFor='password'>Contraseña:</label>
       <input
-        type="password"
-        id="password"
+        type='password'
+        id='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        minLength="8"
-        maxLength="100"
+        minLength='8'
+        maxLength='100'
         required
       />
-      <label htmlFor="password">Repetir contraseña:</label>
+      <label htmlFor='password'>Repetir contraseña:</label>
       <input
-        type="password"
-        id="passwordV"
+        type='password'
+        id='passwordV'
         value={passwordV}
         onChange={(e) => setPasswordV(e.target.value)}
-        minLength="8"
-        maxLength="100"
+        minLength='8'
+        maxLength='100'
         required
       />
-      <button>Registrarse</button>
+      <button className='b-register'>Registrarse</button>
 
       {loading && <Spinner />}
 

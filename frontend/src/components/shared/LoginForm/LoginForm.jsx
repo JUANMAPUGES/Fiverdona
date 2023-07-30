@@ -31,8 +31,8 @@ const LoginForm = ({ login }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+    <form className='f-login' onSubmit={handleSubmit}>
+      <h2 className='h2-login'>Login</h2>
       <label htmlFor='email'>Email:</label>
       <input
         type='email'
@@ -51,7 +51,7 @@ const LoginForm = ({ login }) => {
         maxLength='100'
         required
       />
-      <button>Iniciar Sesión</button>
+      <button className='b-login'>Iniciar Sesión</button>
       {loading && <Spinner />}
       <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
     </form>
