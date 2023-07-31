@@ -14,7 +14,7 @@ const Profile = ({
   const [newPass, setNewPass] = useState("");
   const [repeatedNewPass, setRepeatedNewPass] = useState("");
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [, /* errorMessage */ setErrorMessage] = useState("");
 
   // Establecemos el avatar del usuario.
   const avatarUrl = user.avatar

@@ -7,7 +7,9 @@ const ServiceBody = ({ service }) => {
       <div>
         <p>{service.description}</p>
       </div>
-      <ul className="commentList">
+
+      {/*  <ul className='commentList'>
+
         {service.comments?.length > 0 ? (
           service.comments.map((comment) => {
             return (
@@ -24,7 +26,7 @@ const ServiceBody = ({ service }) => {
         ) : (
           <li>¡De momento no hay comentarios asociados a este servicio!</li>
         )}
-      </ul>
+      </ul> */}
     </>
   );
 };

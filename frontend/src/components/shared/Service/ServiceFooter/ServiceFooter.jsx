@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import useAuth from "../../../../hooks/useAuth";
 import { NavLink } from "react-router-dom";
 import resolvedServiceUtility from "./../../../../utilities/resolvedServiceUtility"; // Importamos el componente.
+import CommentService from "../../Comment/CommentService";
 
-const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
+const ServiceFooter = ({ service, serviceId, owner, resolved, fileName }) => {
   const { token } = useAuth();
   const fileDownload = async () => {
     const fileUrl = `http://localhost:8080/${fileName}`;
@@ -30,6 +31,31 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
     link.remove();
     window.URL.revokeObjectURL(url);
   };
+  /* const fileDownload1 = async () => {
+    const fileUrl = `http://localhost:8080/services/service/service.id/comment/${fileName}`;
+
+    //obtenemos el archivo con fetch
+    const res = await fetch(fileUrl);
+    const blob = await res.blob();
+
+    //creamos un objeto URL para el blob
+    const url = window.URL.createObjectURL(blob);
+
+    //creamos un enlace temporal
+    const link = document.createElement('a');
+    link.href = url;
+
+    // asignamos un nombre al enlace de descarga anterior
+    link.download = commentfileName;
+
+    //simulamos un click en el enlace para iniciar la descarga
+    document.body.append(link);
+    link.click();
+
+    //eliminamos el enlace temporal
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  }; */
 
   const handleResolvedService = async () => {
     try {
@@ -65,6 +91,24 @@ const ServiceFooter = ({ serviceId, owner, resolved, fileName }) => {
           checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
           disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.
         />
+        <ul className="commentList">
+          {service.comments?.length > 0 ? (
+            service.comments.map((comment) => {
+              return (
+                <CommentService
+                  key={comment.id}
+                  username={comment.username}
+                  comment={comment}
+                  createdAt={comment.createdAt}
+                  text={comment.text}
+                  filename={comment.fileName}
+                />
+              );
+            })
+          ) : (
+            <li>¡De momento no hay comentarios asociados a este servicio!</li>
+          )}
+        </ul>
       </>
     </footer>
   );
@@ -74,7 +118,8 @@ ServiceFooter.propTypes = {
   serviceId: PropTypes.number,
   owner: PropTypes.number,
   resolved: PropTypes.number,
-  fileName: PropTypes.any,
+  comment: PropTypes.string,
+  service: PropTypes.string,
 };
 
 export default ServiceFooter;
