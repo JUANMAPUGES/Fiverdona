@@ -27,7 +27,7 @@ const Header = () => {
         {token && (
           <>
             <div className='he-profile'>
-              <NavLink to='/profile'>Perfil</NavLink>
+              <NavLink to='/profile'>Inicio</NavLink>
             </div>
             <div className='he-close' onClick={() => logout()}>
               <NavLink to='/'>Cerrar Sesión</NavLink>

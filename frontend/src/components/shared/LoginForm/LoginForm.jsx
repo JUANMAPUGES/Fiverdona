@@ -32,18 +32,19 @@ const LoginForm = ({ login }) => {
 
   return (
     <form className='f-login' onSubmit={handleSubmit}>
-      <label htmlFor='email'>Email:</label>
       <input
         className='i-loginF'
+        placeholder='EMAIL'
         type='email'
         id='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <label htmlFor='password'>Contraseña:</label>
+
       <input
         className='i-loginF'
+        placeholder='CONTRASEÑA'
         type='password'
         id='password'
         value={password}

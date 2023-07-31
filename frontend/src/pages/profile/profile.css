@@ -40,6 +40,10 @@ input::placeholder {
   font-weight: bold;
   background-color: #5c9da0;
 }
+
+::-webkit-input-placeholder {
+  color: rgb(0, 0, 0);
+}
 label {
   margin-bottom: 10px;
 }

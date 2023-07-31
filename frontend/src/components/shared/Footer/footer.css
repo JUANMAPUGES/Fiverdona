@@ -1,14 +1,15 @@
 footer {
+  display: flex;
   width: 100%;
   margin: 0;
   padding: 2rem;
   bottom: 0;
-  position: fixed;
+
   background-image: linear-gradient(to left, #5c9ea1, #487375, #1e3837);
   color: rgb(0, 0, 0);
 }
 
 .p-footer {
-  text-align: center;
+  margin: auto;
   font-weight: bold;
 }
