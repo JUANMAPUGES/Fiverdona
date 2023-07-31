@@ -1,12 +1,12 @@
 import { useState } from "react";
-import registerUtility from "../../../utilities/registerUtility";
+
 import Spinner from "../../shared/Spinner/Spinner";
 
 import ErrorMessage from "../../shared/ErrorMessage/ErrorMessage";
 import "./registerForm.css";
 import { useNavigate } from "react-router-dom";
 
-const RegisterForm = () => {
+const RegisterForm = ({ authRegister }) => {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -25,7 +25,7 @@ const RegisterForm = () => {
       }
       setLoading(true);
 
-      await registerUtility(username, email, password);
+      await authRegister(username, email, password);
 
       // Redireccionamos a login.
       navigate("/login");

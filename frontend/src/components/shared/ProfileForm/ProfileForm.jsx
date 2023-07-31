@@ -12,7 +12,7 @@ import ErrorMessage from "../../shared/ErrorMessage/ErrorMessage";
 
 const ProfileForm = () => {
   const navigate = useNavigate();
-  const { avatar, username, email, password } = useProfile();
+  const { avatar, username, email, password } = useProfile(id);
   const [newUsername, setNewUsername] = useState(username);
   const [newEmail, setNewEmail] = useState(email);
   const [newPassword, setNewPassword] = useState("");

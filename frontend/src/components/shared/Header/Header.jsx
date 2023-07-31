@@ -4,7 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import "./Header.css";
 
 const Header = () => {
-  const { token, logout, user } = useAuth();
+  const { token, authLogout, user } = useAuth();
 
   return (
     <header>
@@ -23,12 +23,12 @@ const Header = () => {
             </div>
           </>
         )}
-        {token && (
+        {user && (
           <>
             <div className="button">
-              <NavLink to="/profile">Perfil</NavLink>
+              <NavLink to={`/users/user/${user.id}`}>Perfil</NavLink>
             </div>
-            <div className="button" onClick={() => logout()}>
+            <div className="button" onClick={() => authLogout()}>
               <NavLink to="/">Cerrar Sesión</NavLink>
             </div>
           </>

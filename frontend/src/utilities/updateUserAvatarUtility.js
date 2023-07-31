@@ -13,13 +13,13 @@ const updateUserAvatarUtility = async (newAvatar, token) => {
       body: formData,
     });
 
-    const responseData = await response.json();
+    const body = await response.json();
 
     if (!response.ok) {
-      throw new Error(responseData.message);
+      throw new Error(body.message);
     }
 
-    return responseData.message;
+    return body.data.avatar.name;
   } catch (error) {
     throw new Error("Error al actualizar el avatar: " + error.message);
   }

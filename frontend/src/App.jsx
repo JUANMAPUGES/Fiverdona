@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/shared/Header/Header";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Profile from "./pages/profile/UserProfilePage";
+import UserProfilePage from "./pages/profile/UserProfilePage";
 import Register from "./pages/register/Register";
 import SignUpAvatar from "./pages/sign-up-avatar/SignUpAvatar";
 import ServiceCreate from "./pages/ServiceCreatePage/ServiceCreatePage";
@@ -18,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile" element={<UserProfilePage />} />
         <Route path="register" element={<Register />} />
         <Route path="avatar" element={<SignUpAvatar />} />
         <Route path="services/service/:id" element={<ServicePage />} />

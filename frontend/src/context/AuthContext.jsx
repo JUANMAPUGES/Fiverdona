@@ -1,8 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+// Importamos las funciones que me permiten hacer peticiones al servidor.
 import getUserUtility from "./../utilities/getUserUtility";
+import loginUtility from "../utilities/loginUtility";
+import registerUtility from "../utilities/registerUtility";
+import updateUserAvatarUtility from "../utilities/updateUserAvatarUtility";
+import updateUserMailUtility from "../utilities/updateUserMailUtility";
+import updateUserPasswordUtility from "../utilities/updateUserPasswordUtility";
 
+// Creamos el contexto.
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
@@ -25,21 +32,67 @@ const AuthProvider = ({ children }) => {
     if (token) fetchUser();
   }, [token]);
 
-  // Función de login.
-  const login = (newToken) => {
+  // Función que registra un usuario.
+  const authRegister = async (username, email, password) => {
+    await registerUtility(username, email, password);
+  };
+
+  // Función de login que almacena el token en el localStorage y en el State.
+  const authLogin = async (email, password) => {
+    const newToken = await loginUtility(email, password);
+
     localStorage.setItem("token", newToken);
+
     setToken(newToken);
   };
 
-  // Función de logout.
-  const logout = () => {
+  // Función de logout que elimina el token del localStorage y del State. También elimina
+  // el usuario del State.
+  const authLogout = () => {
     localStorage.removeItem("token");
     setToken(null);
     setUser(null);
   };
 
+  // Función que edita el avatar y actualiza el State.
+  const authUpdateAvatar = async (newAvatar) => {
+    const avatarName = await updateUserAvatarUtility(newAvatar, token);
+
+    setUser({
+      ...user,
+      avatar: avatarName,
+    });
+  };
+
+  // Función que edita el nombre de usuario y el email. Actualizamos el State.
+  const authUpdateUsernameEmail = async (newUsername, newEmail) => {
+    await updateUserMailUtility(newUsername, newEmail, token);
+
+    setUser({
+      ...user,
+      username: newUsername,
+      email: newEmail,
+    });
+  };
+
+  // Función que edita la contraseña del usuario.
+  const authUpdatePassword = async (currentPass, newPass) => {
+    await updateUserPasswordUtility(currentPass, newPass, token);
+  };
+
   return (
-    <AuthContext.Provider value={{ token, login, logout, user }}>
+    <AuthContext.Provider
+      value={{
+        token,
+        user,
+        authRegister,
+        authLogin,
+        authLogout,
+        authUpdateAvatar,
+        authUpdateUsernameEmail,
+        authUpdatePassword,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

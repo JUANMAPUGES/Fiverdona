@@ -1,4 +1,4 @@
-const updateUserMailUtility = async (newEmail, newUsername, token) => {
+const updateUserMailUtility = async (newUsername, newEmail, token) => {
   const url = "http://localhost:8080/users";
 
   try {
