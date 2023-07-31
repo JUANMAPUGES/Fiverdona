@@ -8,7 +8,7 @@ import "./commentCreatePage.css";
 const CommentCreatePage = () => {
   const { token } = useAuth();
   const { id } = useParams(); // Obtiene el id del servicio desde la URL.
-  console.log(id);
+
   // Si la persona NO está logueada la redirigimos a la página de Login.
   if (!token) return <Navigate to="/login" />;
 

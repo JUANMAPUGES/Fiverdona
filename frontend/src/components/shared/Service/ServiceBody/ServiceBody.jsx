@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import CommentService from '../../Comment/CommentService';
+import PropTypes from "prop-types";
+import CommentService from "../../Comment/CommentService";
 
 const ServiceBody = ({ service }) => {
   return (
@@ -7,7 +7,7 @@ const ServiceBody = ({ service }) => {
       <div>
         <p>{service.description}</p>
       </div>
-      {/*  <ul className='commentList'>
+      <ul className="commentList">
         {service.comments?.length > 0 ? (
           service.comments.map((comment) => {
             return (
@@ -24,13 +24,12 @@ const ServiceBody = ({ service }) => {
         ) : (
           <li>¡De momento no hay comentarios asociados a este servicio!</li>
         )}
-      </ul> */}
+      </ul>
     </>
   );
 };
 
 ServiceBody.propTypes = {
-  comment: PropTypes.string,
-  service: PropTypes.string,
+  service: PropTypes.object,
 };
 export default ServiceBody;

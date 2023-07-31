@@ -19,13 +19,17 @@ const editUserAvatar = async (req, res, next) => {
 
     // Guardamos el avatar en una carpeta del servidor y obtenemos el nombre con el que lo hemos
     // guardado.
-    const avatar = await savePhoto(req.files.avatar, 100);
+    const avatarName = await savePhoto(req.files.avatar, 100);
 
-    await updateUserAvatarQuery(avatar, req.user.id);
+    await updateUserAvatarQuery(avatarName, req.user.id);
 
     res.send({
       status: 'ok',
-      message: 'Avatar actualizado.',
+      data: {
+        avatar: {
+          name: avatarName,
+        },
+      },
     });
   } catch (err) {
     next(err);
