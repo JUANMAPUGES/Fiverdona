@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import defaultAvatar from "../../assets/avatar.jpg";
 import { useState } from "react";
-
+import "./profile.css";
 const Profile = ({
   user,
   authUpdateAvatar,
@@ -73,11 +73,12 @@ const Profile = ({
   };
 
   return (
-    <>
-      <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
+    <main>
+      <div className="avatar-container">
+        <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
 
-      <input type="file" onChange={handleUpdateAvatar} />
-
+        <input type="file" onChange={handleUpdateAvatar} />
+      </div>
       <form onSubmit={handleUpdateUsernameEmail}>
         <label htmlFor="username">Usuario:</label>
         <input
@@ -122,7 +123,7 @@ const Profile = ({
 
         <button type="submit">Guardar Cambios</button>
       </form>
-    </>
+    </main>
   );
 };
 
@@ -131,7 +132,10 @@ Profile.propTypes = {
     username: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     avatar: PropTypes.string,
-  }).isRequired,
+  }),
+  authUpdateAvatar: PropTypes.func,
+  authUpdateUsernameEmail: PropTypes.func,
+  authUpdatePassword: PropTypes.func,
 };
 
 export default Profile;
