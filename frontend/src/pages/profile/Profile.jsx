@@ -1,18 +1,18 @@
-import { useState } from "react";
-import registerUtility from "../../utilities/registerUtility";
-import Spinner from "../../../src/components/shared/Spinner/Spinner";
-import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
+import { useState } from 'react';
+import registerUtility from '../../utilities/registerUtility';
+import Spinner from '../../../src/components/shared/Spinner/Spinner';
+import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
 //import avatarImg from "../../assets/avatar.jpg";
-/*import useProfile from './useProfile';*/
-import "./profile.css";
-import { useNavigate } from "react-router-dom";
+import useProfile from './useProfile';
+import './profile.css';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const navigate = useNavigate();
-  const errors = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const errors = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errorPopUp, setErrorPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -26,7 +26,7 @@ const Profile = () => {
       await registerUtility(username, email, password);
 
       // Redireccionamos a login.
-      navigate("/login");
+      navigate('/login');
     } catch (err) {
       setErrorPopUp(true);
     } finally {
@@ -37,7 +37,7 @@ const Profile = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Perfil</h2>
-      {/*  <div className="avatar-container">
+      {/* <div className="avatar-container">
         <img src={avatarImg ? avatarImg : avatarImg} alt="avatar" />
         <input
           type='file'
@@ -46,40 +46,40 @@ const Profile = () => {
           })}
           onChange={handleOnChangeAvatar}
         />
-      </div> */}
-      {errors.file?.type === "required" && (
-        <span className="error">Campo requerido</span>
-      )}
-      <label htmlFor="username">Nuevo usuario:</label>
+      </div>  */}
+      {/* {errors.file?.type === 'required' && (
+        <span className='error'>Campo requerido</span>
+      )} */}
+      <label htmlFor='username'>Nuevo usuario:</label>
       <input
-        type="text"
-        id="username"
+        type='text'
+        id='username'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        minLength="3"
+        minLength='3'
         autoFocus
         required
       />
       <button>Guardar</button>
 
-      <label htmlFor="email">Nuevo email:</label>
+      <label htmlFor='email'>Nuevo email:</label>
       <input
-        type="email"
-        id="email"
+        type='email'
+        id='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
       <button>Guardar</button>
 
-      <label htmlFor="password">Nueva contraseña:</label>
+      <label htmlFor='password'>Nueva contraseña:</label>
       <input
-        type="password"
-        id="password"
+        type='password'
+        id='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        minLength="8"
-        maxLength="100"
+        minLength='8'
+        maxLength='100'
         required
       />
       <button>Guardar</button>

@@ -19,6 +19,7 @@ const Service = ({ service }) => {
         owner={service.owner}
         resolved={service.resolved}
         fileName={service.fileName}
+        service={service}
       />
     </li>
   );
