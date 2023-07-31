@@ -11,6 +11,7 @@ const Header = () => {
       <h1 className='logo'>
         <NavLink to='/'>FIVERDONA</NavLink>
       </h1>
+
       <nav>
         {user && <p className='p-header'>@{user.username}</p>}
         {!token && (

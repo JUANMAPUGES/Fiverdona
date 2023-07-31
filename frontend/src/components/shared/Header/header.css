@@ -2,14 +2,15 @@ header {
   width: 100%;
   margin: 0;
   position: fixed;
+  display: inline;
 }
 
 header a {
   text-decoration: none;
   color: black;
 }
+
 h1 {
-  display: flex;
   padding: 2rem;
 
   letter-spacing: 4px;
@@ -21,18 +22,16 @@ h1 {
   background-image: linear-gradient(to right, #5c9ea1, #487375, #1e3837);
 }
 .p-header {
-  display: inline-block;
   font-weight: bold;
   color: #df9856;
   text-shadow: 2px 2px 3px #000000;
 }
 
-nav div {
-  position: absolute;
-  display: block;
-  right: 0;
-  top: 0;
-  text-align: center;
+nav div .he-login,
+.he-regis,
+.he-profile,
+.he-close {
+  display: inline-block;
 }
 
 .he-login,
