@@ -4,7 +4,6 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import UserProfilePage from "./pages/profile/UserProfilePage";
 import Register from "./pages/register/Register";
-import SignUpAvatar from "./pages/sign-up-avatar/SignUpAvatar";
 import ServiceCreate from "./pages/ServiceCreatePage/ServiceCreatePage";
 import NotFound from "./pages/not-found/NotFound";
 import Footer from "./components/shared/Footer/Footer";
@@ -20,7 +19,7 @@ const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="profile" element={<UserProfilePage />} />
         <Route path="register" element={<Register />} />
-        <Route path="avatar" element={<SignUpAvatar />} />
+
         <Route path="services/service/:id" element={<ServicePage />} />
         <Route path="services" element={<ServiceCreate />} />
         <Route path="services/:id/comment" element={<CommentCreatePage />} />

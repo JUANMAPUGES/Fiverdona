@@ -5,16 +5,16 @@ import "./header.css";
 
 const Header = () => {
   const { token, authLogout, user } = useAuth();
-  const avatarUrl = user.avatar
+  /*  const avatarUrl = user.avatar
     ? `http://localhost:8080/${user.avatar}`
-    : defaultAvatar;
+    : defaultAvatar; */
   return (
     <header>
       <h1 className="logo">
         <NavLink to="/">FIVERDONA</NavLink>
       </h1>
       <nav>
-        {user && <img src={avatarUrl} alt={`Avatar de ${user.username}`} />}
+        {/* {user && <img src={avatarUrl} alt={`Avatar de ${user.username}`} />} */}
         {!token && (
           <>
             <div className="button">
