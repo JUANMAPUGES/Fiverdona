@@ -94,7 +94,7 @@ ServiceFooter.propTypes = {
   owner: PropTypes.number,
   resolved: PropTypes.number,
   comment: PropTypes.string,
-  service: PropTypes.string,
+  service: PropTypes.object,
   fileName: PropTypes.any,
 };
 

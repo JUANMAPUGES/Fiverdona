@@ -93,6 +93,6 @@ const RegisterForm = ({ authRegister }) => {
   );
 };
 
-RegisterForm.PropTypes = { authRegister: PropTypes.func.isRequired };
+RegisterForm.propTypes = { authRegister: PropTypes.func.isRequired };
 
 export default RegisterForm;

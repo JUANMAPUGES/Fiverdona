@@ -74,62 +74,64 @@ const Profile = ({
 
   return (
     <main>
-      <div className='avatar-container'>
-        <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
+      <div className='form-profile'>
+        <div className='avatar-container'>
+          <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
 
-        <input type='file' onChange={handleUpdateAvatar} />
+          <input type='file' onChange={handleUpdateAvatar} />
+        </div>
+        <form onSubmit={handleUpdateUsernameEmail}>
+          <label htmlFor='username'>Usuario:</label>
+          <input
+            type='text'
+            id='username'
+            placeholder='NOMBRE'
+            defaultValue={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label htmlFor='email'>Email:</label>
+          <input
+            type='email'
+            id='email'
+            placeholder='EMAIL'
+            defaultValue={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <button type='submit' className='button-profile'>
+            GUARDAR CAMBIOS
+          </button>
+        </form>
+
+        <form onSubmit={handleUpdatePassword}>
+          <label htmlFor='pass'>Password:</label>
+          <input
+            type='password'
+            id='pass'
+            placeholder=' CONTRASEÑA'
+            value={currentPass}
+            onChange={(e) => setCurrentPass(e.target.value)}
+          />
+          <label htmlFor='newPass'>New Password:</label>
+          <input
+            type='password'
+            id='newPass'
+            value={newPass}
+            onChange={(e) => setNewPass(e.target.value)}
+          />
+          <label htmlFor='repeatedNewPass'>Repeat New Password:</label>
+          <input
+            type='password'
+            id='repeatedNewPass'
+            value={repeatedNewPass}
+            onChange={(e) => setRepeatedNewPass(e.target.value)}
+          />
+
+          <button type='submit' className='button-profile'>
+            GUARDAR CAMBIOS
+          </button>
+        </form>
       </div>
-      <form onSubmit={handleUpdateUsernameEmail}>
-        <label htmlFor='username'>Usuario:</label>
-        <input
-          type='text'
-          id='username'
-          placeholder='NOMBRE'
-          defaultValue={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor='email'>Email:</label>
-        <input
-          type='email'
-          id='email'
-          placeholder='EMAIL'
-          defaultValue={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <button type='submit' className='button-profile'>
-          GUARDAR CAMBIOS
-        </button>
-      </form>
-
-      <form onSubmit={handleUpdatePassword}>
-        <label htmlFor='pass'>Password:</label>
-        <input
-          type='password'
-          id='pass'
-          placeholder=' CONTRASEÑA'
-          value={currentPass}
-          onChange={(e) => setCurrentPass(e.target.value)}
-        />
-        <label htmlFor='newPass'>New Password:</label>
-        <input
-          type='password'
-          id='newPass'
-          value={newPass}
-          onChange={(e) => setNewPass(e.target.value)}
-        />
-        <label htmlFor='repeatedNewPass'>Repeat New Password:</label>
-        <input
-          type='password'
-          id='repeatedNewPass'
-          value={repeatedNewPass}
-          onChange={(e) => setRepeatedNewPass(e.target.value)}
-        />
-
-        <button type='submit' className='button-profile'>
-          GUARDAR CAMBIOS
-        </button>
-      </form>
     </main>
   );
 };
