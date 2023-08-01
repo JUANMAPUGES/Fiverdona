@@ -45,6 +45,7 @@ main.login {
   border-radius: 40px 40px 40px 40px;
 
   background-color: #dda964;
+  font-weight: bold;
 }
 
 .b-login:hover {
