@@ -1,43 +1,43 @@
-li.service-button {
+li.service-button-1 {
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
 }
 
-li.service-button:not(:first-child) {
+li.service-button-1:not(:first-child) {
   margin: 1rem 0;
 }
 
-li.service-button > header {
+li.service-button-1 > header {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
   background-color: rgb(230, 230, 230);
 }
 
-li.service-button > div {
+li.service-button-1 > div {
   display: flex;
   flex-direction: column;
 }
 
-li.service-button > div > p {
+li.service-button-1 > div > p {
   padding: 1rem;
 }
 
-li.service-button > div > img {
+li.service-button-1 > div > img {
   width: 100%;
 }
 
-li.service-button > footer {
+li.service-button-1 > footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-li.service-button > footer > div {
+li.service-button-1 > footer > div {
   display: flex;
   align-items: center;
 }
 
-li.service-button > footer > button {
+li.service-button-1 > footer > button {
   width: 80px;
   margin-right: 1rem;
   border: 1px solid gray;

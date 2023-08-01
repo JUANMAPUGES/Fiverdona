@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import addCommentUtility from '../../../utilities/addCommentUtility';
 import Spinner from '../Spinner/Spinner';
 import ErrorPopUp from '../error-pop-up/ErrorPopUp';
-import './commentForm.css';
+
 const CommentForm = ({ token, serviceId }) => {
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const CommentForm = ({ token, serviceId }) => {
 
       // Redireccionamos a la página principal.
 
-      navigate('/'); // Redirecciona a la página principal después de agregar el comentario correctamente.
+      navigate('/');
     } catch (err) {
       setErrorPopUp(true);
     } finally {
@@ -71,7 +71,7 @@ const CommentForm = ({ token, serviceId }) => {
 
 CommentForm.propTypes = {
   token: PropTypes.string,
-  serviceId: PropTypes.number.isRequired, // Aseguramos que serviceId sea requerido y sea de tipo number.
+  serviceId: PropTypes.number.isRequired,
 };
 
 export default CommentForm;

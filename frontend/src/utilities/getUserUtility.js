@@ -1,4 +1,4 @@
-const userUtility = async (token) => {
+const getUserUtility = async (token) => {
   const res = await fetch("http://localhost:8080/users", {
     headers: {
       Authorization: token,
@@ -14,4 +14,4 @@ const userUtility = async (token) => {
   return body.data.user;
 };
 
-export default userUtility;
+export default getUserUtility;

@@ -1,100 +1,148 @@
+import PropTypes from 'prop-types';
+import defaultAvatar from '../../assets/avatar.jpg';
 import { useState } from 'react';
-import registerUtility from '../../utilities/registerUtility';
-import Spinner from '../../../src/components/shared/Spinner/Spinner';
-import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
-import avatarImg from '../../assets/avatar.jpg';
-/*import useProfile from './useProfile';*/
 import './profile.css';
-import { useNavigate } from 'react-router-dom';
+const Profile = ({
+  user,
+  authUpdateAvatar,
+  authUpdateUsernameEmail,
+  authUpdatePassword,
+}) => {
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [currentPass, setCurrentPass] = useState('');
+  const [newPass, setNewPass] = useState('');
+  const [repeatedNewPass, setRepeatedNewPass] = useState('');
 
-const Profile = () => {
-  const navigate = useNavigate();
-  const errors = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const [errorPopUp, setErrorPopUp] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // Establecemos el avatar del usuario.
+  const avatarUrl = user.avatar
+    ? `http://localhost:8080/${user.avatar}`
+    : defaultAvatar;
 
-  // Función que maneja el envío del formulario.
-  const handleSubmit = async (e) => {
+  // Función que permite editar el avatar.
+  const handleUpdateAvatar = async (e) => {
     try {
-      e.preventDefault();
+      await authUpdateAvatar(e.target.files[0]);
 
-      setLoading(true);
-
-      await registerUtility(username, email, password);
-
-      // Redireccionamos a login.
-
-      navigate('/login');
+      // Mostrar un mensaje de éxito o redirigir a otra página
+      alert('Perfil actualizado exitosamente');
     } catch (err) {
-      setErrorPopUp(true);
+      console.error(err);
+      setErrorMessage(err.message);
+    }
+  };
+
+  // Función que permite editar el nombre de usuario y email.
+  const handleUpdateUsernameEmail = async (e) => {
+    e.preventDefault();
+
+    try {
+      await authUpdateUsernameEmail(username, email);
+
+      // Mostrar un mensaje de éxito o redirigir a otra página
+      alert('Perfil actualizado exitosamente');
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
+
+  // Función que permite editar la contraseña.
+  const handleUpdatePassword = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Si la contraseña nueva no es correcta lanzamos un error.
+      if (newPass !== repeatedNewPass) {
+        alert('¡La contraseña nueva no coincide!');
+        throw new Error('¡La contraseña nueva no coincide!');
+      }
+
+      await authUpdatePassword(currentPass, newPass);
+
+      // Mostrar un mensaje de éxito o redirigir a otra página
+      alert('Perfil actualizado exitosamente');
+    } catch (error) {
+      setErrorMessage(error.message);
     } finally {
-      setLoading(false);
+      setCurrentPass('');
+      setNewPass('');
+      setRepeatedNewPass('');
     }
   };
 
   return (
-    <>
-      <main>
-        <form className='form-profile' onSubmit={handleSubmit}>
-          <div className='avatar-container'>
-            <img src={avatarImg ? avatarImg : avatarImg} alt='avatar' />
-            <input
-              type='file'
-              {...registerUtility('avatar', {
-                required: true,
-              })}
-              /* onChange={handleOnChangeAvatar} */
-            />
-          </div>
-          {errors.file?.type === 'required' && (
-            <span className='error'>Campo requerido</span>
-          )}
-          <div className='inputs-container'>
-            <input
-              type='text'
-              id='username'
-              placeholder='NOMBRE'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              minLength='3'
-              autoFocus
-              required
-            />
-            <button className='button-profile'>GUARDAR CAMBIOS</button>
+    <main>
+      <div className='avatar-container'>
+        <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
 
-            <input
-              type='email'
-              id='email'
-              placeholder='EMAIL'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button className='button-profile'>GUARDAR CAMBIOS</button>
+        <input type='file' onChange={handleUpdateAvatar} />
+      </div>
+      <form onSubmit={handleUpdateUsernameEmail}>
+        <label htmlFor='username'>Usuario:</label>
+        <input
+          type='text'
+          id='username'
+          placeholder='NOMBRE'
+          defaultValue={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label htmlFor='email'>Email:</label>
+        <input
+          type='email'
+          id='email'
+          placeholder='EMAIL'
+          defaultValue={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-            <input
-              type='password'
-              id='password'
-              placeholder=' CONTRASEÑA'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              minLength='8'
-              maxLength='100'
-              required
-            />
-            <button className='button-profile'>GUARDAR CAMBIOS</button>
-          </div>
-          {loading && <Spinner />}
+        <button type='submit' className='button-profile'>
+          GUARDAR CAMBIOS
+        </button>
+      </form>
 
-          <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
-        </form>
-      </main>
-    </>
+      <form onSubmit={handleUpdatePassword}>
+        <label htmlFor='pass'>Password:</label>
+        <input
+          type='password'
+          id='pass'
+          placeholder=' CONTRASEÑA'
+          value={currentPass}
+          onChange={(e) => setCurrentPass(e.target.value)}
+        />
+        <label htmlFor='newPass'>New Password:</label>
+        <input
+          type='password'
+          id='newPass'
+          value={newPass}
+          onChange={(e) => setNewPass(e.target.value)}
+        />
+        <label htmlFor='repeatedNewPass'>Repeat New Password:</label>
+        <input
+          type='password'
+          id='repeatedNewPass'
+          value={repeatedNewPass}
+          onChange={(e) => setRepeatedNewPass(e.target.value)}
+        />
+
+        <button type='submit' className='button-profile'>
+          GUARDAR CAMBIOS
+        </button>
+      </form>
+    </main>
   );
+};
+
+Profile.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    avatar: PropTypes.string,
+  }),
+  authUpdateAvatar: PropTypes.func,
+  authUpdateUsernameEmail: PropTypes.func,
+  authUpdatePassword: PropTypes.func,
 };
 
 export default Profile;

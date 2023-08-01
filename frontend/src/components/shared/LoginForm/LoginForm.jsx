@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import loginUtility from '../../../utilities/loginUtility';
 import Spinner from '../../shared/Spinner/Spinner';
 import ErrorPopUp from '../error-pop-up/ErrorPopUp';
 
 import './loginForm.css';
+import { useNavigate } from 'react-router-dom';
 
-const LoginForm = ({ login }) => {
+const LoginForm = ({ authLogin }) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [loading, setLoading] = useState(false);
   const [errorPopUp, setErrorPopUp] = useState(false);
 
@@ -19,10 +22,9 @@ const LoginForm = ({ login }) => {
 
       setLoading(true);
 
-      const token = await loginUtility(email, password);
+      await authLogin(email, password);
 
-      // Guardamos el token en el localStorage.
-      login(token);
+      navigate('/');
     } catch (err) {
       setErrorPopUp(true);
     } finally {
@@ -61,7 +63,7 @@ const LoginForm = ({ login }) => {
 };
 
 LoginForm.propTypes = {
-  login: PropTypes.func,
+  authLogin: PropTypes.func,
 };
 
 export default LoginForm;

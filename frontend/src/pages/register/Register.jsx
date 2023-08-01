@@ -3,15 +3,14 @@ import useAuth from "../../hooks/useAuth";
 import RegisterForm from "../../components/shared/RegisterForm/RegisterForm";
 
 const Register = () => {
-  const { token } = useAuth();
+  const { token, authRegister } = useAuth();
 
-  // Si la persona está logeada la redirigimos a la página principal.
+  // Si la persona está logueada la redirigimos a la página del login.
   if (token) return <Navigate to="/login" />;
-  // *****Acordarse de que esto tiene que ir al dashboard con el token*****
 
   return (
     <main className="register">
-      <RegisterForm />
+      <RegisterForm authRegister={authRegister} />
     </main>
   );
 };

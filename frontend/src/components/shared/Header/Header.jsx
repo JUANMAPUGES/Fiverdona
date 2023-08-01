@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-
-import './Header.css';
+import defaultAvatar from '../../../assets/avatar.jpg';
+import './header.css';
 
 const Header = () => {
-  const { token, logout, user } = useAuth();
-
+  const { token, authLogout, user } = useAuth();
+  /*  const avatarUrl = user.avatar
+    ? `http://localhost:8080/${user.avatar}`
+    : defaultAvatar; */
   return (
     <header>
       <h1 className='logo'>
@@ -13,7 +15,7 @@ const Header = () => {
       </h1>
 
       <nav>
-        {user && <p className='p-header'>@{user.username}</p>}
+        {/* {user && <img src={avatarUrl} alt={`Avatar de ${user.username}`} />} */}
         {!token && (
           <>
             <div className='he-login'>
@@ -24,10 +26,10 @@ const Header = () => {
             </div>
           </>
         )}
-        {token && (
+        {user && (
           <>
             <div className='he-profile'>
-              <NavLink to='/profile'>Inicio</NavLink>
+              <NavLink to={'/profile'}>Perfil</NavLink>
             </div>
             <div className='he-close' onClick={() => logout()}>
               <NavLink to='/'>Cerrar Sesión</NavLink>
