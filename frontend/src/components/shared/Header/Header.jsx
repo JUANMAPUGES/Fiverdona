@@ -32,7 +32,7 @@ const Header = () => {
               <NavLink to={'/profile'}>Perfil</NavLink>
             </div>
             <div className='he-close' onClick={() => authLogout()}>
-              <NavLink to='/'>Cerrar Sesión</NavLink>
+              <NavLink to='/'>Cerrar sesión</NavLink>
             </div>
           </>
         )}

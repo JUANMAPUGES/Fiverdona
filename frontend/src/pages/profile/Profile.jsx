@@ -74,60 +74,72 @@ const Profile = ({
 
   return (
     <main>
-      <div className='form-profile'>
+      <div className='div-profile'>
         <div className='avatar-container'>
           <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
 
           <input type='file' onChange={handleUpdateAvatar} />
         </div>
-        <form onSubmit={handleUpdateUsernameEmail}>
-          <label htmlFor='username'>Usuario:</label>
+        <form className='f-profile' onSubmit={handleUpdateUsernameEmail}>
+          <label className='l-profile' htmlFor='username'>
+            Usuario:
+          </label>
           <input
             type='text'
             id='username'
-            placeholder='NOMBRE'
+            className='i-profile'
             defaultValue={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label htmlFor='email'>Email:</label>
+          <label className='l-profile' htmlFor='email'>
+            Email:
+          </label>
           <input
             type='email'
             id='email'
-            placeholder='EMAIL'
+            className='i-profile'
             defaultValue={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <button type='submit' className='button-profile'>
+          <button type='submit' className='b-profile'>
             GUARDAR CAMBIOS
           </button>
         </form>
 
-        <form onSubmit={handleUpdatePassword}>
-          <label htmlFor='pass'>Password:</label>
+        <form className='f-profile' onSubmit={handleUpdatePassword}>
+          <label className='l-profile' htmlFor='pass'>
+            Contraseña:
+          </label>
           <input
             type='password'
             id='pass'
-            placeholder=' CONTRASEÑA'
+            className='i-profile'
             value={currentPass}
             onChange={(e) => setCurrentPass(e.target.value)}
           />
-          <label htmlFor='newPass'>New Password:</label>
+          <label className='l-profile' htmlFor='newPass'>
+            Nueva contraseña:
+          </label>
           <input
             type='password'
             id='newPass'
+            className='i-profile'
             value={newPass}
             onChange={(e) => setNewPass(e.target.value)}
           />
-          <label htmlFor='repeatedNewPass'>Repeat New Password:</label>
+          <label className='l-profile' htmlFor='repeatedNewPass'>
+            Repetir nueva contraseña:
+          </label>
           <input
             type='password'
             id='repeatedNewPass'
+            className='i-profile'
             value={repeatedNewPass}
             onChange={(e) => setRepeatedNewPass(e.target.value)}
           />
 
-          <button type='submit' className='button-profile'>
+          <button type='submit' className='b-profile'>
             GUARDAR CAMBIOS
           </button>
         </form>

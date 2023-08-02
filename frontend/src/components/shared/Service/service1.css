@@ -1,7 +1,3 @@
-li.service-button-1 {
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
-}
-
 li.service-button-1:not(:first-child) {
   margin: 1rem 0;
 }
@@ -38,12 +34,11 @@ li.service-button-1 > footer > div {
 }
 
 li.service-button-1 > footer > button {
-  width: 80px;
+  width: 8000px;
   margin-right: 1rem;
   border: 1px solid gray;
   align-self: center;
   padding: 0.5rem 0;
   font-weight: bold;
   background-color: white;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
 }

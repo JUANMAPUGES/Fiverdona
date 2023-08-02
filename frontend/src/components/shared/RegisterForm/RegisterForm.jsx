@@ -37,59 +37,57 @@ const RegisterForm = ({ authRegister }) => {
   };
 
   return (
-    <main>
-      <form className='f-register' onSubmit={handleSubmit}>
-        <div className='inputs-register'>
-          <input
-            className='i-register'
-            placeholder='NOMBRE'
-            type='text'
-            id='username'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            minLength='3'
-            autoFocus
-            required
-          />
+    <form className='f-register' onSubmit={handleSubmit}>
+      <div className='inputs-register'>
+        <input
+          className='i-register'
+          placeholder='NOMBRE'
+          type='text'
+          id='username'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          minLength='3'
+          autoFocus
+          required
+        />
 
-          <input
-            className='i-register'
-            placeholder='EMAIL'
-            type='email'
-            id='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <input
+          className='i-register'
+          placeholder='EMAIL'
+          type='email'
+          id='email'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-          <input
-            className='i-register'
-            placeholder='CONTRASEÑA'
-            type='password'
-            id='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            minLength='8'
-            maxLength='100'
-            required
-          />
+        <input
+          className='i-register'
+          placeholder='CONTRASEÑA'
+          type='password'
+          id='password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          minLength='8'
+          maxLength='100'
+          required
+        />
 
-          <input
-            className='i-register'
-            placeholder='REPITE CONTRASEÑA'
-            type='password'
-            id='passwordV'
-            value={passwordV}
-            onChange={(e) => setPasswordV(e.target.value)}
-            minLength='8'
-            maxLength='100'
-            required
-          />
-          <button className='b-register'>REGISTRATE</button>
-        </div>
-        {loading && <Spinner />}
-      </form>
-    </main>
+        <input
+          className='i-register'
+          placeholder='REPITE CONTRASEÑA'
+          type='password'
+          id='passwordV'
+          value={passwordV}
+          onChange={(e) => setPasswordV(e.target.value)}
+          minLength='8'
+          maxLength='100'
+          required
+        />
+        <button className='b-register'>REGISTRATE</button>
+      </div>
+      {loading && <Spinner />}
+    </form>
   );
 };
 
