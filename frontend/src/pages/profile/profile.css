@@ -71,3 +71,15 @@ main {
   transform: scale(1.05);
   box-shadow: 1px 2px 1px rgba(128, 128, 128, 0.6);
 }
+.image-upload > input {
+  display: none;
+}
+
+.image-upload img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #48afc2;
+  cursor: pointer;
+}
