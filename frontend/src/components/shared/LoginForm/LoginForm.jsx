@@ -1,16 +1,16 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
-import Spinner from "../../shared/Spinner/Spinner";
-import ErrorPopUp from "../error-pop-up/ErrorPopUp";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import Spinner from '../../shared/Spinner/Spinner';
+import ErrorPopUp from '../error-pop-up/ErrorPopUp';
 
-import "./loginForm.css";
-import { useNavigate } from "react-router-dom";
+import './loginForm.css';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ authLogin }) => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [errorPopUp, setErrorPopUp] = useState(false);
@@ -24,7 +24,7 @@ const LoginForm = ({ authLogin }) => {
 
       await authLogin(email, password);
 
-      navigate("/");
+      navigate('/');
     } catch (err) {
       setErrorPopUp(true);
     } finally {
@@ -33,27 +33,29 @@ const LoginForm = ({ authLogin }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <label htmlFor="email">Email:</label>
+    <form className='f-login' onSubmit={handleSubmit}>
       <input
-        type="email"
-        id="email"
+        className='i-loginF'
+        placeholder='EMAIL'
+        type='email'
+        id='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <label htmlFor="password">Contraseña:</label>
+
       <input
-        type="password"
-        id="password"
+        className='i-loginF'
+        placeholder='CONTRASEÑA'
+        type='password'
+        id='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        minLength="8"
-        maxLength="100"
+        minLength='8'
+        maxLength='100'
         required
       />
-      <button>Iniciar Sesión</button>
+      <button className='b-login'>Login</button>
       {loading && <Spinner />}
       <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
     </form>

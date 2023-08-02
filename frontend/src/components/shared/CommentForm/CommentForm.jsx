@@ -24,6 +24,7 @@ const CommentForm = ({ token, serviceId }) => {
       await addCommentUtility(text, fileName, serviceId, token);
 
       // Redireccionamos a la página principal.
+
       navigate('/');
     } catch (err) {
       setErrorPopUp(true);
@@ -33,12 +34,15 @@ const CommentForm = ({ token, serviceId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>¿Qué te ha parecido este servicio? Deja tu comentario.</h2>
+    <form className='form-comment' onSubmit={handleSubmit}>
+      <h2 className='h2-comment'>
+        ¿Que te ha parecido este servicio? Deja tu comentario
+      </h2>
 
       <input type='file' onChange={(e) => setFileName(e.target.files[0])} />
 
       <textarea
+        className='text'
         value={text}
         onChange={(e) => setText(e.target.value)}
         minLength='10'
@@ -46,7 +50,15 @@ const CommentForm = ({ token, serviceId }) => {
         required
       />
 
-      <button disabled={loading}>Enviar comentario</button>
+      <div className='button-comment' disabled={loading}>
+        <button className='button-1'>
+          Enviar
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
       {loading && <Spinner />}
 

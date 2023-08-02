@@ -16,7 +16,7 @@ const CommentService = ({ username, createdAt, text, fileName }) => {
     link.href = url;
 
     // asignamos un nombre al enlace de descarga anterior
-    link.download = commentfileName;
+    link.download = fileName;
 
     //simulamos un click en el enlace para iniciar la descarga
     document.body.append(link);
@@ -41,11 +41,10 @@ const CommentService = ({ username, createdAt, text, fileName }) => {
           })}
         </time>
       </header>
-      <body>
-        <p>{text}</p>
-        {fileName && <a href={`http://localhost:8080/${fileName}`}></a>}
-        <button onClick={fileDownload1}>descargar archivo</button>
-      </body>
+
+      <p>{text}</p>
+      {fileName && <a href={`http://localhost:8080/${fileName}`}></a>}
+      <button onClick={fileDownload1}>descargar archivo</button>
     </div>
   );
 };

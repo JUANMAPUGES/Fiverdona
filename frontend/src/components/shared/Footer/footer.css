@@ -1,6 +1,17 @@
-div.app > footer {
-  text-align: center;
+footer {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  margin: 0;
   padding: 2rem;
-  background-color: var(--blue-color);
-  color: black;
+  bottom: 0;
+
+  background-image: linear-gradient(to left, #5c9ea1, #487375, #1e3837);
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+}
+
+.p-footer {
+  margin: auto;
+  font-weight: bold;
 }

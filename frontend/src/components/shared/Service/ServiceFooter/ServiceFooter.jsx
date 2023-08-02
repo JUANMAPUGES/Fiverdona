@@ -53,7 +53,7 @@ const ServiceFooter = ({ service, serviceId, owner, resolved, fileName }) => {
   return (
     <footer>
       <>
-        <button onClick={fileDownload}>Descargar archivo</button>
+        <button onClick={fileDownload}>descargar archivo</button>
         <div className='button'>
           {token && (
             <NavLink to={`/services/${serviceId}/comment`}>Comentar</NavLink>
@@ -94,7 +94,7 @@ ServiceFooter.propTypes = {
   owner: PropTypes.number,
   resolved: PropTypes.number,
   comment: PropTypes.string,
-  service: PropTypes.string,
+  service: PropTypes.object,
   fileName: PropTypes.any,
 };
 

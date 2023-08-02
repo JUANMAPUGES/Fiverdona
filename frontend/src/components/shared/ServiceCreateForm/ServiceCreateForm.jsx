@@ -34,18 +34,23 @@ const ServiceCreateForm = ({ token }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='f-service' onSubmit={handleSubmit}>
       <h2>¿Qué servicio quieres publicar? 🤔</h2>
       <input
         type='text'
         placeholder='Título del servicio'
+        className='i-service'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         minLength='5'
         autoFocus
         required
       />
-      <input type='file' onChange={(e) => setFileName(e.target.files[0])} />
+      <input
+        type='file'
+        className='i2-service'
+        onChange={(e) => setFileName(e.target.files[0])}
+      />
 
       <textarea
         value={description}
@@ -54,7 +59,9 @@ const ServiceCreateForm = ({ token }) => {
         required
       />
 
-      <button disabled={loading}>Crear servicio</button>
+      <button className='b-service' disabled={loading}>
+        Añadir servicio
+      </button>
 
       {loading && <Spinner />}
       <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
