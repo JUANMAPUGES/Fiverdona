@@ -14,16 +14,18 @@ const UserProfilePage = () => {
   if (!token) return <Navigate to="/Register" />;
 
   return (
-    <section>
-      {user && (
-        <Profile
-          user={user}
-          authUpdateAvatar={authUpdateAvatar}
-          authUpdateUsernameEmail={authUpdateUsernameEmail}
-          authUpdatePassword={authUpdatePassword}
-        />
-      )}
-    </section>
+    <main>
+      <section>
+        {user && (
+          <Profile
+            user={user}
+            authUpdateAvatar={authUpdateAvatar}
+            authUpdateUsernameEmail={authUpdateUsernameEmail}
+            authUpdatePassword={authUpdatePassword}
+          />
+        )}
+      </section>
+    </main>
   );
 };
 

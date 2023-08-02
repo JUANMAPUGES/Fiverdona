@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getServiceUtility from "../utilities/getServiceUtility";
+import getServiceUtility from "../utilities/servicesUtilities/getServiceUtility";
 
 const useService = (id) => {
   const [service, setService] = useState(null);

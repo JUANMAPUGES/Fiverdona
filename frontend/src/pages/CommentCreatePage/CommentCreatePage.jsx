@@ -14,7 +14,6 @@ const CommentCreatePage = () => {
 
   return (
     <main className="commentCreate">
-      {/* Pasa el id del servicio como prop al componente CommentForm */}
       <CommentForm token={token} serviceId={Number(id)} />
     </main>
   );

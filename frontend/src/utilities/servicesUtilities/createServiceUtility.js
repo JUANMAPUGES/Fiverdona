@@ -1,4 +1,4 @@
-const serviceCreateUtility = async (title, description, fileName, token) => {
+const CreateServiceUtility = async (title, description, fileName, token) => {
   // Si queremos enviar un body en formato "form-data" es necesario crear un objeto de este
   // mismo tipo y "pushear" en él los elementos que queremos enviar.
   const formData = new FormData();
@@ -26,4 +26,4 @@ const serviceCreateUtility = async (title, description, fileName, token) => {
   }
 };
 
-export default serviceCreateUtility;
+export default CreateServiceUtility;

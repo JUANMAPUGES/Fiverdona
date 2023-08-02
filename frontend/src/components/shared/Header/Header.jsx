@@ -1,38 +1,41 @@
-import { NavLink } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
-import defaultAvatar from '../../../assets/avatar.jpg';
-import './header.css';
+import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import defaultAvatar from "../../../assets/avatar.jpg";
+import "./header.css";
 
 const Header = () => {
   const { token, authLogout, user } = useAuth();
-  /*  const avatarUrl = user.avatar
+  const avatarUrl = user?.avatar
     ? `http://localhost:8080/${user.avatar}`
-    : defaultAvatar; */
+    : defaultAvatar;
   return (
     <header>
-      <h1 className='logo'>
-        <NavLink to='/'>FIVERDONA</NavLink>
+      <h1 className="logo">
+        <NavLink to="/">FIVERDONA</NavLink>
       </h1>
 
       <nav>
-        {/* {user && <img src={avatarUrl} alt={`Avatar de ${user.username}`} />} */}
+        <div className="avatar-container">
+          {user && <p> Bienvenid@: {user.username}</p>}
+          {<img src={avatarUrl} alt={`Avatar de ${user?.username}`} />}
+        </div>
         {!token && (
           <>
-            <div className='he-login'>
-              <NavLink to='/login'>Login</NavLink>
+            <div className="he-login">
+              <NavLink to="/login">Login</NavLink>
             </div>
-            <div className='he-regis'>
-              <NavLink to='/register'>Registro</NavLink>
+            <div className="he-regis">
+              <NavLink to="/register">Registro</NavLink>
             </div>
           </>
         )}
         {user && (
           <>
-            <div className='he-profile'>
-              <NavLink to={'/profile'}>Perfil</NavLink>
+            <div className="he-profile">
+              <NavLink to={"/profile"}>Perfil</NavLink>
             </div>
-            <div className='he-close' onClick={() => authLogout()}>
-              <NavLink to='/'>Cerrar sesión</NavLink>
+            <div className="he-close" onClick={() => authLogout()}>
+              <NavLink to="/">Cerrar sesión</NavLink>
             </div>
           </>
         )}

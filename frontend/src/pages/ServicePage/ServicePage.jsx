@@ -22,13 +22,15 @@ const ServicePage = () => {
   if (!token) return <Navigate to="/Register" />;
 
   return (
-    <section>
-      {!service ? <Spinner /> : <Service service={service} />}
+    <main>
+      <section>
+        {!service ? <Spinner /> : <Service service={service} />}
 
-      {errorPopUp && (
-        <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />
-      )}
-    </section>
+        {errorPopUp && (
+          <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />
+        )}
+      </section>
+    </main>
   );
 };
 

@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import RegisterForm from "../../components/shared/RegisterForm/RegisterForm";
 
-const Register = () => {
+const RegisterPage = () => {
   const { token, authRegister } = useAuth();
 
   // Si la persona está logueada la redirigimos a la página del login.
@@ -15,4 +15,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterPage;

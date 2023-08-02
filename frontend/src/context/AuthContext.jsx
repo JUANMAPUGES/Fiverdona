@@ -2,12 +2,12 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 // Importamos las funciones que me permiten hacer peticiones al servidor.
-import getUserUtility from "./../utilities/getUserUtility";
-import loginUtility from "../utilities/loginUtility";
-import registerUtility from "../utilities/registerUtility";
-import updateUserAvatarUtility from "../utilities/updateUserAvatarUtility";
-import updateUserMailUtility from "../utilities/updateUserMailUtility";
-import updateUserPasswordUtility from "../utilities/updateUserPasswordUtility";
+import getUserUtility from "../utilities/usersUtilities/getUserUtility";
+import loginUtility from "../utilities/usersUtilities/loginUtility";
+import registerUtility from "../utilities/usersUtilities/registerUtility";
+import updateUserAvatarUtility from "../utilities/usersUtilities/updateUserAvatarUtility";
+import updateUserMailUtility from "../utilities/usersUtilities/updateUserMailUtility";
+import updateUserPasswordUtility from "../utilities/usersUtilities/updateUserPasswordUtility";
 
 // Creamos el contexto.
 const AuthContext = createContext(null);

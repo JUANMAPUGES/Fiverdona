@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import useAuth from "./useAuth";
-import resolvedServiceUtility from "../utilities/resolvedServiceUtility";
+import resolvedServiceUtility from "../utilities/servicesUtilities/resolvedServiceUtility";
 const useServices = () => {
   const { token } = useAuth();
   const [services, setServices] = useState([]);
