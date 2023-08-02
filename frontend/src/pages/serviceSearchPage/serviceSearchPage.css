@@ -50,6 +50,11 @@ main.serviceSearch > ul.serviceList > a {
   color: black;
 }
 
+h2 {
+  font-family: sans-serif;
+  padding-top: 20px;
+}
+
 main.serviceSearch > ul.serviceList > a > li.service-button-1 > header {
   background: none;
   background-color: rgb(194, 194, 194);

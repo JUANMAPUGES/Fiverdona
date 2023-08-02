@@ -13,14 +13,18 @@ header a {
 }
 
 h1 {
-  padding: 2rem;
-
+  padding: 1rem;
   letter-spacing: 4px;
   font-weight: 100;
-  font-family: "shrikhand", sans-serif;
+  font-family: 'shrikhand', sans-serif;
   text-decoration: none;
   color: black;
   transition: transform 0.15s;
+  margin-top: 45px;
+}
+
+div {
+  font-family: sans-serif;
 }
 
 nav {
@@ -28,7 +32,6 @@ nav {
   float: right;
   padding-right: 10px;
   margin-top: 40px;
-
   gap: 1rem;
   height: 50%;
 }
@@ -56,9 +59,11 @@ nav {
 
 .he-profile {
   margin: auto;
+  font-family: sans-serif;
 }
 .he-close {
-  width: auto;
+  margin: auto;
+  font-family: sans-serif;
 }
 
 .he-login:hover,

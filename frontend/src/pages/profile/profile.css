@@ -8,9 +8,8 @@ main {
 .div-profile {
   margin: 80px;
   border: 2px solid #b99834;
-  border-radius: 100px;
-  width: 60%;
-
+  border-radius: 50px;
+  width: 100%;
   background-color: #dcb233b4;
 }
 
@@ -38,16 +37,15 @@ main {
 
 .i-profile {
   display: flex;
-
   height: 40px;
-  width: 300px;
+  width: 500px;
   margin: auto;
   margin-bottom: 1rem;
-
   text-align: center;
   font-weight: bold;
   background-color: #5c9ba0af;
   border-radius: 40px 40px 40px 40px;
+  font-size: 20px;
 }
 
 .l-profile {
