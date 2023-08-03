@@ -75,10 +75,11 @@ const Profile = ({
   return (
     <main>
       <div className='div-profile'>
-        <div className='avatar-container'>
-          <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
-
-          <input type='file' onChange={handleUpdateAvatar} />
+        <div className='image-upload'>
+          <label htmlFor='file-input'>
+            <img src={avatarUrl} alt={`Avatar de ${user.username}`} />
+          </label>
+          <input id='file-input' type='file' onChange={handleUpdateAvatar} />
         </div>
         <form className='f-profile' onSubmit={handleUpdateUsernameEmail}>
           <label className='l-profile' htmlFor='username'>
