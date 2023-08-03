@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-import useAuth from '../../../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
-import resolvedServiceUtility from '../../../../utilities/servicesUtilities/resolvedServiceUtility';
-import CommentService from '../../Comment/CommentService';
+import PropTypes from "prop-types";
+import useAuth from "../../../../hooks/useAuth";
+import { NavLink } from "react-router-dom";
+import resolvedServiceUtility from "../../../../utilities/servicesUtilities/resolvedServiceUtility";
+import CommentService from "../../Comment/CommentService";
 
-const ServiceFooter = ({ service, serviceId, owner, resolved, fileName }) => {
+const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
   const { token } = useAuth();
+
   const fileDownload = async () => {
     const fileUrl = `http://localhost:8080/${service.fileName}`;
 
@@ -17,11 +18,11 @@ const ServiceFooter = ({ service, serviceId, owner, resolved, fileName }) => {
     const url = window.URL.createObjectURL(blob);
 
     //Creamos un enlace temporal.
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
 
     //Asignamos un nombre al enlace de descarga anterior.
-    link.download = fileName;
+    link.download = service.fileName;
 
     //Simulamos un click en el enlace para iniciar la descarga.
     document.body.append(link);
@@ -32,42 +33,42 @@ const ServiceFooter = ({ service, serviceId, owner, resolved, fileName }) => {
     window.URL.revokeObjectURL(url);
   };
 
-  const handleResolvedService = async () => {
-    try {
-      if (token && owner === 1) {
-        if (resolved) {
-          // Si la tarea ya está resuelta, no hacemos nada.
-          return;
-        }
-
-        if (confirm('¿Deseas finalizar el servicio?')) {
-          await resolvedServiceUtility(serviceId, token);
-          // Bloqueamos el checkbox después de marcar la tarea como resuelta.
-        }
+  const handleResolvedService = () => {
+    if (token && service.owner === 1) {
+      if (service.resolved) {
+        // Si la tarea ya está resuelta, no hacemos nada.
+        return;
       }
-    } catch (err) {
-      alert(err.message);
+
+      if (confirm("¿Deseas finalizar el servicio?")) {
+        markServiceAsResolved(service.id, token);
+        // Bloqueamos el checkbox después de marcar la tarea como resuelta.
+      }
     }
   };
 
   return (
     <div>
       {service.fileName && (
-        <button onClick={fileDownload}>Descargar archivo</button>
+        <button onClick={fileDownload} disabled={loading}>
+          Descargar archivo
+        </button>
       )}
-      <div className='button'>
+      <div className="button">
+        -
         {token && (
-          <NavLink to={`/services/${serviceId}/comment`}>Comentar</NavLink>
+          <NavLink to={`/services/${service.id}/comment`}>Comentar</NavLink>
         )}
       </div>
 
       <input
-        type='checkbox'
+        type="checkbox"
         onChange={handleResolvedService}
-        checked={resolved} // Marcamos el checkbox cuando la tarea está resuelta.
-        disabled={resolved} // Bloqueamos el checkbox cuando la tarea está resuelta.
+        checked={service.resolved} // Marcamos el checkbox cuando la tarea está resuelta.
+        disabled={service.resolved || !service.owner || loading} // Bloqueamos el checkbox cuando la tarea está resuelta o si no somos los dueños.
       />
-      <ul className='commentList'>
+
+      <ul className="commentList">
         {service.comments?.length > 0 ? (
           service.comments.map((comment) => {
             return (
@@ -90,12 +91,7 @@ const ServiceFooter = ({ service, serviceId, owner, resolved, fileName }) => {
 };
 
 ServiceFooter.propTypes = {
-  serviceId: PropTypes.number,
-  owner: PropTypes.number,
-  resolved: PropTypes.number,
-  comment: PropTypes.string,
   service: PropTypes.object,
-  fileName: PropTypes.any,
 };
 
 export default ServiceFooter;

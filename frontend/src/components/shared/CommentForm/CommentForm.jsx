@@ -25,7 +25,7 @@ const CommentForm = ({ token, serviceId }) => {
 
       // Redireccionamos a la página principal.
 
-      navigate('/');
+      navigate(`/services/service/${serviceId}`);
     } catch (err) {
       setErrorPopUp(true);
     } finally {

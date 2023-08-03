@@ -1,8 +1,10 @@
 const getServiceUtility = async (serviceId, token) => {
   const res = await fetch(`http://localhost:8080/services/${serviceId}`, {
-    headers: {
-      Authorization: token,
-    },
+    headers: token
+      ? {
+          Authorization: token,
+        }
+      : {},
   });
 
   const json = await res.json();

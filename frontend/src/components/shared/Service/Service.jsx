@@ -5,7 +5,7 @@ import ServiceFooter from "./ServiceFooter/ServiceFooter";
 
 import "./service.css";
 
-const Service = ({ service }) => {
+const Service = ({ service, markServiceAsResolved, loading }) => {
   return (
     <li className="service-button">
       <ServiceHeader
@@ -15,10 +15,9 @@ const Service = ({ service }) => {
       />
       <ServiceBody service={service} />
       <ServiceFooter
-        serviceId={service.id}
-        resolved={service.resolved}
-        fileName={service.fileName}
         service={service}
+        markServiceAsResolved={markServiceAsResolved}
+        loading={loading}
       />
     </li>
   );

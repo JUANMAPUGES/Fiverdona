@@ -67,14 +67,14 @@ const {
   addComment,
 } = require('./controllers/services');
 
-//Ofrece información detallada de un servicio junto a sus comentarios.
-app.get('/services/:serviceId', getService);
-
 //Crear un nuevo servicio.
 app.post('/services', authUser, userExists, newService);
 
 //Listar los servicios.
 app.get('/services', authUserOptional, listServices);
+
+//Ofrece información detallada de un servicio junto a sus comentarios.
+app.get('/services/:serviceId', authUserOptional, getService);
 
 //Finalizar un servicio.
 app.post(
