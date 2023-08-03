@@ -4,7 +4,6 @@ header {
   margin: 0;
   justify-content: space-between;
   background-image: linear-gradient(to right, #5c9ea1, #487375, #1e3837);
-  border-radius: 30px;
 }
 
 header a {
