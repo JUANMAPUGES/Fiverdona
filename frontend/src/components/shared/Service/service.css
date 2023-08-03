@@ -1,49 +1,20 @@
-li.service-button {
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
-}
-
-li.service-button:not(:first-child) {
-  margin: 1rem 0;
-}
-
-li.service-button > header {
+/* .li-service {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background-color: rgb(230, 230, 230);
-}
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  width: 800px;
+  border-radius: 20px;
 
-li.service-button > div {
-  display: flex;
-  flex-direction: column;
+  background-color: #dcb233ab;
+  border: 2px solid #b99834;
+  list-style: none;
 }
+ */
 
-li.service-button > div > p {
-  padding: 1rem;
-}
-
-li.service-button > div > img {
-  width: 100%;
-}
-
-li.service-button > footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-li.service-button > footer > div {
-  display: flex;
-  align-items: center;
-}
-
-li.service-button > footer > button {
-  width: 80px;
-  margin-right: 1rem;
-  border: 1px solid gray;
-  align-self: center;
-  padding: 0.5rem 0;
-  font-weight: bold;
-  background-color: white;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+.li-service {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

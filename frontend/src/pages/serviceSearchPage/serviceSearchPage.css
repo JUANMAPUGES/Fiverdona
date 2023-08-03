@@ -18,7 +18,7 @@ form {
   border-radius: 40px 40px 40px 40px;
 }
 
-button {
+form button {
   padding: 0.5rem;
   width: 120px;
 
@@ -65,7 +65,7 @@ main.serviceSearch > ul.serviceList > a {
   color: black;
 }
 
-h2 {
+.h2-ssp {
   font-family: sans-serif;
   padding-top: 20px;
 }

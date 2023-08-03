@@ -50,14 +50,8 @@ const CommentForm = ({ token, serviceId }) => {
         required
       />
 
-      <div className='button-comment' disabled={loading}>
-        <button className='button-1'>
-          Enviar
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      <div disabled={loading}>
+        <button className='b-comment'>Enviar</button>
       </div>
 
       {loading && <Spinner />}

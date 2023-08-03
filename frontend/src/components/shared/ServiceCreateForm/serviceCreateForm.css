@@ -21,8 +21,9 @@
 } */
 
 .f-service-container textarea {
-  width: 400px;
+  width: 40%;
   height: 100px;
+
   margin-bottom: 1rem;
   padding: 0.6rem;
   border-radius: 20px;
@@ -30,15 +31,14 @@
 }
 
 .f-service-container input {
+  display: flex;
+  justify-content: center;
   margin-top: 10px;
   margin-bottom: 20px;
-  margin-right: auto;
-  margin-left: 140px;
-  border: 2px solid black;
 }
-.f-service-container input {
+.f-service-container .i-service {
   height: 40px;
-  width: 400px;
+  width: 40%;
   margin: auto;
   margin-bottom: 1rem;
 

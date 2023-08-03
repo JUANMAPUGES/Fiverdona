@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import './serviceBody.css';
 
 const ServiceBody = ({ service }) => {
   return (
     <>
-      <div>
+      <div className='div-sb'>
         <p>{service.description}</p>
       </div>
     </>

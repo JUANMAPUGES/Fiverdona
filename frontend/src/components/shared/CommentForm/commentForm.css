@@ -1,13 +1,40 @@
+.form-comment {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  width: 60%;
+  border-radius: 30px;
+  justify-content: center;
+  background-color: #dcb233ab;
+  border: 2px solid #b99834;
+}
+
 .h2-comment {
+  margin: auto;
   font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.form-comment input {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .text {
+  margin-top: 20px;
+  margin: auto;
+
   border: 1px solid black;
   width: 400px;
   padding: 0.5rem;
-  min-height: 3rem;
+  min-height: 5rem;
   font-family: Arial, Helvetica, sans-serif;
+  border-radius: 20px;
   resize: none;
 }
 
@@ -16,119 +43,16 @@
   content: 'Write here...';
 }
 
-.button-comment {
-  position: relative;
-  bottom: -20px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-}
-.button-1 {
-  width: 100px;
-  height: 50px;
-  background: linear-gradient(to left top, #f88e7f 50%, #f88e7f 50%);
-  border-style: none;
-  color: #fff;
-  font-size: 15px;
-  letter-spacing: 2px;
-  font-family: 'Lato';
-  font-weight: 600;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  padding: 0px;
-  overflow: hidden;
-  transition: all 0.5s;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-}
-.button-1 span {
-  position: absolute;
-  display: block;
-}
-.button-1 span:nth-child(1) {
-  height: 3px;
-  width: 200px;
-  top: 0px;
-  left: -200px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), #f6e58d);
-  border-top-right-radius: 1px;
-  border-bottom-right-radius: 1px;
-  animation: span1 2s linear infinite;
-  animation-delay: 1s;
-}
+.b-comment {
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0.5rem;
+  justify-content: center;
 
-@keyframes span1 {
-  0% {
-    left: -200px;
-  }
-  100% {
-    left: 200px;
-  }
-}
-.button-1 span:nth-child(2) {
-  height: 70px;
-  width: 3px;
-  top: -70px;
-  right: 0px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f6e58d);
-  border-bottom-left-radius: 1px;
-  border-bottom-right-radius: 1px;
-  animation: span2 2s linear infinite;
-  animation-delay: 2s;
-}
-@keyframes span2 {
-  0% {
-    top: -70px;
-  }
-  100% {
-    top: 70px;
-  }
-}
-.button-1 span:nth-child(3) {
-  height: 3px;
-  width: 200px;
-  right: -200px;
-  bottom: 0px;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0), #f6e58d);
-  border-top-left-radius: 1px;
-  border-bottom-left-radius: 1px;
-  animation: span3 2s linear infinite;
-  animation-delay: 3s;
-}
-@keyframes span3 {
-  0% {
-    right: -200px;
-  }
-  100% {
-    right: 200px;
-  }
-}
+  width: 120px;
+  border-radius: 40px 40px 40px 40px;
 
-.button-1 span:nth-child(4) {
-  height: 70px;
-  width: 3px;
-  bottom: -70px;
-  left: 0px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0), #f6e58d);
-  border-top-right-radius: 1px;
-  border-top-left-radius: 1px;
-  animation: span4 2s linear infinite;
-  animation-delay: 4s;
-}
-@keyframes span4 {
-  0% {
-    bottom: -70px;
-  }
-  100% {
-    bottom: 70px;
-  }
-}
-
-.button-1:hover {
-  transition: all 0.5s;
-  transform: rotate(-3deg) scale(1.1);
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-}
-.button-1:hover span {
-  animation-play-state: paused;
+  background-color: #dda964;
+  font-weight: bold;
 }

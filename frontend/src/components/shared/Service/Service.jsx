@@ -7,7 +7,7 @@ import './service.css';
 
 const Service = ({ service, markServiceAsResolved, loading }) => {
   return (
-    <li className='service-button'>
+    <li className='li-service'>
       <ServiceHeader
         username={service.username}
         createdAt={service.createdAt}

@@ -1,12 +1,8 @@
-main.commentCreate {
+/* main.commentCreate {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
-}
-
-main.commentCreate > form > h2 {
-  margin-bottom: 1rem;
 }
 
 main.commentCreate > form {
@@ -25,3 +21,4 @@ main.commentCreate > form > textarea {
 main.commentCreate > form > input {
   margin-bottom: 1rem;
 }
+ */

@@ -21,7 +21,7 @@ const ServiceSearchPage = () => {
 
   return (
     <main className='serviceSearch'>
-      <h2> Lista de servicios</h2>
+      <h2 className='h2-ssp'> Lista de servicios</h2>
 
       <SearchForm
         searchParams={searchParams}

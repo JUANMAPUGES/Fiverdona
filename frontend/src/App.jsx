@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/shared/Header/Header';
 import ServiceSearchPage from './pages/serviceSearchPage/ServiceSearchPage';
-import LoginPage from './pages/loginPage/LoginPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import UserProfilePage from './pages/profile/UserProfilePage';
 import RegisterPage from './pages/registerPage/RegisterPage';
 import ServiceCreate from './pages/ServiceCreatePage/ServiceCreatePage';

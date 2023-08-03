@@ -1,0 +1,30 @@
+/* .h-sh {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 600px;
+  height: 50%;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  justify-content: center;
+  justify-content: space-between;
+  background-color: #6fa4a7;
+  border: 2px solid #b99834;
+  font-weight: bold;
+}
+
+.user-sh {
+}
+
+.time-sh {
+}
+
+.titulo-sh {
+}
+ */
+
+.h-sh {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

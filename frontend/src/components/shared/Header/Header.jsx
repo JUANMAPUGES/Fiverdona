@@ -9,7 +9,7 @@ const Header = () => {
     ? `http://localhost:8080/${user.avatar}`
     : defaultAvatar;
   return (
-    <header>
+    <header className='header'>
       <h1 className='logo'>
         <NavLink to='/'>FIVERDONA</NavLink>
       </h1>
