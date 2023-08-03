@@ -1,8 +1,8 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const SearchForm = ({ searchParams, setSearchParams, loading }) => {
-  const [keyword, setKeyword] = useState(searchParams.get("keyword") || "");
+  const [keyword, setKeyword] = useState(searchParams.get('keyword') || '');
 
   return (
     <form
@@ -13,7 +13,8 @@ const SearchForm = ({ searchParams, setSearchParams, loading }) => {
       }}
     >
       <input
-        type="search"
+        className='input-search'
+        type='search'
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />

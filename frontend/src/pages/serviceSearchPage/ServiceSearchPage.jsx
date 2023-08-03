@@ -24,7 +24,6 @@ const ServiceSearchPage = () => {
       <h2> Lista de servicios</h2>
 
       <SearchForm
-        className='i-home'
         searchParams={searchParams}
         setSearchParams={setSearchParams}
         loading={loading}

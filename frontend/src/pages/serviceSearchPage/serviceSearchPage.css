@@ -10,10 +10,10 @@ form {
   display: flex;
 }
 
-input {
+.input-search {
   height: 40px;
   width: 200px;
-  padding: 0.2rem;
+  padding: 0.2rem 1rem;
   font-size: 1.3rem;
   border-radius: 40px 40px 40px 40px;
 }
@@ -57,6 +57,7 @@ ul.serviceList {
 
 main.serviceSearch > ul.serviceList > a > li.service-button-1 {
   border: 2px solid black;
+  border-radius: 5px;
 }
 
 main.serviceSearch > ul.serviceList > a {
