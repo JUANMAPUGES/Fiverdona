@@ -1,12 +1,12 @@
-import useServices from "../../hooks/useServices";
-import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
-import SearchForm from "../../components/shared/SearchForm/SearchForm";
-import { NavLink } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import Service1 from "../../components/shared/Service/Service1";
-import Spinner from "../../components/shared/Spinner/Spinner";
-import { Link } from "react-router-dom";
-import "./serviceSearchPage.css";
+import useServices from '../../hooks/useServices';
+import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
+import SearchForm from '../../components/shared/SearchForm/SearchForm';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import Service1 from '../../components/shared/Service/Service1';
+import Spinner from '../../components/shared/Spinner/Spinner';
+import { Link } from 'react-router-dom';
+import './serviceSearchPage.css';
 
 const ServiceSearchPage = () => {
   const {
@@ -20,11 +20,11 @@ const ServiceSearchPage = () => {
   const { token } = useAuth();
 
   return (
-    <main className="serviceSearch">
+    <main className='serviceSearch'>
       <h2> Lista de servicios</h2>
 
       <SearchForm
-        className="i-home"
+        className='i-home'
         searchParams={searchParams}
         setSearchParams={setSearchParams}
         loading={loading}
@@ -35,7 +35,7 @@ const ServiceSearchPage = () => {
         <ErrorPopUp open={errorPopUp} onClose={() => setErrorPopUp(false)} />
       )}
 
-      <ul className="serviceList">
+      <ul className='serviceList'>
         {services && services.length > 0 ? (
           services.map((service) => {
             return (
@@ -50,8 +50,8 @@ const ServiceSearchPage = () => {
       </ul>
       {token && (
         <nav>
-          <div className="button">
-            <NavLink to="/services">Añadir un servicio</NavLink>
+          <div className='b-añadir'>
+            <NavLink to='/services'>Añadir un servicio</NavLink>
           </div>
         </nav>
       )}
