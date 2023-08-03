@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const CommentService = ({ comment }) => {
   const fileDownload1 = async () => {
@@ -12,7 +12,7 @@ const CommentService = ({ comment }) => {
     const url = window.URL.createObjectURL(blob);
 
     //creamos un enlace temporal
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = url;
 
     // asignamos un nombre al enlace de descarga anterior
@@ -32,19 +32,19 @@ const CommentService = ({ comment }) => {
       <header>
         <p>@{comment.userId}</p>
         <time>
-          {new Date(comment.createdAt).toLocaleDateString("es-ES", {
-            hour: "2-digit",
-            minute: "2-digit",
-            day: "2-digit",
-            month: "2-digit",
-            year: "2-digit",
+          {new Date(comment.createdAt).toLocaleDateString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit',
           })}
         </time>
       </header>
 
       <p>{comment.text}</p>
       {comment.fileName && (
-        <button onClick={fileDownload1}>descargar archivo</button>
+        <button onClick={fileDownload1}>Descargar archivo</button>
       )}
     </div>
   );
