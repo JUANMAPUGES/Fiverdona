@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
-import ServiceHeader from "./ServiceHeader/ServiceHeader";
-import ServiceBody from "./ServiceBody/ServiceBody";
-import ServiceFooter from "./ServiceFooter/ServiceFooter";
+import PropTypes from 'prop-types';
+import ServiceHeader from './ServiceHeader/ServiceHeader';
+import ServiceBody from './ServiceBody/ServiceBody';
+import ServiceFooter from './ServiceFooter/ServiceFooter';
 
-import "./service.css";
+import './service.css';
 
 const Service = ({ service, markServiceAsResolved, loading }) => {
   return (
-    <li className="service-button">
+    <li className='service-button'>
       <ServiceHeader
         username={service.username}
         createdAt={service.createdAt}
@@ -25,6 +25,8 @@ const Service = ({ service, markServiceAsResolved, loading }) => {
 
 Service.propTypes = {
   service: PropTypes.object,
+  markServiceAsResolved: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 export default Service;
