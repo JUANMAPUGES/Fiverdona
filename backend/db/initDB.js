@@ -31,7 +31,7 @@ const main = async () => {
     await connection.query(`
             CREATE TABLE IF NOT EXISTS services (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                title VARCHAR(30) NOT NULL,
+                title VARCHAR(100) NOT NULL,
                 description TEXT NOT NULL,
                 fileName VARCHAR(100),
                 resolved BOOLEAN DEFAULT false,

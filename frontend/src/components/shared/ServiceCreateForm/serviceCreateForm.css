@@ -1,57 +1,61 @@
-.f-service {
+.f-service-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: auto;
-  padding-top: 50px;
-  padding-bottom: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   width: 80%;
   border-radius: 30px;
-
   background-color: #dcb233ab;
   border: 2px solid #b99834;
 }
 
-h2 {
+.f-service-container > h2 {
   margin-bottom: 40px;
 }
 
-textarea {
-  width: 600px;
+/* h2 {
+  margin-bottom: 40px;
+} */
+
+.f-service-container textarea {
+  width: 400px;
   height: 100px;
   margin-bottom: 1rem;
   padding: 0.6rem;
-  border-radius: 10px 10px 40px 40px;
+  border-radius: 20px;
+  border: 2px solid black;
 }
 
-.i2-service {
+.f-service-container input {
   margin-top: 10px;
   margin-bottom: 20px;
   margin-right: auto;
   margin-left: 140px;
+  border: 2px solid black;
 }
-
-.i-service {
-  display: flex;
-
+.f-service-container input {
   height: 40px;
-  width: 600px;
+  width: 400px;
   margin: auto;
   margin-bottom: 1rem;
 
   text-align: center;
   font-weight: bold;
   background-color: #5c9ba098;
-  border-radius: 40px 40px 10px 10px;
+  border-radius: 40px;
 }
 
-.b-service {
+.f-service-container b-service {
   display: block;
   margin: auto;
   margin-top: 20px;
   padding: 0.5rem;
 
   width: 120px;
-  border-radius: 40px 40px 40px 40px;
+  border-radius: 40px;
 
   background-color: #dda964;
   font-weight: bold;

@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import CreateServiceUtility from "../../../utilities/servicesUtilities/createServiceUtility";
-import Spinner from "../../shared/Spinner/Spinner";
-import ErrorPopUp from "../error-pop-up/ErrorPopUp";
+import CreateServiceUtility from '../../../utilities/servicesUtilities/createServiceUtility';
+import Spinner from '../../shared/Spinner/Spinner';
+import ErrorPopUp from '../error-pop-up/ErrorPopUp';
+import './serviceCreateForm.css';
 
 const ServiceCreateForm = ({ token }) => {
   const navigate = useNavigate();
-
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [fileName, setFileName] = useState();
   const [errorPopUp, setErrorPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ const ServiceCreateForm = ({ token }) => {
       await CreateServiceUtility(title, description, fileName, token);
 
       // Redireccionamos a la página principal.
-      navigate("/");
+      navigate('/');
     } catch (err) {
       setErrorPopUp(true);
     } finally {
@@ -34,32 +34,32 @@ const ServiceCreateForm = ({ token }) => {
   };
 
   return (
-    <form className="f-service" onSubmit={handleSubmit}>
+    <form className='f-service-container' onSubmit={handleSubmit}>
       <h2>¿Qué servicio quieres publicar? 🤔</h2>
       <input
-        type="text"
-        placeholder="Título del servicio"
-        className="i-service"
+        type='text'
+        placeholder='Título del servicio'
+        className='i-service'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        minLength="5"
+        minLength='5'
         autoFocus
         required
       />
       <input
-        type="file"
-        className="i2-service"
+        type='file'
+        className='i2-service'
         onChange={(e) => setFileName(e.target.files[0])}
       />
 
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        minLength="10"
+        minLength='10'
         required
       />
 
-      <button className="b-service" disabled={loading}>
+      <button className='b-service' disabled={loading}>
         Añadir servicio
       </button>
 

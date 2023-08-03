@@ -2,8 +2,6 @@ import { Navigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import ServiceCreateForm from '../../components/shared/ServiceCreateForm/ServiceCreateForm';
 
-import './ServiceCreatePage.css';
-
 const ServiceCreatePage = () => {
   const { token } = useAuth();
 
@@ -11,7 +9,7 @@ const ServiceCreatePage = () => {
   if (!token) return <Navigate to='/' />;
 
   return (
-    <main className='serviceCreate'>
+    <main>
       <ServiceCreateForm token={token} />
     </main>
   );
