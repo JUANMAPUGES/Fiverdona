@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import getServiceUtility from "../utilities/servicesUtilities/getServiceUtility";
+import resolvedServiceUtility from "../utilities/servicesUtilities/resolvedServiceUtility";
 
-const useService = (id) => {
+const useService = (id, token) => {
   const [service, setService] = useState(null);
   const [errMsg, setErrMsg] = useState("");
   const [loading, setLoading] = useState(true);
@@ -10,7 +11,7 @@ const useService = (id) => {
     const loadService = async () => {
       try {
         setLoading(true);
-        const serviceData = await getServiceUtility(id);
+        const serviceData = await getServiceUtility(id, token);
         setService(serviceData);
       } catch (error) {
         setErrMsg(error.message);
@@ -20,9 +21,28 @@ const useService = (id) => {
     };
 
     loadService();
-  }, [id]);
+  }, [id, token]);
 
-  return { service, errMsg, loading };
+  // Función que marca un servicio como completado en la base de datos y actualiza el State.
+  const markServiceAsResolved = async (serviceId, token) => {
+    try {
+      setLoading(true);
+
+      await resolvedServiceUtility(serviceId, token);
+
+      // Actualizamos el State para marcar como completado el servicio.
+      setService({
+        ...service,
+        resolved: true,
+      });
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { service, errMsg, markServiceAsResolved, loading };
 };
 
 export default useService;

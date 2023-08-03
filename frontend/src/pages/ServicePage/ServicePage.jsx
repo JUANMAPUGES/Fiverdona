@@ -9,7 +9,10 @@ import Spinner from "../../components/shared/Spinner/Spinner";
 const ServicePage = () => {
   const { id } = useParams();
   const { token } = useAuth();
-  const { service, errMsg } = useService(id);
+  const { service, markServiceAsResolved, loading, errMsg } = useService(
+    id,
+    token
+  );
   const [errorPopUp, setErrorPopUp] = useState(false); // Agregamos el estado del errorPopUp
 
   useEffect(() => {
@@ -24,7 +27,15 @@ const ServicePage = () => {
   return (
     <main>
       <section>
-        {!service ? <Spinner /> : <Service service={service} />}
+        {!service ? (
+          <Spinner />
+        ) : (
+          <Service
+            service={service}
+            markServiceAsResolved={markServiceAsResolved}
+            loading={loading}
+          />
+        )}
 
         {errorPopUp && (
           <ErrorPopUp open={true} onClose={() => setErrorPopUp(false)} />
