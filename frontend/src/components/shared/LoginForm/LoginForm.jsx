@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '../../shared/Spinner/Spinner';
-import ErrorPopUp from '../error-pop-up/ErrorPopUp';
+import ErrorPopUp from '../ErrorPopUp/ErrorPopUp';
 
 import './loginForm.css';
 import { useNavigate } from 'react-router-dom';

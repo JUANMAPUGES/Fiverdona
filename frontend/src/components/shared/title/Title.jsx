@@ -1,5 +1,4 @@
-import { string } from "prop-types";
-import "./title.css";
+import { string } from 'prop-types';
 
 function Title({ text }) {
   return (

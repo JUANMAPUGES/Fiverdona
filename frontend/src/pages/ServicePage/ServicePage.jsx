@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import useService from "../../hooks/useService";
-import Service from "../../components/shared/Service/Service";
-import ErrorPopUp from "../../components/shared/error-pop-up/ErrorPopUp";
-import Spinner from "../../components/shared/Spinner/Spinner";
+import { useEffect, useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useService from '../../hooks/useService';
+import Service from '../../components/shared/Service/Service';
+import ErrorPopUp from '../../components/shared/ErrorPopUp/ErrorPopUp';
+import Spinner from '../../components/shared/Spinner/Spinner';
 
 const ServicePage = () => {
   const { id } = useParams();
@@ -17,12 +17,12 @@ const ServicePage = () => {
 
   useEffect(() => {
     if (errMsg) {
-      console.error("Error al cargar el servicio", errMsg);
+      console.error('Error al cargar el servicio', errMsg);
       setErrorPopUp(true); // Mostramos el ErrorPopUp cuando hay un error
     }
   }, [errMsg]);
 
-  if (!token) return <Navigate to="/Register" />;
+  if (!token) return <Navigate to='/Register' />;
 
   return (
     <main>

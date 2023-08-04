@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import CreateServiceUtility from '../../../utilities/servicesUtilities/createServiceUtility';
+import CreateServiceUtility from '../../../utilities/ServicesUtilities/createServiceUtility';
 import Spinner from '../../shared/Spinner/Spinner';
-import ErrorPopUp from '../error-pop-up/ErrorPopUp';
+import ErrorPopUp from '../ErrorPopUp/ErrorPopUp';
 import './serviceCreateForm.css';
 
 const ServiceCreateForm = ({ token }) => {

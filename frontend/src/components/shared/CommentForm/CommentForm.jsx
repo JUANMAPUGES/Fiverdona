@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import addCommentUtility from '../../../utilities/servicesUtilities/addCommentUtility';
+import addCommentUtility from '../../../utilities/ServicesUtilities/addCommentUtility';
 import Spinner from '../Spinner/Spinner';
-import ErrorPopUp from '../error-pop-up/ErrorPopUp';
+import ErrorPopUp from '../ErrorPopUp/ErrorPopUp';
 import './commentForm.css';
 const CommentForm = ({ token, serviceId }) => {
   const navigate = useNavigate();
@@ -37,8 +37,11 @@ const CommentForm = ({ token, serviceId }) => {
       <h2 className='h2-comment'>
         ¿Que te ha parecido este servicio? Deja tu comentario
       </h2>
-
-      <input type='file' onChange={(e) => setFileName(e.target.files[0])} />
+      <input
+        id='file-input'
+        type='file'
+        onChange={(e) => setFileName(e.target.files[0])}
+      />
 
       <textarea
         className='text'

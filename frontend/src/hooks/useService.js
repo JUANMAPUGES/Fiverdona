@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import getServiceUtility from "../utilities/servicesUtilities/getServiceUtility";
-import resolvedServiceUtility from "../utilities/servicesUtilities/resolvedServiceUtility";
+import { useEffect, useState } from 'react';
+import getServiceUtility from '../utilities/ServicesUtilities/getServiceUtility';
+import resolvedServiceUtility from '../utilities/ServicesUtilities/resolvedServiceUtility';
 
 const useService = (id, token) => {
   const [service, setService] = useState(null);
-  const [errMsg, setErrMsg] = useState("");
+  const [errMsg, setErrMsg] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

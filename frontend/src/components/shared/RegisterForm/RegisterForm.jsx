@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '../../shared/Spinner/Spinner';
-import ErrorMessage from '../../shared/ErrorMessage/ErrorMessage';
 import './registerForm.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ const RegisterForm = ({ authRegister }) => {
   const [passwordV, setPasswordV] = useState('');
 
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [setErrorMessage] = useState('');
   // Función que maneja el envío del formulario.
   const handleSubmit = async (e) => {
     try {

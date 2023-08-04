@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import defaultAvatar from '../../assets/avatar.jpg';
 import { useState } from 'react';
-import './profile.css';
+import './profilePage.css';
 const Profile = ({
   user,
   authUpdateAvatar,

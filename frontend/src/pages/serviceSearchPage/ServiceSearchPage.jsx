@@ -1,5 +1,5 @@
 import useServices from '../../hooks/useServices';
-import ErrorPopUp from '../../components/shared/error-pop-up/ErrorPopUp';
+import ErrorPopUp from '../../components/shared/ErrorPopUp/ErrorPopUp';
 import SearchForm from '../../components/shared/SearchForm/SearchForm';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -44,7 +44,7 @@ const ServiceSearchPage = () => {
             );
           })
         ) : (
-          <li>¡No se ha encontrado ningún servicio!</li>
+          <p>¡No se ha encontrado ningún servicio!</p>
         )}
       </ul>
       {token && (

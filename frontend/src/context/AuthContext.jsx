@@ -1,19 +1,19 @@
-import { createContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Importamos las funciones que me permiten hacer peticiones al servidor.
-import getUserUtility from "../utilities/usersUtilities/getUserUtility";
-import loginUtility from "../utilities/usersUtilities/loginUtility";
-import registerUtility from "../utilities/usersUtilities/registerUtility";
-import updateUserAvatarUtility from "../utilities/usersUtilities/updateUserAvatarUtility";
-import updateUserMailUtility from "../utilities/usersUtilities/updateUserMailUtility";
-import updateUserPasswordUtility from "../utilities/usersUtilities/updateUserPasswordUtility";
+import getUserUtility from '../utilities/UsersUtilities/getUserUtility';
+import loginUtility from '../utilities/UsersUtilities/loginUtility';
+import registerUtility from '../utilities/UsersUtilities/registerUtility';
+import updateUserAvatarUtility from '../utilities/UsersUtilities/updateUserAvatarUtility';
+import updateUserMailUtility from '../utilities/UsersUtilities/updateUserMailUtility';
+import updateUserPasswordUtility from '../utilities/UsersUtilities/updateUserPasswordUtility';
 
 // Creamos el contexto.
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(localStorage.getItem('token'));
   const [user, setUser] = useState(null);
 
   // Obtenemos los datos del usuario si existe un token.
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
   const authLogin = async (email, password) => {
     const newToken = await loginUtility(email, password);
 
-    localStorage.setItem("token", newToken);
+    localStorage.setItem('token', newToken);
 
     setToken(newToken);
   };
@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
   // Función de logout que elimina el token del localStorage y del State. También elimina
   // el usuario del State.
   const authLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     setToken(null);
     setUser(null);
   };

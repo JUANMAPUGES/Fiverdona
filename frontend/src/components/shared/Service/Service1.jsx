@@ -6,14 +6,16 @@ import './service1.css';
 
 const Service1 = ({ service }) => {
   return (
-    <li className='service-button-1'>
-      <ServiceHeader
-        username={service.username}
-        createdAt={service.createdAt}
-        title={service.title}
-      />
-      <ServiceBody service={service} />
-    </li>
+    <ul className='service1-container'>
+      <li>
+        <ServiceHeader
+          username={service.username}
+          createdAt={service.createdAt}
+          title={service.title}
+        />
+        <ServiceBody service={service} />
+      </li>
+    </ul>
   );
 };
 

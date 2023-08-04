@@ -1,7 +1,7 @@
 import PopUp from 'reactjs-popup';
 import { bool, func } from 'prop-types';
 
-import './error-pop-up.css';
+import './errorPopUp.css';
 
 function ErrorPopUp({ open, onClose }) {
   return (

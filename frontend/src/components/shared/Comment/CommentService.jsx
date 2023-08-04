@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import "./commentService.css";
+import PropTypes from 'prop-types';
+import './commentService.css';
 const CommentService = ({ comment }) => {
   const fileDownload1 = async () => {
     const fileUrl = `http://localhost:8080/${comment.fileName}`;
@@ -12,7 +12,7 @@ const CommentService = ({ comment }) => {
     const url = window.URL.createObjectURL(blob);
 
     //creamos un enlace temporal
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = url;
 
     // asignamos un nombre al enlace de descarga anterior
@@ -29,22 +29,24 @@ const CommentService = ({ comment }) => {
 
   return (
     <div>
-      <ul className="container-service-comment">
+      <ul className='container-service-comment'>
         <p>@{comment.username}</p>
         <time>
-          {new Date(comment.createdAt).toLocaleDateString("es-ES", {
-            hour: "2-digit",
-            minute: "2-digit",
-            day: "2-digit",
-            month: "2-digit",
-            year: "2-digit",
+          {new Date(comment.createdAt).toLocaleDateString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit',
           })}
         </time>
       </ul>
 
-      <p>{comment.text}</p>
+      <p className='comentario'>{comment.text}</p>
       {comment.fileName && (
-        <button onClick={fileDownload1}>Descargar archivo</button>
+        <button className='d-archivo-comment' onClick={fileDownload1}>
+          Descargar archivo
+        </button>
       )}
     </div>
   );

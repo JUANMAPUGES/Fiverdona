@@ -1,6 +1,6 @@
-import { Navigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import Profile from "./Profile";
+import { Navigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import Profile from './ProfilePage';
 
 const UserProfilePage = () => {
   const {
@@ -11,7 +11,7 @@ const UserProfilePage = () => {
     authUpdatePassword,
   } = useAuth();
 
-  if (!token) return <Navigate to="/Register" />;
+  if (!token) return <Navigate to='/Register' />;
 
   return (
     <main>

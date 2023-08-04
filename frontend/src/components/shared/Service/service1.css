@@ -1,44 +1,16 @@
-li.service-button-1:not(:first-child) {
-  margin: 1rem 0;
-}
-
-li.service-button-1 > header {
+.service1-container {
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background-color: rgb(230, 230, 230);
-}
-
-li.service-button-1 > div {
-  display: flex;
-  flex-direction: column;
-}
-
-li.service-button-1 > div > p {
-  padding: 1rem;
-}
-
-li.service-button-1 > div > img {
-  width: 100%;
-}
-
-li.service-button-1 > footer {
-  display: flex;
+  width: 800px;
+  margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  border-radius: 20px;
+  text-align: justify;
   align-items: center;
-  justify-content: space-between;
-}
-
-li.service-button-1 > footer > div {
-  display: flex;
-  align-items: center;
-}
-
-li.service-button-1 > footer > button {
-  width: 8000px;
-  margin-right: 1rem;
-  border: 1px solid gray;
-  align-self: center;
-  padding: 0.5rem 0;
-  font-weight: bold;
-  background-color: white;
+  min-height: 150px;
+  justify-content: center;
+  background-color: #dcb233ab;
+  border: 2px solid #000000;
+  list-style: none;
+  overflow: hidden;
 }

@@ -14,16 +14,16 @@ const Service = ({ service, markServiceAsResolved, loading }) => {
           createdAt={service.createdAt}
           title={service.title}
         />
-        <li>
-          <ServiceBody service={service} />
-        </li>
-        <li>
-          <ServiceFooter
-            service={service}
-            markServiceAsResolved={markServiceAsResolved}
-            loading={loading}
-          />
-        </li>
+      </li>
+      <li>
+        <ServiceBody service={service} />
+      </li>
+      <li>
+        <ServiceFooter
+          service={service}
+          markServiceAsResolved={markServiceAsResolved}
+          loading={loading}
+        />
       </li>
     </ul>
   );
