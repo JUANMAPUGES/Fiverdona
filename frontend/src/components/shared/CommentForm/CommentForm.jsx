@@ -8,7 +8,6 @@ import ErrorPopUp from '../error-pop-up/ErrorPopUp';
 import './commentForm.css';
 const CommentForm = ({ token, serviceId }) => {
   const navigate = useNavigate();
-
   const [text, setText] = useState('');
   const [fileName, setFileName] = useState();
   const [errorPopUp, setErrorPopUp] = useState('');

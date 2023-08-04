@@ -3,19 +3,25 @@ import './serviceHeader.css';
 
 const ServiceHeader = ({ username, createdAt, title }) => {
   return (
-    <header className='h-sh'>
-      <p className='user-sh'>@{username}</p>
-      <time className='time-sh'>
-        {new Date(createdAt).toLocaleDateString('es-ES', {
-          hour: '2-digit',
-          minute: '2-digit',
-          day: '2-digit',
-          month: '2-digit',
-          year: '2-digit',
-        })}
-      </time>
-      <p className='titulo-sh'>{title}</p>
-    </header>
+    <ul className='container-service-header'>
+      <li>
+        <p className='user-sh'>@{username}</p>
+      </li>
+      <li>
+        <time className='time-sh'>
+          {new Date(createdAt).toLocaleDateString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit',
+          })}
+        </time>
+      </li>
+      <li>
+        <p className='titulo-sh'>{title}</p>
+      </li>
+    </ul>
   );
 };
 

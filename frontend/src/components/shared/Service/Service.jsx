@@ -7,19 +7,25 @@ import './service.css';
 
 const Service = ({ service, markServiceAsResolved, loading }) => {
   return (
-    <li className='li-service'>
-      <ServiceHeader
-        username={service.username}
-        createdAt={service.createdAt}
-        title={service.title}
-      />
-      <ServiceBody service={service} />
-      <ServiceFooter
-        service={service}
-        markServiceAsResolved={markServiceAsResolved}
-        loading={loading}
-      />
-    </li>
+    <ul className='service-container'>
+      <li>
+        <ServiceHeader
+          username={service.username}
+          createdAt={service.createdAt}
+          title={service.title}
+        />
+        <li>
+          <ServiceBody service={service} />
+        </li>
+        <li>
+          <ServiceFooter
+            service={service}
+            markServiceAsResolved={markServiceAsResolved}
+            loading={loading}
+          />
+        </li>
+      </li>
+    </ul>
   );
 };
 

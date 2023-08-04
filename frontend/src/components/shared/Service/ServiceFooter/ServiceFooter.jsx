@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import useAuth from '../../../../hooks/useAuth';
 import { NavLink } from 'react-router-dom';
-import resolvedServiceUtility from '../../../../utilities/servicesUtilities/resolvedServiceUtility';
 import CommentService from '../../Comment/CommentService';
 import './serviceFooter.css';
 
@@ -49,26 +48,29 @@ const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
   };
 
   return (
-    <div className='div-sf'>
-      {service.fileName && (
-        <button onClick={fileDownload} disabled={loading}>
-          Descargar archivo
-        </button>
-      )}
-      <div className='button'>
-        -
-        {token && (
-          <NavLink to={`/services/${service.id}/comment`}>Comentar</NavLink>
-        )}
-      </div>
-
-      <input
-        type='checkbox'
-        onChange={handleResolvedService}
-        checked={service.resolved} // Marcamos el checkbox cuando la tarea está resuelta.
-        disabled={service.resolved || !service.owner || loading} // Bloqueamos el checkbox cuando la tarea está resuelta o si no somos los dueños.
-      />
-
+    <footer>
+      <ul className='footer-container'>
+        <li>
+          {service.fileName && (
+            <button onClick={fileDownload} disabled={loading}>
+              Descargar archivo
+            </button>
+          )}
+        </li>
+        <li className='button'>
+          {token && (
+            <NavLink to={`/services/${service.id}/comment`}>Comentar</NavLink>
+          )}
+        </li>
+        <li>
+          <input
+            type='checkbox'
+            onChange={handleResolvedService}
+            checked={service.resolved} // Marcamos el checkbox cuando la tarea está resuelta.
+            disabled={service.resolved || !service.owner || loading} // Bloqueamos el checkbox cuando la tarea está resuelta o si no somos los dueños.
+          />
+        </li>
+      </ul>
       <ul className='commentList'>
         {service.comments?.length > 0 ? (
           service.comments.map((comment) => {
@@ -87,11 +89,13 @@ const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
           <li>¡De momento no hay comentarios asociados a este servicio!</li>
         )}
       </ul>
-    </div>
+    </footer>
   );
 };
 
 ServiceFooter.propTypes = {
+  markServiceAsResolved: PropTypes.func,
+  loading: PropTypes.bool,
   service: PropTypes.object,
 };
 

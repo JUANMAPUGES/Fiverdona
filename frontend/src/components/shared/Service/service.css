@@ -1,4 +1,4 @@
-/* .li-service {
+.service-container {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -12,9 +12,8 @@
   border: 2px solid #b99834;
   list-style: none;
 }
- */
 
-.li-service {
+.service-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
