@@ -1,9 +1,8 @@
 .container-service-header {
   display: inline-flex;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
   width: 770px;
-  height: 30%;
+  height: auto;
   margin: auto;
   justify-content: space-around;
   font-weight: bold;

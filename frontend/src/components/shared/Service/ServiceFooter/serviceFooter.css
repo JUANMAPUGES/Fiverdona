@@ -13,18 +13,54 @@
   list-style: none;
 }
 
-.b-añadir {
-  width: 250px;
+.b-comentar {
+  width: 100px;
+  height: 25px;
   border-radius: 40px 40px 40px 40px;
   background-color: #dda964;
   font-weight: bold;
-  display: block;
   text-align: center;
   border: 2px solid black;
 }
 
-.b-añadir a {
-  padding: 0.5rem;
+.b-comentar a {
+  padding: 0.1rem;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+input[type="checkbox"]:checked + label {
+  color: green;
+}
+.checkbox {
+  width: 12px;
+  height: 12px;
+  appearance: none;
+  border: 1.5px solid #0b0b0b;
+}
+.commentList {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  width: 80%;
+  border-radius: 30px;
+}
+
+.d-archivo {
+  width: 100px;
+  height: 35px;
+  border-radius: 40px 40px 40px 40px;
+  background-color: #dda964;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.d-archivo a {
+  padding: 0.2rem;
   text-decoration: none;
   color: black;
   display: block;

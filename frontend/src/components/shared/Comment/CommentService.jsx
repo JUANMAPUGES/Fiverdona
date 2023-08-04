@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import "./commentService.css";
 const CommentService = ({ comment }) => {
   const fileDownload1 = async () => {
     const fileUrl = `http://localhost:8080/${comment.fileName}`;
@@ -29,7 +29,7 @@ const CommentService = ({ comment }) => {
 
   return (
     <div>
-      <header>
+      <ul className="container-service-comment">
         <p>@{comment.username}</p>
         <time>
           {new Date(comment.createdAt).toLocaleDateString("es-ES", {
@@ -40,7 +40,7 @@ const CommentService = ({ comment }) => {
             year: "2-digit",
           })}
         </time>
-      </header>
+      </ul>
 
       <p>{comment.text}</p>
       {comment.fileName && (

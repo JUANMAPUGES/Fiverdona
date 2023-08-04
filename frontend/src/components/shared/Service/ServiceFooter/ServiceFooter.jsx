@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import useAuth from '../../../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
-import CommentService from '../../Comment/CommentService';
-import './serviceFooter.css';
+import PropTypes from "prop-types";
+import useAuth from "../../../../hooks/useAuth";
+import { NavLink } from "react-router-dom";
+import CommentService from "../../Comment/CommentService";
+import "./serviceFooter.css";
 
 const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
   const { token } = useAuth();
@@ -18,7 +18,7 @@ const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
     const url = window.URL.createObjectURL(blob);
 
     //Creamos un enlace temporal.
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
 
     //Asignamos un nombre al enlace de descarga anterior.
@@ -40,7 +40,7 @@ const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
         return;
       }
 
-      if (confirm('¿Deseas finalizar el servicio?')) {
+      if (confirm("¿Deseas finalizar el servicio?")) {
         markServiceAsResolved(service.id, token);
         // Bloqueamos el checkbox después de marcar la tarea como resuelta.
       }
@@ -49,29 +49,37 @@ const ServiceFooter = ({ service, markServiceAsResolved, loading }) => {
 
   return (
     <footer>
-      <ul className='footer-container'>
+      <ul className="footer-container">
         <li>
           {service.fileName && (
-            <button onClick={fileDownload} disabled={loading}>
+            <button
+              className="d-archivo"
+              onClick={fileDownload}
+              disabled={loading}
+            >
               Descargar archivo
             </button>
           )}
         </li>
-        <li className='button'>
+        <li className="b-comentar ">
           {token && (
             <NavLink to={`/services/${service.id}/comment`}>Comentar</NavLink>
           )}
         </li>
         <li>
           <input
-            type='checkbox'
+            className="checkbox "
+            type="checkbox"
+            id="checkbox"
             onChange={handleResolvedService}
             checked={service.resolved} // Marcamos el checkbox cuando la tarea está resuelta.
             disabled={service.resolved || !service.owner || loading} // Bloqueamos el checkbox cuando la tarea está resuelta o si no somos los dueños.
           />
+          {service.resolved === 1 && <label>Resuelto</label>}
+          {service.resolved === 0 && <label> No resuelto</label>}
         </li>
       </ul>
-      <ul className='commentList'>
+      <ul className="commentList">
         {service.comments?.length > 0 ? (
           service.comments.map((comment) => {
             return (

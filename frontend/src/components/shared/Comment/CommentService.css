@@ -1,0 +1,16 @@
+.container-service-comment {
+  display: inline-flex;
+
+  width: 400px;
+  height: auto;
+  margin: auto;
+  justify-content: space-around;
+  font-weight: bold;
+  background: none;
+  background-color: bisque;
+  border-radius: 0%;
+  list-style: none;
+}
+.p {
+  text-align: center;
+}
