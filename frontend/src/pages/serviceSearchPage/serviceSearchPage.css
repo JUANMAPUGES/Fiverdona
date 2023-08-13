@@ -26,6 +26,10 @@ form button {
   background-color: #dda964;
   font-weight: bold;
 }
+form button:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 2px 1px rgba(128, 128, 128, 0.6);
+}
 
 .b-añadir {
   width: 250px;
@@ -35,6 +39,11 @@ form button {
   display: block;
   text-align: center;
   border: 2px solid black;
+}
+
+.b-añadir:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 2px 1px rgba(128, 128, 128, 0.6);
 }
 
 .b-añadir a {
@@ -74,4 +83,13 @@ main.serviceSearch > ul.serviceList > a > li.service-button-1 > header {
   background: none;
   background-color: bisque;
   border-radius: 0%;
+}
+
+.p-ssp {
+  display: inline-flex;
+  justify-content: end;
+  width: 155%;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
 }

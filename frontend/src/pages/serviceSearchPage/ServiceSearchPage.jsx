@@ -44,7 +44,7 @@ const ServiceSearchPage = () => {
             );
           })
         ) : (
-          <p>¡No se ha encontrado ningún servicio!</p>
+          <p className='p-ssp'>¡No se ha encontrado ningún servicio!</p>
         )}
       </ul>
       {token && (
